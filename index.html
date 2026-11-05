@@ -9,8 +9,8 @@
 <meta property="og:site_name" content="Night Store">
 <meta property="og:title" content="Night Store — ночной магазин вейпов, одноразок, снюса, IQOS, Glo, Ploom">
 <meta property="og:description" content="Оригинальные одноразки, вейпы, поды, снюс, IQOS, Glo, Ploom и стики. Доставка 20–50 минут по всему Казахстану. Гарантия 6 часов.">
-<meta property="og:url" content="https://nightstore.kz/">
-<meta property="og:image" content="https://nightstore.kz/og.jpg">
+<meta property="og:url" content="https://nightshopkz.vercel.app/">
+<meta property="og:image" content="https://nightshopkz.vercel.app/og.jpg">
 <meta name="theme-color" content="#0B0F19">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230B0F19'/%3E%3Ccircle cx='45' cy='48' r='26' fill='%233B82F6'/%3E%3Ccircle cx='58' cy='42' r='23' fill='%230B0F19'/%3E%3C/svg%3E">
 <style>
@@ -21,6 +21,8 @@
   --shadow:0 20px 50px rgba(0,0,0,.45);
 }
 *{box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+a:visited{color:inherit}
 [hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{
@@ -91,7 +93,7 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .grid.list-view{grid-template-columns:1fr!important}
 .grid-1{grid-template-columns:1fr}
-.card{position:relative;background:var(--card);border:1px solid var(--stroke);border-radius:var(--r);overflow:hidden;backdrop-filter:blur(14px);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,border-color .25s;will-change:transform}
+.card{position:relative;background:var(--card);border:1px solid var(--stroke);border-radius:var(--r);overflow:hidden;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,border-color .25s;will-change:auto}
 .card:hover{border-color:rgba(59,130,246,.4);box-shadow:0 16px 40px rgba(0,0,0,.4)}
 .product.is-hit{border-color:transparent;background:linear-gradient(var(--card),var(--card)) padding-box,var(--grad) border-box;border:1px solid transparent}
 .card-body{padding:12px 14px}
@@ -143,8 +145,14 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
 .form{display:flex;flex-direction:column;gap:10px}.field{display:flex;flex-direction:column;gap:5px;font-size:13px;color:var(--muted)}
 .empty{text-align:center;padding:40px 16px;border:1px dashed var(--stroke);border-radius:var(--r-lg);background:var(--card)}
 .empty p{margin:0 0 14px;color:var(--muted)}
+#page-cart{padding-bottom:70px}
+.ns-bar{height:8px;border-radius:99px;background:rgba(255,255,255,.1);overflow:hidden;margin:6px 0 12px}.ns-bar i{display:block;height:100%;background:var(--grad)}
+.ns-tag{display:inline-flex;gap:8px;align-items:center;font-size:12px;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);color:#4ade80;padding:4px 10px;border-radius:99px;margin-bottom:8px}
+.ns-tag button{background:none;border:none;color:inherit;font-weight:900}
+.ns-chk{display:flex;gap:8px;align-items:center;justify-content:center;font-size:13px;margin:0 0 12px;color:var(--muted)}
+.ns-chk input{width:18px;height:18px}
 
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:70;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(11,15,25,.92);backdrop-filter:blur(20px);border-top:1px solid var(--stroke);padding:6px 0 max(6px,env(safe-area-inset-bottom))}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:70;display:grid;grid-template-columns:repeat(5,1fr);background:rgba(11,15,25,.92);backdrop-filter:blur(20px);border-top:1px solid var(--stroke);padding:6px 0 max(6px,env(safe-area-inset-bottom))}
 .bottom-nav a{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;color:#8798b5;padding:5px 0;position:relative;cursor:pointer}
 .bottom-nav a span{font-size:17px;line-height:1}.bottom-nav a b{font-weight:700}.bottom-nav a.active{color:#fff}
 .bottom-nav a.active span{filter:drop-shadow(0 0 8px rgba(59,130,246,.9))}
@@ -152,10 +160,9 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
 .fabs{position:fixed;right:12px;bottom:96px;display:flex;flex-direction:column;gap:10px;z-index:65}
 .fab{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-size:19px;color:#fff;box-shadow:0 10px 26px rgba(0,0,0,.45);transition:transform .2s;cursor:pointer}
 .fab:hover{transform:scale(1.08)}.fab-wa{background:#25D366}.fab-tg{background:#229ED9}
-.to-top{position:fixed;left:12px;bottom:96px;width:42px;height:42px;border-radius:50%;z-index:65;background:var(--card);border:1px solid var(--stroke);color:var(--txt);font-size:18px;cursor:pointer;backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity .25s,transform .2s}
+.to-top{position:fixed;left:12px;bottom:150px;width:42px;height:42px;border-radius:50%;z-index:65;background:var(--card);border:1px solid var(--stroke);color:var(--txt);font-size:18px;cursor:pointer;backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity .25s,transform .2s}
 .to-top.show{opacity:1;pointer-events:auto}
 
-/* 18+ ГЕЙТ */
 .age-gate{position:fixed;inset:0;z-index:9999;background:rgba(7,10,18,.96);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:16px}
 
 .modal-backdrop{position:fixed;inset:0;z-index:200;background:rgba(4,7,14,.75);backdrop-filter:blur(6px);display:flex;align-items:flex-end;justify-content:center;animation:fade .2s ease}
@@ -177,10 +184,7 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
 .sheet-compat a{color:var(--a2)}
 .quiz-opts{display:flex;flex-direction:column;gap:8px;margin-top:14px}
 .roulette{font-size:20px;font-weight:900;text-align:center;padding:40px 0;min-height:120px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-#netlify-badge, iframe[id*="netlify"], div[id*="netlify-badge"] {
-  display: none !important;
-  visibility: hidden !important;
-}
+
 .cmp-wrap{overflow-x:auto;margin-top:12px}
 .cmp{border-collapse:collapse;width:100%;font-size:12px;min-width:420px}
 .cmp th,.cmp td{border:1px solid var(--stroke);padding:8px;text-align:left;vertical-align:top}
@@ -226,7 +230,7 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
 .footer-grid a,.footer-grid span{display:block;font-size:13px;color:var(--muted);margin-bottom:7px;cursor:pointer}.footer-grid a:hover{color:var(--a2)}
 .footer-bottom{margin-top:20px;padding-top:14px;border-top:1px solid var(--stroke);font-size:12px;color:#7888a5;text-align:center}
 
-@media(min-width:560px){.grid{grid-template-columns:repeat(3,1fr)}.cat-grid{grid-template-columns:repeat(3,1fr)}.status{display:flex}.toolbar{grid-template-columns:2fr 1fr 1fr 1fr auto}.toolbar #search{grid-column:auto}#viewToggle{grid-column:auto}.quiz-banner,.guarantee-mini,.bundle-box{flex-direction:row;align-items:center;justify-content:space-between}.verify-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:repeat(4,1fr)}.cards-3{grid-template-columns:repeat(3,1fr)}.guarantee-steps{flex-direction:row}.gstep{flex:1}}
+@media(min-width:560px){.grid{grid-template-columns:repeat(3,1fr)}.cat-grid{grid-template-columns:repeat(3,1fr)}.status{display:flex}.toolbar{grid-template-columns:2fr 1fr 1fr 1fr 1fr auto}.toolbar #search{grid-column:auto}#viewToggle{grid-column:auto}.quiz-banner,.guarantee-mini,.bundle-box{flex-direction:row;align-items:center;justify-content:space-between}.verify-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:repeat(4,1fr)}.cards-3{grid-template-columns:repeat(3,1fr)}.guarantee-steps{flex-direction:row}.gstep{flex:1}}
 @media(min-width:860px){body{padding-bottom:0}.bottom-nav{display:none}.fabs{bottom:20px}.to-top{bottom:20px}.grid{grid-template-columns:repeat(4,1fr)}.cat-grid{grid-template-columns:repeat(5,1fr)}.cart-layout{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}.summary-card{position:sticky;top:80px;margin-top:0}.cart-bar{display:none!important}.modal-backdrop{align-items:center}.sheet{border-radius:24px;border-bottom:1px solid var(--stroke);max-height:86vh}.verify-grid{grid-template-columns:repeat(4,1fr)}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -234,7 +238,6 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
 <body>
 <canvas id="stars" aria-hidden="true"></canvas>
 
-<!-- 18+ ГЕЙТ -->
 <div id="ageGate" class="age-gate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
   <div class="sheet small" style="text-align:center; padding: 30px 20px;">
     <h2 class="sheet-title" id="ageTitle">Вам есть 18 лет?</h2>
@@ -253,7 +256,7 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
     <div class="hero-moon" aria-hidden="true"><svg viewBox="0 0 100 100" width="64" height="64"><defs><radialGradient id="mg" cx="35%" cy="30%"><stop offset="0%" stop-color="#dbeafe"/><stop offset="100%" stop-color="#3B82F6"/></radialGradient></defs><circle cx="50" cy="50" r="34" fill="url(#mg)"/><circle cx="66" cy="40" r="30" fill="#0B0F19" opacity=".92"/></svg></div>
     <h1 class="hero-title">Night&nbsp;Store</h1>
     <p class="hero-sub">Одноразки, вейпы, снюс и системы нагревания табака. Оригинал. Доставка 20–50 минут по всему Казахстану.</p>
-    <div class="hero-actions"><a class="btn btn-primary btn-lg" href="#catalog">В каталог</a><a class="btn btn-ghost btn-lg" href="#contacts">О нас</a></div>
+    <div class="hero-actions"><a class="btn btn-primary btn-lg" href="#catalog">В каталог</a><a class="btn btn-ghost btn-lg" href="#bundles">Наборы</a><a class="btn btn-ghost btn-lg" href="#contacts">О нас</a></div>
     <div class="trust"><div class="trust-item"><span class="dot"></span>100% оригинал</div><div class="trust-item"><span class="dot"></span>Доставка 20–50 мин</div><div class="trust-item"><span class="dot"></span>Гарантия 6 часов</div></div>
     <div class="stats"><div class="stat"><b data-count="0" id="statProducts">0</b><span>товаров</span></div><div class="stat"><b>24/7</b><span>на связи</span></div></div>
   </div></div></section>
@@ -267,6 +270,14 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
   <section class="container section" id="recentSectionHome" hidden><div class="section-head"><h2>Недавно смотрели</h2></div><div class="grid" id="recentGridHome"></div></section>
 </section>
 
+<section class="page" id="page-bundles" hidden>
+  <div class="container section">
+    <h1>Готовые наборы</h1>
+    <p class="lead">Скидка применяется в корзине автоматически. Вкус или цвет выберете там же.</p>
+    <div class="cards-3" id="bundleList" style="margin-top:14px"></div>
+  </div>
+</section>
+
 <section class="page" id="page-catalog" hidden>
   <div class="container section">
     <h1>Каталог</h1>
@@ -276,6 +287,7 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
       <select id="brandFilter" class="input"><option value="">Все бренды</option></select>
       <select id="priceFilter" class="input"><option value="">Любая цена</option><option value="0-10000">до 10 000 ₸</option><option value="10000-15000">10 000 – 15 000 ₸</option><option value="15000-25000">15 000 – 25 000 ₸</option><option value="25000-999999">от 25 000 ₸</option></select>
       <select id="puffFilter" class="input" hidden><option value="">Любые затяжки</option><option value="0-10000">до 10K</option><option value="10000-20000">10–20K</option><option value="20000-999999">20K+</option></select>
+      <select id="tasteFilter" class="input"><option value="">Любой вкус</option></select>
       <select id="sort" class="input"><option value="cheap">Сначала дешёвые</option><option value="exp">Сначала дорогие</option><option value="profit">По выгоде</option><option value="new">Новинки</option></select>
       <button class="btn btn-ghost btn-sm" id="viewToggle">Список</button>
     </div>
@@ -320,6 +332,7 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
       <div class="cart-layout">
         <div>
           <div id="cartList" class="cart-list"></div>
+          <div id="nsUp"></div>
           <section class="section" id="crossSection" hidden><div class="section-head"><h2>С этим берут</h2></div><div class="grid" id="crossGrid"></div></section>
           <section class="section">
             <h2 class="h3">Данные для заказа</h2>
@@ -339,6 +352,7 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
         </div>
         <aside class="cart-summary">
           <div class="summary-card">
+            <div id="nsExtra"></div>
             <div class="summary-row"><span>Товаров</span><b id="sumCount">0</b></div>
             <div class="summary-row"><span>Скидка</span><b id="discountRow" style="color:#4ADE80">0 ₸</b></div>
             <div class="summary-row total"><span>Итого</span><b id="sumTotal">0 ₸</b></div>
@@ -417,7 +431,7 @@ const store = {
 /* ==================== УТИЛИТЫ ==================== */
 function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function money(n){ return Number(n || 0).toLocaleString('ru-RU').replace(/\u00A0/g, ' ') + ' ₸'; }
-const CATS = [{id:'disposable',name:'Одноразки'},{id:'snus',name:'Снюс'},{id:'glo',name:'Glo'},{id:'iqos',name:'IQOS'},{id:'ploom',name:'Ploom'},{id:'sticks',name:'Стики'},{id:'liquid',name:'Жидкости'},{id:'vape',name:'Вейпы'},{id:'pod',name:'Поды'},{id:'coil',name:'Испарители'}];
+const CATS = [{id:'disposable',name:'Одноразки'},{id:'snus',name:'Снюс'},{id:'glo',name:'Glo'},{id:'iqos',name:'IQOS'},{id:'ploom',name:'Ploom'},{id:'sticks',name:'Стики'},{id:'liquid',name:'Жидкости'},{id:'vape',name:'Вейпы'},{id:'pod',name:'Поды'},{id:'coil',name:'Испарители'},{id:'acc',name:'Аксессуары'}];
 function catName(id){ const c = CATS.find(x => x.id === id); return c ? c.name : id; }
 
 function showToast(text, actionLabel, action){
@@ -442,10 +456,24 @@ function matchText(p, q){
   return hay.indexOf(raw) >= 0 || hay.indexOf(nq) >= 0 || hasVariant;
 }
 
+const TASTES={
+ sweet:['Сладкий',['клубник','малин','персик','кола','конфет','бабл','жвач','ваниль','мармелад','гамми','йогурт','капучино','дюшес','candy','bubblegum','lemonade']],
+ sour:['Кислый / цитрус',['кисл','лимон','лайм','грейпфрут','цитрус','sour','acid','citron']],
+ mint:['Мята / лёд',['мят','лёд','лед','ice','mint','menth','cool','freeze','ментол','frost']],
+ fruit:['Фрукты',['манго','киви','арбуз','виноград','яблок','груш','ананас','дын','вишн','черник','апельсин','маракуй']],
+ tobacco:['Табак',['табак','tobacco','amber','original','regular','classic','rich']]
+};
+const COLORS={
+ dark:['Тёмный',['чёрн','черн','графит','тёмно-сер','серый','midnight','гранит']],
+ light:['Светлый',['бел','серебр','беж','небесн','мятн','шампань','голуб']],
+ bright:['Яркий',['син','красн','розов','зелён','фиолет','оранж','бордов','фукси','бирюз','золот','медн','бронз']]
+};
+
 /* ==================== БАЗА ДАННЫХ ==================== */
 const PRODUCTS = []; let __pid = 0;
 function addP(o){ __pid++; PRODUCTS.push(Object.assign({ id:'p'+__pid, cat:'', brand:'', name:'', price:0, old:0, variantType:'flavor', variants:[], puffs:0, tags:[], compat:[], forCat:'', unit:'', stock:true }, o)); }
 function FL(){ return Array.prototype.slice.call(arguments).map(function(x){ return {name:x}; }); }
+function cv(a){ return a.map(function(c){ return {name:c, color:colorOf(c)}; }); }
 function colorOf(n){ const m = {'Чёрный':'#111827','Черный':'#111827','Черный гранит':'#0F172A','Графитовый чёрный':'#1F2937','Midnight Black':'#0F172A','Синий':'#3B82F6','Насыщенный синий':'#1E40AF','Тёмно-синий':'#1E3A8A','Голубой':'#60A5FA','Синий градиент':'#1E3A8A','Небесно-голубой':'#87CEEB','Лазурный':'#0EA5E9','Бирюзовый':'#14B8A6','Сумеречный синий':'#1E293B','Белый':'#F3F4F6','Бежевый':'#F5F5DC','Серый':'#9CA3AF','Тёплый серый':'#78716C','Бархатный серый':'#6B7280','Тёмно-серый':'#374151','Серый камень':'#6B7280','Красный':'#EF4444','Красная аура':'#DC2626','Бордовый':'#7F1D1D','Терракотовый':'#C2410C','Оранжевый':'#EA580C','Розовый':'#EC4899','Розовое золото':'#F472B6','Фуксия':'#D946EF','Зелёный':'#22C55E','Фисташковый':'#84CC16','Тёмно-зелёный':'#166534','Зелёный камуфляж':'#4D7C0F','Золотой':'#EAB308','Шампань / Золотой':'#FCD34D','Туманное золото':'#D97706','Фиолетовый':'#A855F7','Пурпурный':'#7C3AED','Серебристый':'#D1D5DB','Stardread (Серебристый)':'#D1D5DB','Мятный':'#A7F3D0','Янтарный оранжевый':'#EA580C','Бронзовый':'#B45309','Bronze (Бронзовый)':'#B45309','Copper (Медный)':'#B87333','Черно-золотой':'#1F2937','Красно-синий':'#6D28D9','Чёрный градиент':'#1F2937'}; return m[n] || '#3B82F6'; }
 
 function D(brand, name, price, puffs, flavors, tags, stock){ addP({cat:'disposable', brand, name, price, puffs, tags: tags||[], variants: FL.apply(null, flavors), stock: stock !== false}); }
@@ -481,7 +509,7 @@ D('Elf Bar','Elf Bar GH 30000',18800,30000,['Малина черника','Ки�
 D('Elf Bar','Elf Bar Ultra 30000',19100,30000,['Клубника лёд','Арбуз','Киви маракуйя гуава','Мята'],['new']);
 D('Elf Bar','Elf Bar Pulse X 30000',19400,30000,['Голубая малина лёд','Мята Майами','Персик ягоды','Клубника киви'],['new','hit']);
 D('Waka','Waka Z7000',10500,7000,['Черника','Лимон','Мята']);
-D('Waka','Waka Mini 3000',8000,3000,['Клубника','Манго'],[],false); // Товар временно не в наличии
+D('Waka','Waka Mini 3000',8000,3000,['Клубника','Манго'],[],false);
 D('HQD','HQD Ultima 8000',9500,8000,['Арбуз','Манго','Мята']);
 D('HQD','HQD Cuvie Plus 1200',8000,1200,['Клубника','Мята']);
 D('HQD','HQD King 6000',9000,6000,['Виноград','Лимон']);
@@ -516,7 +544,7 @@ S('Zyn','Zyn Nicotine Pouches',5200,'Никотиновые пакеты',['Cool
 S('Velo','Velo Nicotine Pouches',5200,'Никотиновые пакеты',['Ice Cool','Freeze','Berry Frost','Mighty Peppermint']);
 S('Odens','Odens Snus',5200,'Шайба',['Cola','Cold Dry','Ice Cool','Peppermint']);
 
-function DEV(cat, brand, name, price, colors, unit){ addP({cat, brand, name, price, variantType:'color', unit, variants: colors.map(function(c){ return {name:c, color:colorOf(c)}; })}); return PRODUCTS[PRODUCTS.length-1].id; }
+function DEV(cat, brand, name, price, colors, unit){ addP({cat, brand, name, price, variantType:'color', unit, variants: cv(colors)}); return PRODUCTS[PRODUCTS.length-1].id; }
 const DEV_UNIT = 'Документы + зарядка + пачка стиков';
 const gloIds = [];
 gloIds.push(DEV('glo','Glo','Glo pro',8900,['Чёрный','Шампань / Золотой','Фисташковый','Голубой'],DEV_UNIT));
@@ -620,11 +648,38 @@ addP({cat:'coil', brand:'Geekvape', name:'Картриджи для WEAX (бло
 function L(brand, name, price, flavors){ addP({cat:'liquid', brand, name, price, variants: FL.apply(null, flavors)}); }
 L('Jam Monster','Jam Monster Salt 30мл 20мг',5500,['Клубника','Черника','Яблоко']); L('Jam Monster','Jam Monster 60мл 3мг',6000,['Клубника','Виноград']); L('Jam Monster','Jam Monster 100мл 3мг',7500,['Клубника','Голубика','Малина','Персик']); L('Nasty Juice','Nasty Juice Salt 30мл 35мг',5800,['Манго','Киви','Лёд']); L('Nasty Juice','Nasty Juice 60мл 6мг',6200,['Манго','Арбуз']); L('Nasty Juice','Nasty Juice 60мл 3мг',6300,['Манго','Клубника Лёд','Ежевика','Киви Драгонфрут']); L('BAD Drip','BAD Drip Salt 30мл 25мг',5600,['Кола','Клубника']); L('BAD Drip','BAD Drip 60мл 3мг',6000,['Кола','Дыня']); L('Chaser','Chaser 60мл 6мг',5900,['Персик','Лимон']); L('VGOD','VGOD Salt 30мл 25мг',6000,['Манго','Лёд']); L('VGOD','VGOD 60мл 6мг',6500,['Клубника','Мята']); L('Хомяк','Хомяк Salt 30мл 20мг',4500,['Яблоко','Черника']); L('Хомяк','Хомяк 60мл 3мг',5000,['Яблоко','Виноград']); L('Element','Element Salt 30мл 20мг',6500,['Табак','Мята']); L('Element','Element 60мл 6мг',7000,['Табак','Вишня']); L('Dual','Dual Salt 30ml',4000,['Ледяной Тархун','Яблоко Виноград','Ледяная Малина','Садовые Ягоды','Вишня Клубника','Ледяное Манго-Апельсин','Ледяная Черника','Ананас Киви','Чай с Грейпфрутом и Ягодами','Персиковый Лимонад']); L('Alaska','Alaska Salt 30ml',4600,['Ледяная Черника','Ледяное Манго','Ледяная Малина','Ледяной Виноград','Ледяной Арбуз','Ледяная Дыня','Ледяное Яблоко','Ледяной Клубничный Лимонад','Ледяной Персик']); L('Husky','Husky Double Ice Salt 30ml',4400,['Ледяная Вишня','Ледяной Виноград','Ледяное Манго','Ледяной Арбуз','Ледяная Черника']); L('Brusko','Brusko Salt 30ml',4300,['Ледяная Клубника','Ледяной Персик','Ледяная Вишня','Ледяной Лимонад','Ягодный Микс','Ледяной Кактус']); L("Maxwell's","Maxwell's Salt 30ml",4400,['Ледяная Малина','Ледяной Виноград','Ледяное Яблоко','Ананас Манго','Ледяной Арбуз']); L('Chaser','Chaser Salt 30ml',4300,['Ледяная Вишня','Ледяная Черника','Киви Клубника','Ледяной Персик','Энергетик']); L('Hotspot','Hotspot Salt 30ml',4500,['Ледяной Лимон','Ягодный Микс','Ледяное Манго','Виноград','Мята']);
 
+/* Аксессуары */
+addP({cat:'acc',brand:'IQOS',name:'Чехол для IQOS',price:3000,variantType:'color',variants:cv(['Чёрный','Синий','Красный','Розовый'])});
+addP({cat:'acc',brand:'Glo',name:'Чехол для Glo',price:2500,variantType:'color',variants:cv(['Чёрный','Синий','Красный','Розовый'])});
+addP({cat:'acc',brand:'Night Store',name:'Чистящие палочки (100 шт)',price:1000,unit:'100 шт'});
+addP({cat:'acc',brand:'Night Store',name:'Кабель Type-C 1 м',price:2000,variantType:'color',variants:cv(['Чёрный','Белый'])});
+
+/* Стабильные ID */
+(function(){
+ const slug=s=>s.toLowerCase().replace(/[^a-z0-9а-яё]+/g,'-').replace(/^-|-$/g,'');
+ const map={},used={};
+ PRODUCTS.forEach(p=>{let n=slug(p.brand+'-'+p.name),k=n,i=2;while(used[k])k=n+'-'+(i++);used[k]=1;map[p.id]=k;});
+ PRODUCTS.forEach(p=>{p.compat=(p.compat||[]).map(c=>map[c]||c);});
+ PRODUCTS.forEach(p=>{p.id=map[p.id];});
+ const ok=id=>PRODUCTS.some(p=>p.id===id);
+ store.set('ns_cart',store.get('ns_cart',[]).filter(i=>ok(i.id)));
+ store.set('ns_last_order',store.get('ns_last_order',[]).filter(i=>ok(i.id)));
+ ['ns_fav','ns_cmp','ns_recent'].forEach(k=>store.set(k,store.get(k,[]).filter(ok)));
+})();
+
 const CONFIG = { WA_NUMBER: '7474968253', WA_URL: 'https://wa.me/7474968253', TG_MANAGER: 'https://t.me/vibemanagerkz', TG_MANAGER_NAME: '@vibemanagerkz', TG_CHANNEL: 'https://t.me/+Qx7AZlGzf_ZlZDJh', TG_REVIEWS: 'https://t.me/+l7A4eomppJA1Y2Fl', OPEN: '00:00', CLOSE: '00:00', TZ: 'Asia/Almaty', GEO: 'Весь Казахстан' };
 const PROMOS = { 'NIGHT10': 0.10, 'BRATAN': 0.15 };
 const CITIES = ['Алматы','Астана','Шымкент','Караганда','Актобе','Тараз','Павлодар'];
 
-/* ==================== МОДУЛЬ КОРЗИНЫ ==================== */
+const TH=25000, EX=0.05, CAP=0.25;
+const BUNDLES=[
+ {id:'night',title:'Ночной набор',desc:'2 одноразки + снюс',pct:.05,items:[['Elf Bar BC 10000',1],['Waka SoPro PA10000',1],['Zyn Nicotine Pouches',1]]},
+ {id:'iqos',title:'Старт IQOS',desc:'Устройство + блок стиков TEREA',pct:.10,items:[['IQOS ILUMA ONE',1],['Стики TEREA (блок 10 пачек)',1]]},
+ {id:'glo',title:'Старт Glo',desc:'Glo Series 2 + блок стиков Neo',pct:.10,items:[['Glo Series 2',1],['Стики Neo (блок 10 пачек)',1]]},
+ {id:'ploom',title:'Старт Ploom',desc:'Ploom X + блок стиков EVO',pct:.10,items:[['Ploom X',1],['Стики EVO (блок 10 пачек)',1]]},
+ {id:'pod',title:'Под-старт',desc:'XROS 3 MINI + картриджи + жидкость',pct:.10,items:[['Vaporesso XROS 3 MINI',1],['Картриджи для XROS 3 MINI / 4 MINI / PRO (блок 5 шт)',1],['Jam Monster Salt 30мл 20мг',1]]}
+];
+
 const NS = (function(){
   const CART_KEY = 'ns_cart';
   let activePromo = store.get('ns_promo', '');
@@ -687,16 +742,31 @@ const NS = (function(){
 
   function cartCount(){ return getCart().reduce((s,i)=>s+i.qty,0); }
   function cartTotals(){ 
-    const c = getCart(); let subtotal = 0, volDiscount = 0; 
+    const c = getCart(); let subtotal = 0, d = 0; const dq = c.reduce((s,i)=>{const p=findProduct(i.id);return s+(p&&p.cat==='disposable'?i.qty:0)},0);
     c.forEach(i => { 
       const p = findProduct(i.id); 
       if(p) {
-        subtotal += p.price * i.qty;
-        if(i.qty >= 2) volDiscount += Math.round(p.price * i.qty * 0.05);
+        const s = p.price * i.qty;
+        subtotal += s;
+        if(p.cat==='disposable') { if(dq>=2) d+=s*.10; }
+        else if(i.qty>=2) d+=s*.05;
       } 
     }); 
-    let promoDiscount = Math.round(subtotal * (PROMOS[activePromo] || 0)); 
-    return { subtotal, discount: volDiscount + promoDiscount, total: Math.max(0, subtotal - (volDiscount + promoDiscount)), count: cartCount() }; 
+    BUNDLES.forEach(b=>{
+      let sum=0; let ok=true;
+      for(const [n,q] of b.items){
+        const pr=PRODUCTS.find(x=>x.name===n);
+        if(!pr){ok=false;break;}
+        const have=c.filter(i=>i.id===pr.id).reduce((a,i)=>a+i.qty,0);
+        if(have<q){ok=false;break;}
+        sum+=pr.price*q;
+      }
+      if(ok) d+=sum*b.pct;
+    });
+    if(subtotal>=TH) d+=subtotal*EX;
+    d += subtotal*(PROMOS[activePromo] || 0);
+    d = Math.min(Math.round(d), Math.round(subtotal*CAP));
+    return { subtotal, discount: d, total: Math.max(0, subtotal - d), count: cartCount() }; 
   }
   function updateBadge(){
     const n = cartCount();
@@ -707,25 +777,18 @@ const NS = (function(){
   }
   
   function waLink(text){ return 'https://wa.me/' + CONFIG.WA_NUMBER + '?text=' + encodeURIComponent(text); }
-  function oneClick(id) {
-    const p = findProduct(id); if(!p) return;
-    if(!p.stock) { window.open('https://wa.me/' + CONFIG.WA_NUMBER + '?text=' + encodeURIComponent('Хочу узнать о поступлении: ' + p.name), '_blank'); return; }
-    if(p.variants.length) { openQuickView(id); return; }
-    window.open(waLink(p.name + '\nЦена: ' + money(p.price)), '_blank');
-  }
 
   return {
-    getCart, addToCart, removeItem, setQty, updateVariant, cartTotals, updateBadge, getUID, waLink, findProduct, oneClick,
+    getCart, addToCart, removeItem, setQty, updateVariant, cartTotals, updateBadge, getUID, waLink, findProduct,
     getActivePromo(){ return activePromo; },
     setPromo(p){ activePromo = p; store.set('ns_promo', p); NS.renderCartPage(); }
   };
 })();
 
-/* ==================== СБОРКА ИНТЕРФЕЙСА ==================== */
 function buildShell(){
   document.getElementById('site-header').innerHTML = `<header class="site-header"><div class="container header-row"><a class="logo" href="#home"><svg viewBox="0 0 100 100" width="30" height="30"><defs><radialGradient id="lg" cx="35%" cy="30%"><stop offset="0%" stop-color="#dbeafe"/><stop offset="100%" stop-color="#3B82F6"/></radialGradient></defs><circle cx="50" cy="50" r="34" fill="url(#lg)"/><circle cx="66" cy="40" r="30" fill="#0B0F19"/></svg><span>Night Store</span></a><div class="header-right"><button class="icon-btn" id="cityBtn" style="width:auto;padding:0 8px;font-size:12px" aria-label="Выбрать город">📍 <span id="cityName">Алматы</span></button><span class="status"><span class="status-dot"></span><span id="statusText">…</span></span><a class="icon-btn cart-bump" href="#cart" aria-label="Корзина"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2 3h3l2.6 12.4h11L21 7H6"/></svg><span class="cart-badge" data-cart-count>0</span></a></div></div><div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Доставка 20–50 мин</span><span>•</span><span>Оригинал</span><span>•</span><span>Гарантия</span><span>•</span><span>Весь Казахстан</span><span>•</span><span>Доставка 20–50 мин</span><span>•</span><span>Оригинал</span><span>•</span><span>Гарантия</span><span>•</span><span>Весь Казахстан</span><span>•</span></div></div></header>`;
-  document.getElementById('site-nav').innerHTML = `<nav class="bottom-nav"><a href="#home" data-nav="home"><span>⌂</span><b>Главная</b></a><a href="#catalog" data-nav="catalog"><span>▤</span><b>Каталог</b></a><a href="#cart" data-nav="cart"><span>🛒</span><b>Корзина</b><i class="cart-badge nav-badge" data-cart-count>0</i></a><a href="${CONFIG.WA_URL}" target="_blank" rel="noopener" data-nav="wa"><span>✆</span><b>WhatsApp</b></a></nav><div class="fabs"><a class="fab fab-wa" href="${CONFIG.WA_URL}" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a><a class="fab fab-tg" href="${CONFIG.TG_MANAGER}" target="_blank" rel="noopener" aria-label="Telegram">✈</a></div><button id="toTop" class="to-top" aria-label="Наверх">↑</button>`;
-  document.getElementById('site-footer').innerHTML = `<footer class="site-footer"><div class="container footer-grid"><div><div class="logo"><svg viewBox="0 0 100 100" width="26" height="26"><circle cx="50" cy="50" r="34" fill="#3B82F6"/><circle cx="66" cy="40" r="30" fill="#0B0F19"/></svg><span>Night Store</span></div><p class="muted small">Ночной магазин вейпов, одноразок, снюса и систем нагревания табака. Доставка 20–50 минут по всему Казахстану.</p></div><div><h4>Магазин</h4><a href="#catalog">Каталог</a><a href="#cart">Корзина</a><a href="#guarantee">Гарантия и доставка</a><a href="#contacts">Контакты</a></div><div><h4>Полезное</h4><a href="#verify">Проверка оригинала</a><a href="#blog">Блог</a><a href="${CONFIG.TG_CHANNEL}" target="_blank" rel="noopener">Telegram-канал</a><a href="${CONFIG.TG_REVIEWS}" target="_blank" rel="noopener">Отзывы</a></div><div><h4>Связь</h4><a href="${CONFIG.WA_URL}" target="_blank" rel="noopener">WhatsApp</a><a href="${CONFIG.TG_MANAGER}" target="_blank" rel="noopener">${CONFIG.TG_MANAGER_NAME}</a><span class="muted small">${CONFIG.GEO} · круглосуточно</span></div></div><div class="container footer-bottom"><p>© Night Store. Товары только для лиц старше 18 лет.</p></div></footer>`;
+  document.getElementById('site-nav').innerHTML = `<nav class="bottom-nav"><a href="#home" data-nav="home"><span>⌂</span><b>Главная</b></a><a href="#catalog" data-nav="catalog"><span>▤</span><b>Каталог</b></a><a href="#bundles" data-nav="bundles"><span>🎁</span><b>Наборы</b></a><a href="#cart" data-nav="cart"><span>🛒</span><b>Корзина</b><i class="cart-badge nav-badge" data-cart-count>0</i></a><a href="${CONFIG.WA_URL}" target="_blank" rel="noopener" data-nav="wa"><span>✆</span><b>WhatsApp</b></a></nav><div class="fabs"><a class="fab fab-wa" href="${CONFIG.WA_URL}" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a><a class="fab fab-tg" href="${CONFIG.TG_MANAGER}" target="_blank" rel="noopener" aria-label="Telegram">✈</a></div><button id="toTop" class="to-top" aria-label="Наверх">↑</button>`;
+  document.getElementById('site-footer').innerHTML = `<footer class="site-footer"><div class="container footer-grid"><div><div class="logo"><svg viewBox="0 0 100 100" width="26" height="26"><circle cx="50" cy="50" r="34" fill="#3B82F6"/><circle cx="66" cy="40" r="30" fill="#0B0F19"/></svg><span>Night Store</span></div><p class="muted small">Ночной магазин вейпов, одноразок, снюса и систем нагревания табака. Доставка 20–50 минут по всему Казахстану.</p></div><div><h4>Магазин</h4><a href="#catalog">Каталог</a><a href="#bundles">Наборы</a><a href="#cart">Корзина</a><a href="#guarantee">Гарантия и доставка</a><a href="#contacts">Контакты</a></div><div><h4>Полезное</h4><a href="#verify">Проверка оригинала</a><a href="#blog">Блог</a><a href="${CONFIG.TG_CHANNEL}" target="_blank" rel="noopener">Telegram-канал</a><a href="${CONFIG.TG_REVIEWS}" target="_blank" rel="noopener">Отзывы</a></div><div><h4>Связь</h4><a href="${CONFIG.WA_URL}" target="_blank" rel="noopener">WhatsApp</a><a href="${CONFIG.TG_MANAGER}" target="_blank" rel="noopener">${CONFIG.TG_MANAGER_NAME}</a><span class="muted small">${CONFIG.GEO} · круглосуточно</span></div></div><div class="container footer-bottom"><p>© Night Store. Товары только для лиц старше 18 лет.</p></div></footer>`;
   
   let savedCity = store.get('ns_city', 'Алматы');
   const cn = document.getElementById('cityName');
@@ -743,7 +806,6 @@ function buildShell(){
   };
 }
 
-/* ==================== УПРАВЛЕНИЕ МОДАЛКАМИ (FOCUS TRAP) ==================== */
 function openModal(contentHtml, initCb){
   const opener = document.activeElement;
   const wrap = document.createElement('div');
@@ -775,7 +837,6 @@ function openModal(contentHtml, initCb){
   };
 
   wrap._cleanup = () => document.removeEventListener('keydown', onKey);
-
   document.addEventListener('keydown', onKey);
 
   const closeBtn = wrap.querySelector('.sheet-close');
@@ -792,7 +853,6 @@ function openModal(contentHtml, initCb){
   return { wrap, close };
 }
 
-/* ==================== КАРТОЧКА ТОВАРА ==================== */
 function productCardHTML(p, listMode){
   const hit = p.tags && p.tags.indexOf('hit') >= 0;
   const isNew = p.tags && p.tags.indexOf('new') >= 0;
@@ -806,10 +866,9 @@ function productCardHTML(p, listMode){
     (p.puffs ? '<div class="card-meta">' + p.puffs.toLocaleString('ru-RU') + ' затяжек' + (perK ? ' · ' + money(perK) + '/1000' : '') + '</div>' : '') +
     (p.unit ? '<div class="card-meta">' + esc(p.unit) + '</div>' : '') +
     '<div class="card-price">' + prices + '</div>' +
-    '<div class="card-actions">' + (p.stock ? '<button class="btn btn-primary btn-sm" data-add="' + p.id + '">В корзину</button><button class="btn btn-ghost btn-sm" data-one="' + p.id + '">1 клик</button>' : '<button class="btn btn-ghost btn-sm" data-wait="' + p.id + '">Сообщить</button>') + '</div></div></article>';
+    '<div class="card-actions">' + (p.stock ? '<button class="btn btn-primary btn-sm" data-add="' + p.id + '">В корзину</button>' : '<button class="btn btn-ghost btn-sm" data-wait="' + p.id + '">Сообщить</button>') + '</div></div></article>';
 }
 
-/* Делегирование событий клика для каталогов */
 function setupGridDelegation(root){
   if(root._hasDelegation) return;
   root._hasDelegation = true;
@@ -822,7 +881,6 @@ function setupGridDelegation(root){
 
     if (btn) {
       if (btn.dataset.add) { e.stopPropagation(); quickAdd(btn.dataset.add); return; }
-      if (btn.dataset.one) { e.stopPropagation(); NS.oneClick(btn.dataset.one); return; }
       if (btn.dataset.fav) { e.stopPropagation(); toggleFav(btn.dataset.fav, btn); return; }
       if (btn.dataset.cmp) { e.stopPropagation(); toggleCmp(btn.dataset.cmp, btn); return; }
       if (btn.dataset.wait) {
@@ -861,7 +919,6 @@ function toggleFav(id, btn){
   const fc = document.getElementById('favCount');
   if (fc) fc.textContent = a.length;
   showToast(i >= 0 ? 'Убрано из избранного' : 'Добавлено в избранное');
-  // Если мы в режиме "Избранное" на странице каталога — ре-рендерим, чтобы убрать/добавить карточку
   if (CatalogState.favOnly && !document.getElementById('page-catalog').hidden) {
     renderCatalog();
   }
@@ -910,7 +967,7 @@ function openQuickView(id, forceVariant){
   
   let actionsHTML = '';
   if(p.stock) {
-    actionsHTML = '<button class="btn btn-primary btn-block" id="qvAdd">В корзину</button><button class="btn btn-ghost btn-block" id="qvOne">Купить в 1 клик</button>';
+    actionsHTML = '<button class="btn btn-primary btn-block" id="qvAdd">В корзину</button>';
   } else {
     actionsHTML = '<button class="btn btn-primary btn-block" id="qvWait">Сообщить о поступлении</button>';
   }
@@ -931,6 +988,16 @@ function openQuickView(id, forceVariant){
 
     const addBtn = wrap.querySelector('#qvAdd');
     if (addBtn) {
+      const stick = (['iqos','glo','ploom'].indexOf(p.cat) >= 0) ? PRODUCTS.find(s=>s.cat==='sticks'&&s.stock&&s.compat.indexOf(p.id)>=0) : null;
+      let stickCheckbox = null;
+      if (stick) {
+        const sa = wrap.querySelector('.sheet-actions');
+        const lbl = document.createElement('label'); lbl.className = 'ns-chk';
+        lbl.innerHTML = '<input type="checkbox"> Добавить блок стиков ' + esc(stick.brand) + ' (+' + money(stick.price) + ')';
+        sa.parentNode.insertBefore(lbl, sa);
+        stickCheckbox = lbl.querySelector('input');
+      }
+
       addBtn.onclick = () => {
         if (p.variants && p.variants.length && p.variantType !== 'none' && !chosen){
           showToast('Пожалуйста, выберите вкус или цвет');
@@ -938,20 +1005,11 @@ function openQuickView(id, forceVariant){
           if (vBox) { vBox.classList.add('shake'); setTimeout(() => vBox.classList.remove('shake'), 400); }
           return;
         }
-        NS.addToCart(p.id, chosen);
-        close();
-      };
-    }
-
-    const oneBtn = wrap.querySelector('#qvOne');
-    if (oneBtn) {
-      oneBtn.onclick = () => {
-        if (p.variants && p.variants.length && p.variantType !== 'none' && !chosen){
-          showToast('Пожалуйста, выберите вкус или цвет');
-          return;
+        NS.addToCart(p.id, chosen, 1, stickCheckbox && stickCheckbox.checked ? true : false);
+        if (stickCheckbox && stickCheckbox.checked) {
+          NS.addToCart(stick.id, '', 1, true);
+          showToast('Устройство и стики добавлены. Выберите вкус стиков в корзине');
         }
-        const txt = p.name + (chosen ? ' (' + chosen + ')' : '') + '\nЦена: ' + money(p.price);
-        window.open(NS.waLink(txt), '_blank');
         close();
       };
     }
@@ -978,7 +1036,6 @@ function openQuickView(id, forceVariant){
   });
 }
 
-/* ==================== С СОПУТСТВУЮЩИМИ ТОВАРАМИ («С ЭТИМ БЕРУТ») ==================== */
 function renderCrossSell(){
   const cart = NS.getCart();
   const crossSec = document.getElementById('crossSection');
@@ -1021,7 +1078,38 @@ function renderCrossSell(){
   }
 }
 
-/* ==================== РЕНДЕР КОРЗИНЫ ==================== */
+function calcUpsell(){
+  const upBox = document.getElementById('nsUp');
+  if(!upBox) return;
+  upBox.innerHTML = '';
+  const cart = NS.getCart();
+  if(!cart.length) return;
+
+  for(const it of cart){
+    const p = NS.findProduct(it.id);
+    if(!p || p.cat !== 'disposable' || !p.puffs) continue;
+    const q = PRODUCTS.filter(a => a.cat === 'disposable' && a.stock && a.id !== p.id && a.puffs >= p.puffs * 1.8 && a.price > p.price && a.price - p.price <= 4000).sort((a,b) => a.price - b.price)[0];
+    if(!q) continue;
+    
+    upBox.innerHTML = '<div class="info-card" style="margin-top:10px"><h3>Выгоднее: ' + esc(q.name) + '</h3><p class="muted">За +' + money(q.price - p.price) + ' — ' + q.puffs.toLocaleString('ru-RU') + ' затяжек вместо ' + p.puffs.toLocaleString('ru-RU') + '</p><button class="btn btn-primary btn-sm" id="nsUpBtn" style="margin-top:10px">Заменить</button></div>';
+    
+    document.getElementById('nsUpBtn').onclick = () => {
+      let c = NS.getCart();
+      const v = q.variants.some(x => x.name === it.variant) ? it.variant : '';
+      c = c.filter(a => a !== it && !(a.id === it.id && a.variant === it.variant));
+      const ex = c.find(a => a.id === q.id && a.variant === v);
+      if(ex) ex.qty = Math.min(20, ex.qty + it.qty);
+      else c.push({ id: q.id, variant: v, qty: it.qty });
+      
+      store.set('ns_cart', c);
+      NS.updateBadge();
+      NS.renderCartPage();
+      showToast('Заменено на ' + q.name);
+    };
+    break;
+  }
+}
+
 NS.renderCartPage = function(){
   const cart = NS.getCart();
   const list = document.getElementById('cartList');
@@ -1053,8 +1141,7 @@ NS.renderCartPage = function(){
     if (p.variants && p.variants.length && p.variantType !== 'none'){
       vsel = '<select class="input input-sm variant-select" data-id="' + p.id + '" data-oldv="' + esc(i.variant) + '"><option value="">-- Выберите вариант --</option>' + p.variants.map(v => '<option value="' + esc(v.name) + '"' + (v.name === i.variant ? ' selected' : '') + '>' + esc(v.name) + '</option>').join('') + '</select>';
     }
-    const volDiscountBadge = i.qty >= 2 ? '<div style="color:#4ade80;font-size:11px;font-weight:700;margin-top:2px;">Скидка −5% за 2+ шт</div>' : '';
-    return '<div class="cart-item' + (missing ? ' need-variant' : '') + '" data-id="' + p.id + '" data-v="' + esc(i.variant) + '"><div class="ci-body"><div class="ci-name">' + esc(p.name) + '</div><div class="ci-meta">' + esc(p.brand) + (p.puffs ? ' · ' + p.puffs + ' затяжек' : '') + '</div>' + vsel + '<div class="ci-bottom"><div class="qty"><button class="qbtn" data-act="dec" data-id="' + p.id + '" data-v="' + esc(i.variant) + '" aria-label="Уменьшить">−</button><span>' + i.qty + '</span><button class="qbtn" data-act="inc" data-id="' + p.id + '" data-v="' + esc(i.variant) + '" aria-label="Увеличить">+</button></div><div style="text-align:right;"><b class="ci-price">' + money(p.price * i.qty) + '</b>' + volDiscountBadge + '</div><button class="qbtn del" data-act="del" data-id="' + p.id + '" data-v="' + esc(i.variant) + '" title="Удалить" aria-label="Удалить">✕</button></div></div></div>';
+    return '<div class="cart-item' + (missing ? ' need-variant' : '') + '" data-id="' + p.id + '" data-v="' + esc(i.variant) + '"><div class="ci-body"><div class="ci-name">' + esc(p.name) + '</div><div class="ci-meta">' + esc(p.brand) + (p.puffs ? ' · ' + p.puffs + ' затяжек' : '') + '</div>' + vsel + '<div class="ci-bottom"><div class="qty"><button class="qbtn" data-act="dec" data-id="' + p.id + '" data-v="' + esc(i.variant) + '" aria-label="Уменьшить">−</button><span>' + i.qty + '</span><button class="qbtn" data-act="inc" data-id="' + p.id + '" data-v="' + esc(i.variant) + '" aria-label="Увеличить">+</button></div><div style="text-align:right;"><b class="ci-price">' + money(p.price * i.qty) + '</b></div><button class="qbtn del" data-act="del" data-id="' + p.id + '" data-v="' + esc(i.variant) + '" title="Удалить" aria-label="Удалить">✕</button></div></div></div>';
   }).join('');
   
   list.querySelectorAll('[data-act]').forEach(btn => {
@@ -1082,14 +1169,34 @@ NS.renderCartPage = function(){
   const cInput = document.getElementById('orderCityInput'); if (cInput) cInput.value = store.get('ns_city', 'Алматы');
   
   const hint = document.getElementById('orderHint');
-  if (hint) {
-    if (t.discount > 0) {
-      hint.innerHTML = '<span style="color:#4ADE80">Применена скидка (5% от 2 шт / промокод)</span>';
-    } else {
-      hint.textContent = 'Подсказка: от 2 шт одной позиции скидка 5%';
-    }
+  if (hint) hint.textContent = '2+ одноразки −10%, 2+ шт другого товара −5%, от ' + money(TH) + ' ещё −' + (EX*100) + '%';
+
+  const extra = document.getElementById('nsExtra');
+  if (extra) {
+    const left = TH - t.subtotal;
+    const pr = NS.getActivePromo();
+    extra.innerHTML = (pr ? '<div class="ns-tag">Промокод ' + esc(pr) + ' <button id="nsPromoX" aria-label="Убрать">✕</button></div>' : '') + 
+      '<div class="small muted">' + (left > 0 ? 'Добавьте ещё на <b style="color:#fff">' + money(left) + '</b> и получите доп. скидку ' + (EX*100) + '%' : 'Доп. скидка ' + (EX*100) + '% за заказ от ' + money(TH) + ' применена') + '</div>' + 
+      '<div class="ns-bar"><i style="width:' + Math.min(100, t.subtotal/TH*100) + '%"></i></div>';
+    const px = document.getElementById('nsPromoX');
+    if(px) px.onclick = () => NS.setPromo('');
   }
+
+  const dq = cart.reduce((s,i)=>{const p=NS.findProduct(i.id);return s+(p&&p.cat==='disposable'?i.qty:0)},0);
+  document.querySelectorAll('#cartList .cart-item').forEach(el => {
+    const p = NS.findProduct(el.dataset.id), pe = el.querySelector('.ci-price');
+    if(!p || !pe) return;
+    const it = cart.find(a => a.id === el.dataset.id && a.variant === el.dataset.v);
+    let txt = '';
+    if(p.cat === 'disposable') { if(dq >= 2) txt = 'Скидка −10% за 2+ одноразки'; }
+    else if(it && it.qty >= 2) txt = 'Скидка −5% за 2+ шт';
+    let b = pe.nextElementSibling;
+    if(!txt) { if(b) b.remove(); return; }
+    if(!b) { b = document.createElement('div'); b.style.cssText = 'color:#4ade80;font-size:11px;font-weight:700;margin-top:2px'; pe.after(b); }
+    b.textContent = txt;
+  });
   
+  calcUpsell();
   renderCrossSell();
   updatePreview();
 };
@@ -1112,6 +1219,8 @@ function updatePreview(){
     }
   });
   const t = NS.cartTotals();
+  const pr = NS.getActivePromo();
+  if (pr) lines.push('Промокод: ' + pr);
   if (t.discount > 0) lines.push('Скидка: ' + money(t.discount));
   lines.push('Итого к оплате: ' + money(t.total));
   if (f || ph || ad) {
@@ -1126,7 +1235,6 @@ function updatePreview(){
   if (prev) prev.textContent = lines.join('\n');
 }
 
-/* Единая отправка заказа */
 function sendOrder(){
   updatePreview();
   const cart = NS.getCart();
@@ -1166,11 +1274,17 @@ function sendOrder(){
   track('begin_checkout', { total: NS.cartTotals().total });
   const text = document.getElementById('waPreview').textContent;
   window.open(NS.waLink(text), '_blank');
+  
+  store.remove('ns_cart');
+  store.remove('ns_uid');
+  NS.setPromo('');
+  NS.updateBadge();
+  NS.renderCartPage();
+  showToast('Заказ отправлен. Корзина очищена.');
 }
 
-/* ==================== ФИЛЬТРЫ И КАТАЛОГ ==================== */
 const CatalogState = {
-  cat: '', q: '', brand: '', price: '', puffs: '', sort: 'cheap', list: false, favOnly: false,
+  cat: '', q: '', brand: '', price: '', puffs: '', taste: '', sort: 'cheap', list: false, favOnly: false,
   page: 1, pageSize: 24, inited: false
 };
 
@@ -1184,6 +1298,7 @@ function parseCatalogHashParams(){
   if (p.has('brand')) CatalogState.brand = p.get('brand');
   if (p.has('price')) CatalogState.price = p.get('price');
   if (p.has('puffs')) CatalogState.puffs = p.get('puffs');
+  if (p.has('taste')) CatalogState.taste = p.get('taste');
   if (p.has('sort')) CatalogState.sort = p.get('sort');
   if (p.has('q')) CatalogState.q = p.get('q');
 }
@@ -1195,6 +1310,7 @@ function updateCatalogUrl(){
   if (CatalogState.brand) p.set('brand', CatalogState.brand);
   if (CatalogState.price) p.set('price', CatalogState.price);
   if (CatalogState.puffs) p.set('puffs', CatalogState.puffs);
+  if (CatalogState.taste) p.set('taste', CatalogState.taste);
   if (CatalogState.sort && CatalogState.sort !== 'cheap') p.set('sort', CatalogState.sort);
   if (CatalogState.q) p.set('q', CatalogState.q);
   const qs = p.toString();
@@ -1215,11 +1331,12 @@ function initCatalogOnce(){
         b.classList.add('active');
         CatalogState.cat = b.dataset.cat;
         CatalogState.page = 1;
-        // Сбрасываем несовместимые со сменой категории фильтры
         CatalogState.brand = '';
         CatalogState.puffs = '';
+        CatalogState.taste = '';
         CatalogState.favOnly = false;
         const pf = document.getElementById('puffFilter'); if (pf) pf.value = '';
+        const tf = document.getElementById('tasteFilter'); if (tf) tf.value = '';
         const ft = document.getElementById('favTab'); if (ft) ft.classList.remove('active');
         fillBrandsCatalog();
         updateCatalogUrl();
@@ -1256,6 +1373,13 @@ function initCatalogOnce(){
   if (puffs) {
     puffs.value = CatalogState.puffs;
     puffs.onchange = () => { CatalogState.puffs = puffs.value; CatalogState.page = 1; updateCatalogUrl(); renderCatalog(); };
+  }
+
+  const taste = document.getElementById('tasteFilter');
+  if (taste) {
+    taste.innerHTML = '<option value="">Любой вкус</option>' + Object.keys(TASTES).map(k => '<option value="' + k + '">' + TASTES[k][0] + '</option>').join('');
+    taste.value = CatalogState.taste;
+    taste.onchange = () => { CatalogState.taste = taste.value; CatalogState.page = 1; updateCatalogUrl(); renderCatalog(); };
   }
 
   const sort = document.getElementById('sort');
@@ -1326,6 +1450,10 @@ function getFilteredCatalogItems(){
     const [a, b] = CatalogState.puffs.split('-').map(Number);
     items = items.filter(p => p.puffs >= a && p.puffs < b);
   }
+  if (CatalogState.taste) {
+    const keys = TASTES[CatalogState.taste][1];
+    items = items.filter(p => (p.variants||[]).filter(v => keys.some(x => v.name.toLowerCase().includes(x))).length > 0);
+  }
   if (CatalogState.favOnly){
     const favs = store.get('ns_fav', []);
     items = items.filter(p => favs.indexOf(p.id) >= 0);
@@ -1348,6 +1476,9 @@ function renderCatalog(append = false){
   
   const puffs = document.getElementById('puffFilter');
   if (puffs) puffs.hidden = CatalogState.cat !== 'disposable';
+  const taste = document.getElementById('tasteFilter');
+  if (taste) taste.hidden = ['','disposable','snus','liquid','sticks'].indexOf(CatalogState.cat) < 0;
+  
   const info = document.getElementById('resultInfo');
   if (info) info.textContent = 'Найдено: ' + items.length;
   const fc = document.getElementById('favCount');
@@ -1377,7 +1508,6 @@ function renderCatalog(append = false){
   }
 }
 
-/* ==================== СТРАНИЦА КАТЕГОРИИ ==================== */
 const CatState = { cat:'', items:[], listMode:false, inited:false };
 
 function loadCategory(cat){
@@ -1447,7 +1577,7 @@ function updateCategoryExtras(cat){
     if (coils.length){
       cmpSection.hidden = false;
       cmpTitle.textContent = 'Подходящие испарители';
-      cmpGrid.innerHTML = coils.map(productCardHTML).join('');
+      cmpGrid.innerHTML = coils.map(p => productCardHTML(p)).join('');
       setupGridDelegation(cmpGrid);
     }
   }
@@ -1469,7 +1599,7 @@ function updateCategoryExtras(cat){
     });
     if (sticksPool.length){
       sticksSection.hidden = false;
-      sticksGrid.innerHTML = sticksPool.map(productCardHTML).join('');
+      sticksGrid.innerHTML = sticksPool.map(p => productCardHTML(p)).join('');
       setupGridDelegation(sticksGrid);
     }
   }
@@ -1479,24 +1609,23 @@ function updateCategoryExtras(cat){
   if (bundleSection) bundleSection.hidden = true;
   if ((cat === 'pod' || cat === 'vape') && bundleSection){
     bundleSection.hidden = false;
-    if (bundleBtn && !bundleBtn.dataset.bound){
-      bundleBtn.dataset.bound = '1';
+    if (bundleBtn) {
       bundleBtn.onclick = function(){
         const device = CatState.items.find(x => x.stock) || CatState.items[0];
         if (!device) return;
+        const isMod = device.cat === 'vape' && !device.unit;
+        const liq = PRODUCTS.find(p => p.name === (isMod ? 'Jam Monster 60мл 3мг' : 'Jam Monster Salt 30мл 20мг'));
         const coils = PRODUCTS.filter(p => p.cat === 'coil' && p.stock && p.compat && p.compat.indexOf(device.id) >= 0);
-        const liquid = PRODUCTS.filter(p => p.cat === 'liquid' && p.stock)[0];
         const v = (device.variants && device.variants[0]) ? device.variants[0].name : '';
         NS.addToCart(device.id, v, 1, true);
         if (coils[0] && coils[0].variants && coils[0].variants[0]) NS.addToCart(coils[0].id, coils[0].variants[0].name, 2, true);
-        if (liquid && liquid.variants && liquid.variants[0]) NS.addToCart(liquid.id, liquid.variants[0].name, 1, true);
+        if (liq && liq.variants && liq.variants[0]) NS.addToCart(liq.id, liq.variants[0].name, 1, true);
         showToast('Набор добавлен в корзину');
       };
     }
   }
 }
 
-/* ==================== МОДАЛКА СРАВНЕНИЯ ==================== */
 function openCompare(){
   const ids = store.get('ns_cmp', []);
   const items = ids.map(i => NS.findProduct(i)).filter(Boolean);
@@ -1514,7 +1643,6 @@ function openCompare(){
   openModal(html);
 }
 
-/* ==================== ИНИЦИАЛИЗАЦИЯ ГЛАВНОЙ ==================== */
 function initHome(){
   const hits = PRODUCTS.filter(p => p.tags && p.tags.indexOf('hit') >= 0 && p.stock).slice(0, 8);
   const newp = PRODUCTS.filter(p => p.tags && p.tags.indexOf('new') >= 0 && p.stock).slice(0, 8);
@@ -1564,7 +1692,6 @@ function initCounters(){
   els.forEach(el => io.observe(el));
 }
 
-/* ==================== АНИМАЦИЯ ЗВЁЗД ==================== */
 function initStars(){
   const cv = document.getElementById('stars');
   if(!cv) return;
@@ -1622,54 +1749,37 @@ function updateStatus(){
   el.textContent = open ? 'Открыто' : 'Закрыто';
 }
 
-/* ==================== КВИЗ И РУЛЕТКА ==================== */
 function openQuiz(){
-  const state = { need: '', taste: '', budget: '' };
-  openModal('<div class="sheet" role="dialog" aria-modal="true"><button class="sheet-close" aria-label="Закрыть">✕</button><div id="quizBody"></div></div>', (wrap, close) => {
+  const s = {};
+  openModal('<div class="sheet" role="dialog" aria-modal="true"><button class="sheet-close" aria-label="Закрыть">✕</button><div id="quizBody"></div></div>', function(wrap){
     const body = wrap.querySelector('#quizBody');
-    function opt(v, l){ return '<button class="btn btn-ghost btn-block" data-v="' + v + '">' + l + '</button>'; }
-    function bind(field, next){ body.querySelectorAll('[data-v]').forEach(b => b.onclick = () => { state[field] = b.dataset.v; next(); }); }
-
-    function step1(){
-      body.innerHTML = '<h2 class="sheet-title">Что вы ищете?</h2><div class="quiz-opts">' + opt('disposable','Одноразка') + opt('pod','Под / Вейп') + opt('iqos','IQOS / Glo / Ploom') + opt('snus','Снюс') + '</div>';
-      bind('need', step2);
-    }
-    function step2(){
-      body.innerHTML = '<h2 class="sheet-title">Какой вкус предпочитаете?</h2><div class="quiz-opts">' + opt('сладкий','Сладкий (ягоды, десерты, фрукты)') + opt('фрукт','Свежие фрукты') + opt('ментол','Холодок и мята') + opt('табак','Классический табак') + '</div>';
-      bind('taste', step3);
-    }
-    function step3(){
-      body.innerHTML = '<h2 class="sheet-title">Ваш бюджет?</h2><div class="quiz-opts">' + opt('0-10000','до 10 000 ₸') + opt('10000-20000','10 000 – 20 000 ₸') + opt('20000-999999','от 20 000 ₸') + '</div>';
-      bind('budget', result);
-    }
-    function result(){
-      const [min, max] = state.budget.split('-').map(Number);
-      let cat = [state.need];
-      if (state.need === 'pod') cat = ['pod', 'vape'];
-      if (state.need === 'iqos') cat = ['iqos', 'glo', 'ploom'];
+    const ask = (t, opts, key, next) => {
+      body.innerHTML = '<h2 class="sheet-title">' + t + '</h2><div class="quiz-opts">' + opts.map(a => '<button class="btn btn-ghost btn-block" data-v="' + a[0] + '">' + a[1] + '</button>').join('') + '</div>';
+      body.querySelectorAll('[data-v]').forEach(b => b.onclick = () => { s[key] = b.dataset.v; next(); });
+    };
+    const res = () => {
+      const [min, max] = s.budget.split('-').map(Number);
+      let cats = [s.need]; if(s.need === 'pod') cats = ['pod','vape']; if(s.need === 'iqos') cats = ['iqos','glo','ploom'];
+      const flavored = ['disposable','snus','liquid'].indexOf(s.need) >= 0;
+      const keys = (flavored ? TASTES : COLORS)[s.pref][1];
       
-      let items = PRODUCTS.filter(p => p.stock && cat.indexOf(p.cat) >= 0 && p.price >= min && p.price <= max);
-      if (!items.length) items = PRODUCTS.filter(p => p.stock && cat.indexOf(p.cat) >= 0);
-
-      const tastes = {
-        'сладкий': ['клубника', 'арбуз', 'персик', 'кола', 'дыня', 'бабл', 'конфет'],
-        'фрукт': ['манго', 'киви', 'виноград', 'черника', 'яблоко', 'грейпфрут', 'ананас'],
-        'ментол': ['мята', 'лёд', 'лед', 'mint', 'menthol', 'cool', 'мороз'],
-        'табак': ['original', 'табак', 'amber', 'classic', 'regular', 'tobacco']
-      };
-      const wanted = tastes[state.taste] || [];
-
-      items.sort((a, b) => {
-        const aMatch = (a.variants || []).some(v => wanted.some(w => v.name.toLowerCase().includes(w)));
-        const bMatch = (b.variants || []).some(v => wanted.some(w => v.name.toLowerCase().includes(w)));
-        if (aMatch !== bMatch) return bMatch ? 1 : -1;
-        return a.price - b.price;
+      let items = PRODUCTS.filter(p => p.stock && cats.indexOf(p.cat) >= 0 && p.price >= min && p.price <= max);
+      if (!items.length) items = PRODUCTS.filter(p => p.stock && cats.indexOf(p.cat) >= 0);
+      
+      items.sort((a,b) => {
+        const kw = p => (p.variants||[]).filter(v => keys.some(x => v.name.toLowerCase().includes(x))).length;
+        return kw(b) - kw(a) || a.price - b.price;
       });
-
-      body.innerHTML = '<h2 class="sheet-title">Вам идеально подойдёт</h2><div class="grid grid-1" style="margin-top:14px;">' + items.slice(0, 3).map(p => productCardHTML(p)).join('') + '</div>';
+      
+      body.innerHTML = '<h2 class="sheet-title">Вам идеально подойдёт</h2><div class="grid grid-1" style="margin-top:14px">' + items.slice(0, 3).map(p => productCardHTML(p)).join('') + '</div>';
       setupGridDelegation(body);
-    }
-    step1();
+    };
+    const s3 = () => ask('Ваш бюджет?', [['0-10000','до 10 000 ₸'],['10000-20000','10 000 – 20 000 ₸'],['20000-999999','от 20 000 ₸']], 'budget', res);
+    const s2 = () => {
+      if (['disposable','snus','liquid'].indexOf(s.need) >= 0) ask('Какой вкус?', Object.keys(TASTES).map(k => [k, TASTES[k][0]]), 'pref', s3);
+      else ask('Какой цвет?', Object.keys(COLORS).map(k => [k, COLORS[k][0]]), 'pref', s3);
+    };
+    ask('Что вы ищете?', [['disposable','Одноразка'],['pod','Под / Вейп'],['iqos','IQOS / Glo / Ploom'],['snus','Снюс'],['liquid','Жидкость']], 'need', s2);
   });
 }
 
@@ -1704,11 +1814,31 @@ function randomHit(){
   });
 }
 
-/* ==================== РОУТИНГ ==================== */
+function renderBundles(){
+  const host = document.getElementById('bundleList');
+  if(!host) return;
+  host.innerHTML = BUNDLES.map(b => {
+    const ps = b.items.map(i => [PRODUCTS.find(x => x.name === i[0]), i[1]]);
+    if (ps.some(x => !x[0])) return '';
+    const sum = ps.reduce((a, x) => a + x[0].price * x[1], 0);
+    return '<div class="info-card"><h3>' + esc(b.title) + '</h3><p class="muted">' + esc(b.desc) + '</p><ul class="list" style="margin:10px 0">' + ps.map(x => '<li>' + esc(x[0].name) + '</li>').join('') + '</ul><div class="card-price"><span class="old">' + money(sum) + '</span><b class="price">' + money(Math.round(sum * (1 - b.pct))) + '</b></div><button class="btn btn-primary btn-block" data-bundle="' + b.id + '">Добавить набор</button></div>';
+  }).join('');
+  
+  host.querySelectorAll('[data-bundle]').forEach(btn => btn.onclick = () => {
+    const b = BUNDLES.find(x => x.id === btn.dataset.bundle);
+    b.items.forEach(i => {
+      const p = PRODUCTS.find(x => x.name === i[0]);
+      if(p) NS.addToCart(p.id, '', i[1], true);
+    });
+    showToast('Набор в корзине. Выберите вкус/цвет');
+    location.hash = '#cart';
+  });
+}
+
 function route(){
-  // Закрываем обычные модалки, НЕ трогая гейт 18+, и снимаем накопленные слушатели
   document.querySelectorAll('.modal-backdrop').forEach(m => {
     if (m._cleanup) m._cleanup();
+    if (m._onCloseExtra) { try { m._onCloseExtra(); } catch(e){} }
     m.remove();
   });
   if (!document.getElementById('ageGate')) {
@@ -1720,7 +1850,7 @@ function route(){
   const [path, qs] = hash.split('?');
   const params = new URLSearchParams(qs || '');
   const name = path || 'home';
-  const known = ['home','catalog','category','cart','guarantee','contacts','verify','blog'];
+  const known = ['home','catalog','category','cart','guarantee','contacts','verify','blog','bundles'];
   const target = known.indexOf(name) >= 0 ? document.getElementById('page-' + name) : null;
 
   document.querySelectorAll('.page').forEach(p => p.hidden = true);
@@ -1744,8 +1874,11 @@ function route(){
     initHome();
     document.title = 'Night Store — ночной магазин вейпов и систем нагревания';
   }
+  if (name === 'bundles') {
+    renderBundles();
+    document.title = 'Наборы — Night Store';
+  }
   if (name === 'catalog'){
-    // Если перешли на чистый #catalog без параметров — сбрасываем состояние фильтров
     const rawHash = (location.hash || '').slice(1);
     if (rawHash.indexOf('?') === -1) {
       CatalogState.cat = '';
@@ -1753,6 +1886,7 @@ function route(){
       CatalogState.brand = '';
       CatalogState.price = '';
       CatalogState.puffs = '';
+      CatalogState.taste = '';
       CatalogState.sort = 'cheap';
       CatalogState.favOnly = false;
       CatalogState.page = 1;
@@ -1780,7 +1914,6 @@ function route(){
   window.scrollTo(0, 0);
 }
 
-/* ==================== ИНИЦИАЛИЗАЦИЯ ПРИ ЗАГРУЗКЕ ==================== */
 document.addEventListener('DOMContentLoaded', function(){
   const ageGate = document.getElementById('ageGate');
   if (store.get('ns_age', false)) {
