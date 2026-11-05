@@ -1,0 +1,1886 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Night Store — ночной магазин вейпов, одноразок, снюса, IQOS, Glo, Ploom</title>
+<meta name="description" content="Night Store — оригинальные одноразки, вейпы, поды, снюс, IQOS, Glo, Ploom и стики. Доставка 20–50 минут по всему Казахстану. Гарантия 6 часов.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Night Store">
+<meta property="og:title" content="Night Store — ночной магазин вейпов, одноразок, снюса, IQOS, Glo, Ploom">
+<meta property="og:description" content="Оригинальные одноразки, вейпы, поды, снюс, IQOS, Glo, Ploom и стики. Доставка 20–50 минут по всему Казахстану. Гарантия 6 часов.">
+<meta property="og:url" content="https://nightstore.kz/">
+<meta property="og:image" content="https://nightstore.kz/og.jpg">
+<meta name="theme-color" content="#0B0F19">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230B0F19'/%3E%3Ccircle cx='45' cy='48' r='26' fill='%233B82F6'/%3E%3Ccircle cx='58' cy='42' r='23' fill='%230B0F19'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0B0F19; --bg-soft:#0e1424; --card:rgba(255,255,255,.045); --card-2:rgba(255,255,255,.07);
+  --stroke:rgba(255,255,255,.09); --txt:#F1F5F9; --muted:#9DB2CE; --a1:#3B82F6; --a2:#06B6D4;
+  --ac:#3B82F6; --grad:linear-gradient(135deg,var(--ac),var(--a2)); --r:18px; --r-lg:24px;
+  --shadow:0 20px 50px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{
+  margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  background:var(--bg); color:var(--txt); min-height:100vh; -webkit-font-smoothing:antialiased;
+  overflow-x:hidden; padding-bottom:88px;
+}
+body.night{--bg:#070A12;--card:rgba(255,255,255,.06)}
+body.no-scroll{overflow:hidden}
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main,header,footer,nav{position:relative;z-index:1}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--a2);outline-offset:3px;border-radius:8px}
+.container{width:100%;max-width:1180px;margin:0 auto;padding:0 16px}
+.section{padding:28px 0}.center{text-align:center}.muted{color:var(--muted)}.small{font-size:13px}
+h1{font-size:clamp(26px,7vw,44px);line-height:1.1;font-weight:900;letter-spacing:-.02em;margin:0 0 10px}
+h2{font-size:clamp(20px,4.6vw,30px);font-weight:800;letter-spacing:-.01em;margin:0 0 14px}
+.h3{font-size:clamp(17px,4vw,22px);font-weight:800;margin:0 0 8px}
+.lead{font-size:16px;color:var(--muted);max-width:640px}
+.page[hidden]{display:none!important}
+
+#site-header{position:sticky;top:0;z-index:60}
+.site-header{backdrop-filter:blur(16px);background:rgba(11,15,25,.75);border-bottom:1px solid var(--stroke)}
+.header-row{display:flex;align-items:center;justify-content:space-between;height:58px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:900;font-size:16px;letter-spacing:-.01em;cursor:pointer}
+.header-right{display:flex;align-items:center;gap:8px}
+.status{display:none;align-items:center;gap:6px;font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--stroke);padding:6px 10px;border-radius:999px}
+.status-dot{width:7px;height:7px;border-radius:50%;background:#22C55E;box-shadow:0 0 10px #22C55E}
+.icon-btn{position:relative;display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:var(--card);border:1px solid var(--stroke);color:var(--txt);font-size:12px;font-weight:800;cursor:pointer;transition:transform .2s,background .2s}
+.icon-btn:hover{transform:translateY(-1px);background:var(--card-2)}
+.cart-badge{position:absolute;top:-5px;right:-5px;min-width:18px;height:18px;padding:0 4px;border-radius:999px;background:var(--grad);color:#fff;font-size:11px;font-weight:800;display:grid;place-items:center}
+.cart-badge.zero{display:none}
+
+.marquee{overflow:hidden;border-top:1px solid var(--stroke);background:linear-gradient(90deg,rgba(59,130,246,.12),rgba(6,182,212,.12))}
+.marquee-track{display:flex;gap:14px;padding:6px 0;white-space:nowrap;font-size:12px;color:#cfe0ff;animation:marquee 22s linear infinite;width:max-content}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:14px;border:1px solid var(--stroke);background:var(--card);color:var(--txt);font-weight:700;font-size:14px;cursor:pointer;transition:transform .18s,box-shadow .25s,background .2s;min-height:44px;text-decoration:none}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--grad);border:none;color:#fff;box-shadow:0 8px 28px rgba(59,130,246,.35)}
+.btn-primary:hover{box-shadow:0 12px 36px rgba(6,182,212,.4)}
+.btn-ghost{background:var(--card);backdrop-filter:blur(10px)}
+.btn-lg{padding:16px 26px;font-size:16px;border-radius:16px}
+.btn-sm{padding:8px 12px;font-size:13px;min-height:36px;border-radius:11px}
+.btn-block{width:100%}
+.input{width:100%;padding:12px 14px;border-radius:13px;border:1px solid var(--stroke);background:rgba(255,255,255,.05);color:var(--txt);font-size:14px;min-height:44px}
+.input::placeholder{color:#8292ab}.input-sm{padding:8px 10px;font-size:13px;min-height:36px}
+select.input{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#9DB2CE 50%),linear-gradient(135deg,#9DB2CE 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+
+.hero{padding:44px 0 24px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-40% -20% auto -20%;height:120%;background:radial-gradient(60% 60% at 50% 0%,rgba(59,130,246,.22),transparent 70%);pointer-events:none}
+.hero-inner{position:relative;text-align:center}.hero-moon{display:flex;justify-content:center;margin-bottom:8px;filter:drop-shadow(0 0 24px rgba(59,130,246,.6))}
+.hero-title{font-size:clamp(38px,12vw,80px);font-weight:900;letter-spacing:-.04em;margin:0 0 12px;background:linear-gradient(180deg,#fff,#99c0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{color:var(--muted);max-width:520px;margin:0 auto 22px;font-size:15px;line-height:1.55}
+.hero-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.trust{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.trust-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#d3e1f5;background:var(--card);border:1px solid var(--stroke);padding:7px 12px;border-radius:999px;backdrop-filter:blur(8px)}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--grad)}
+.stats{display:flex;gap:10px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+.stat{background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:12px 18px;min-width:110px;backdrop-filter:blur(10px)}
+.stat b{display:block;font-size:22px;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-size:11.5px;color:var(--muted)}
+
+.quiz-banner,.guarantee-mini,.bundle-box{display:flex;flex-direction:column;gap:14px;background:linear-gradient(135deg,rgba(59,130,246,.16),rgba(6,182,212,.1));border:1px solid rgba(59,130,246,.28);border-radius:var(--r-lg);padding:20px;backdrop-filter:blur(12px);box-shadow:0 0 40px rgba(59,130,246,.12);margin-top:18px}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.head-actions{display:flex;gap:8px;align-items:center}
+
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.grid.list-view{grid-template-columns:1fr!important}
+.grid-1{grid-template-columns:1fr}
+.card{position:relative;background:var(--card);border:1px solid var(--stroke);border-radius:var(--r);overflow:hidden;backdrop-filter:blur(14px);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,border-color .25s;will-change:transform}
+.card:hover{border-color:rgba(59,130,246,.4);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+.product.is-hit{border-color:transparent;background:linear-gradient(var(--card),var(--card)) padding-box,var(--grad) border-box;border:1px solid transparent}
+.card-body{padding:12px 14px}
+.card-brand{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--a2);font-weight:800;margin-bottom:3px}
+.card-title{font-size:14px;font-weight:700;line-height:1.3;margin:0 0 6px;min-height:36px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.grid.list-view .card-title{min-height:auto}
+.card-meta{font-size:11.5px;color:var(--muted);margin-bottom:6px;line-height:1.35}
+.card-price{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.price{font-size:16px;font-weight:900;color:#fff}.old{font-size:12px;color:#7888a5;text-decoration:line-through}
+.card-actions{display:flex;gap:6px}.card-actions .btn{flex:1;padding:8px 6px;font-size:12px;min-height:34px;border-radius:10px}
+
+.ic-fav,.ic-cmp{display:grid;place-items:center;background:rgba(11,15,25,.65);border:1px solid var(--stroke);color:#94a3b8;cursor:pointer;font-size:14px;transition:color .2s,transform .2s;border-radius:8px;width:30px;height:30px}
+.ic-fav.on{color:#f43f5e;border-color:rgba(244,63,94,.5)}
+.ic-cmp.on{color:var(--a2);border-color:rgba(6,182,212,.5)}
+
+.badge{font-size:10px;font-weight:800;padding:4px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:.05em;display:inline-block;margin-right:4px;margin-bottom:6px}
+.badge-hit{background:rgba(59,130,246,.2);color:#93c5fd;border:1px solid rgba(59,130,246,.3)}
+.badge-new{background:rgba(6,182,212,.2);color:#67e8f9;border:1px solid rgba(6,182,212,.3)}
+.badge-out{background:rgba(239,68,68,.2);color:#fca5a5;border:1px solid rgba(239,68,68,.3)}
+
+.cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.cat-card{display:flex;flex-direction:column;gap:4px;padding:16px;border-radius:16px;background:var(--card);border:1px solid var(--stroke);backdrop-filter:blur(10px);transition:transform .2s,border-color .2s;cursor:pointer}
+.cat-card:hover{transform:translateY(-2px);border-color:rgba(59,130,246,.45)}
+.cat-card b{font-size:15px;font-weight:800}.cat-card span{font-size:11.5px;color:var(--muted)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;padding:9px 14px;border-radius:999px;border:1px solid var(--stroke);background:var(--card);color:#d3e1f5;font-size:13px;font-weight:700;cursor:pointer;transition:.2s;white-space:nowrap}
+.chip.active,.chip:hover{background:var(--grad);color:#fff;border-color:transparent}
+.toolbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.toolbar .input{grid-column:span 1}.toolbar #search{grid-column:1/-1}
+#viewToggle{grid-column:1/-1}.favorites-toggle{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+
+.cart-layout{display:block}.cart-list{display:flex;flex-direction:column;gap:10px}
+.cart-item{display:flex;gap:12px;padding:14px;border-radius:16px;background:var(--card);border:1px solid var(--stroke);backdrop-filter:blur(10px);transition:border-color .2s,box-shadow .2s}
+.cart-item.need-variant{border-color:#ef4444!important;box-shadow:0 0 0 1px #ef4444!important}
+.ci-body{flex:1;min-width:0}.ci-name{font-size:14px;font-weight:700;line-height:1.3;margin-bottom:3px}
+.ci-meta{font-size:11.5px;color:var(--muted);margin-bottom:6px}.variant-select{width:100%;margin-bottom:6px}
+.ci-bottom{display:flex;align-items:center;gap:8px;justify-content:space-between;margin-top:6px}
+.qty{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.05);border-radius:10px;padding:2px}
+.qbtn{width:28px;height:28px;border-radius:8px;border:none;background:rgba(255,255,255,.06);color:var(--txt);font-size:15px;cursor:pointer;display:grid;place-items:center}
+.qbtn:hover{background:rgba(59,130,246,.3)}.qbtn.del{background:transparent;color:#f87171;font-size:13px}
+.ci-price{font-size:15px;font-weight:900}
+.summary-card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--r-lg);padding:18px;backdrop-filter:blur(14px);margin-top:16px}
+.summary-row{display:flex;justify-content:space-between;align-items:center;font-size:14px;padding:8px 0;color:var(--muted)}
+.summary-row.total{border-top:1px solid var(--stroke);margin-top:6px;padding-top:14px;font-size:17px;color:var(--txt)}
+.summary-row.total b{font-weight:900;font-size:20px}
+.preview{white-space:pre-wrap;word-break:break-word;font-family:ui-monospace,monospace;font-size:12px;line-height:1.55;background:rgba(0,0,0,.35);border:1px solid var(--stroke);border-radius:14px;padding:14px;color:#c0d2ee;max-height:320px;overflow:auto}
+.cart-bar{position:fixed;bottom:74px;left:0;right:0;z-index:55;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:rgba(11,15,25,.92);backdrop-filter:blur(16px);border-top:1px solid var(--stroke)}
+.cart-bar b{display:block;font-size:17px;font-weight:900}
+.form{display:flex;flex-direction:column;gap:10px}.field{display:flex;flex-direction:column;gap:5px;font-size:13px;color:var(--muted)}
+.empty{text-align:center;padding:40px 16px;border:1px dashed var(--stroke);border-radius:var(--r-lg);background:var(--card)}
+.empty p{margin:0 0 14px;color:var(--muted)}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:70;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(11,15,25,.92);backdrop-filter:blur(20px);border-top:1px solid var(--stroke);padding:6px 0 max(6px,env(safe-area-inset-bottom))}
+.bottom-nav a{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;color:#8798b5;padding:5px 0;position:relative;cursor:pointer}
+.bottom-nav a span{font-size:17px;line-height:1}.bottom-nav a b{font-weight:700}.bottom-nav a.active{color:#fff}
+.bottom-nav a.active span{filter:drop-shadow(0 0 8px rgba(59,130,246,.9))}
+.nav-badge{position:absolute;top:0;right:calc(50% - 22px)}
+.fabs{position:fixed;right:12px;bottom:96px;display:flex;flex-direction:column;gap:10px;z-index:65}
+.fab{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-size:19px;color:#fff;box-shadow:0 10px 26px rgba(0,0,0,.45);transition:transform .2s;cursor:pointer}
+.fab:hover{transform:scale(1.08)}.fab-wa{background:#25D366}.fab-tg{background:#229ED9}
+.to-top{position:fixed;left:12px;bottom:96px;width:42px;height:42px;border-radius:50%;z-index:65;background:var(--card);border:1px solid var(--stroke);color:var(--txt);font-size:18px;cursor:pointer;backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity .25s,transform .2s}
+.to-top.show{opacity:1;pointer-events:auto}
+
+/* 18+ ГЕЙТ */
+.age-gate{position:fixed;inset:0;z-index:9999;background:rgba(7,10,18,.96);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:16px}
+
+.modal-backdrop{position:fixed;inset:0;z-index:200;background:rgba(4,7,14,.75);backdrop-filter:blur(6px);display:flex;align-items:flex-end;justify-content:center;animation:fade .2s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.sheet{width:100%;max-width:560px;max-height:92vh;overflow-y:auto;background:linear-gradient(180deg,#101827,#0B0F19);border:1px solid var(--stroke);border-bottom:none;border-radius:24px 24px 0 0;padding:22px 18px calc(24px + env(safe-area-inset-bottom));position:relative;animation:up .28s cubic-bezier(.2,.8,.2,1)}
+.sheet.small{max-width:420px}@keyframes up{from{transform:translateY(40px);opacity:.6}to{transform:translateY(0);opacity:1}}
+.sheet-close{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;border:1px solid var(--stroke);background:rgba(255,255,255,.06);color:var(--txt);cursor:pointer;font-size:14px}
+.sheet-title{font-size:20px;font-weight:900;text-align:center;margin:0 0 4px}
+.sheet-brand{text-align:center;font-size:12px;color:var(--a2);font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.sheet-price{display:flex;gap:10px;align-items:baseline;justify-content:center;margin:12px 0}
+.sheet-price .price{font-size:26px}
+.sheet-variants{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0 16px}
+.color-dot{width:40px;height:40px;border-radius:50%;border:2px solid transparent;background:var(--c);cursor:pointer;position:relative;transition:transform .18s,box-shadow .18s;box-shadow:0 0 0 1px rgba(255,255,255,.15) inset}
+.color-dot.sel{border-color:#fff;transform:scale(1.08);box-shadow:0 0 18px var(--c)}
+.chip.sel{background:var(--grad);color:#fff;border-color:transparent}
+.sheet-variants.shake{animation:shake .35s}@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.sheet-actions{display:flex;flex-direction:column;gap:8px}
+.sheet-compat{font-size:12px;color:var(--muted);margin-top:14px;text-align:center}
+.sheet-compat a{color:var(--a2)}
+.quiz-opts{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.roulette{font-size:20px;font-weight:900;text-align:center;padding:40px 0;min-height:120px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.cmp-wrap{overflow-x:auto;margin-top:12px}
+.cmp{border-collapse:collapse;width:100%;font-size:12px;min-width:420px}
+.cmp th,.cmp td{border:1px solid var(--stroke);padding:8px;text-align:left;vertical-align:top}
+.cmp th{background:rgba(59,130,246,.14);font-weight:800;font-size:12px}
+.cmp td:first-child{color:var(--muted);font-weight:700;white-space:nowrap}
+.cmp .best{color:#4ade80;font-weight:900;background:rgba(34,197,94,.1)}
+
+.toast-box{position:fixed;left:50%;transform:translateX(-50%);bottom:110px;z-index:300;display:flex;flex-direction:column;gap:8px;width:calc(100% - 32px);max-width:420px;pointer-events:none}
+.toast{display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(16,24,39,.95);border:1px solid var(--stroke);border-radius:14px;padding:12px 14px;font-size:13px;box-shadow:var(--shadow);opacity:0;transform:translateY(12px);transition:.3s;pointer-events:auto}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast-btn{background:none;border:none;color:var(--a2);font-weight:800;cursor:pointer;font-size:13px}
+
+.guarantee-steps{display:flex;flex-direction:column;gap:12px}
+.gstep{position:relative;padding:18px 18px 18px 62px;border-radius:var(--r);background:var(--card);border:1px solid var(--stroke);backdrop-filter:blur(10px)}
+.gstep-num{position:absolute;left:16px;top:18px;width:34px;height:34px;border-radius:50%;background:var(--grad);display:grid;place-items:center;font-weight:900;color:#fff}
+.gstep h3{margin:0 0 6px;font-size:15px}.gstep p{margin:0;font-size:13px;line-height:1.5}
+.list{list-style:none;padding:0;margin:0 0 14px;display:flex;flex-direction:column;gap:8px}
+.list li{position:relative;padding-left:22px;font-size:14px;color:#d3e1f5}
+.list li::before{content:"";position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:50%;background:var(--grad)}
+.faq{display:flex;flex-direction:column;gap:8px}
+.faq-item{background:var(--card);border:1px solid var(--stroke);border-radius:14px;padding:14px 16px;backdrop-filter:blur(10px)}
+.faq-item summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";float:right;color:var(--a2);font-weight:900}
+.faq-item[open] summary::after{content:"−"}
+.faq-item p{margin:10px 0 0;font-size:13.5px;color:var(--muted);line-height:1.6}
+
+.cards-3{display:grid;gap:10px}
+.info-card{background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:16px;backdrop-filter:blur(10px)}
+.info-card h3{margin:0 0 6px;font-size:15px}.info-card p{margin:0;font-size:13px;line-height:1.5}
+.link-card{transition:transform .2s,border-color .2s;display:block;cursor:pointer}.link-card:hover{transform:translateY(-2px);border-color:rgba(59,130,246,.45)}
+.contact-list{display:flex;flex-direction:column;gap:8px}
+.contact-row{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;background:var(--card);border:1px solid var(--stroke);border-radius:14px;font-size:14px}
+.contact-row .ci{color:var(--muted);font-size:13px}
+.verify-grid{display:grid;gap:12px}
+.vcard{background:var(--card);border:1px solid var(--stroke);border-radius:18px;padding:16px;backdrop-filter:blur(10px)}
+.villus{display:grid;place-items:center;margin-bottom:10px;border-radius:12px;background:rgba(0,0,0,.3);padding:10px}
+.post{background:var(--card);border:1px solid var(--stroke);border-radius:18px;padding:18px;margin-bottom:12px;backdrop-filter:blur(10px)}
+.post h2{font-size:18px;margin:0 0 8px}.post p{margin:0;font-size:14px;line-height:1.65}
+.err-code{font-size:clamp(80px,26vw,160px);font-weight:900;line-height:1;letter-spacing:-.05em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 40px rgba(59,130,246,.4))}
+.site-footer{margin-top:36px;border-top:1px solid var(--stroke);background:rgba(8,11,18,.75);backdrop-filter:blur(14px);padding:28px 0 16px}
+.footer-grid{display:grid;gap:20px}.footer-grid h4{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:#fff}
+.footer-grid a,.footer-grid span{display:block;font-size:13px;color:var(--muted);margin-bottom:7px;cursor:pointer}.footer-grid a:hover{color:var(--a2)}
+.footer-bottom{margin-top:20px;padding-top:14px;border-top:1px solid var(--stroke);font-size:12px;color:#7888a5;text-align:center}
+
+@media(min-width:560px){.grid{grid-template-columns:repeat(3,1fr)}.cat-grid{grid-template-columns:repeat(3,1fr)}.status{display:flex}.toolbar{grid-template-columns:2fr 1fr 1fr 1fr auto}.toolbar #search{grid-column:auto}#viewToggle{grid-column:auto}.quiz-banner,.guarantee-mini,.bundle-box{flex-direction:row;align-items:center;justify-content:space-between}.verify-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:repeat(4,1fr)}.cards-3{grid-template-columns:repeat(3,1fr)}.guarantee-steps{flex-direction:row}.gstep{flex:1}}
+@media(min-width:860px){body{padding-bottom:0}.bottom-nav{display:none}.fabs{bottom:20px}.to-top{bottom:20px}.grid{grid-template-columns:repeat(4,1fr)}.cat-grid{grid-template-columns:repeat(5,1fr)}.cart-layout{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}.summary-card{position:sticky;top:80px;margin-top:0}.cart-bar{display:none!important}.modal-backdrop{align-items:center}.sheet{border-radius:24px;border-bottom:1px solid var(--stroke);max-height:86vh}.verify-grid{grid-template-columns:repeat(4,1fr)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+
+<!-- 18+ ГЕЙТ -->
+<div id="ageGate" class="age-gate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
+  <div class="sheet small" style="text-align:center; padding: 30px 20px;">
+    <h2 class="sheet-title" id="ageTitle">Вам есть 18 лет?</h2>
+    <p class="muted">Сайт содержит информацию о никотиносодержащей продукции.</p>
+    <div style="display:flex; gap:10px; margin-top:20px;">
+      <button class="btn btn-primary btn-block" id="ageYes">Да, мне 18+</button>
+      <button class="btn btn-ghost btn-block" id="ageNo">Нет</button>
+    </div>
+  </div>
+</div>
+
+<div id="site-header"></div>
+<main>
+<section class="page" id="page-home" hidden>
+  <section class="hero"><div class="container"><div class="hero-inner">
+    <div class="hero-moon" aria-hidden="true"><svg viewBox="0 0 100 100" width="64" height="64"><defs><radialGradient id="mg" cx="35%" cy="30%"><stop offset="0%" stop-color="#dbeafe"/><stop offset="100%" stop-color="#3B82F6"/></radialGradient></defs><circle cx="50" cy="50" r="34" fill="url(#mg)"/><circle cx="66" cy="40" r="30" fill="#0B0F19" opacity=".92"/></svg></div>
+    <h1 class="hero-title">Night&nbsp;Store</h1>
+    <p class="hero-sub">Одноразки, вейпы, снюс и системы нагревания табака. Оригинал. Доставка 20–50 минут по всему Казахстану.</p>
+    <div class="hero-actions"><a class="btn btn-primary btn-lg" href="#catalog">В каталог</a><a class="btn btn-ghost btn-lg" href="#contacts">О нас</a></div>
+    <div class="trust"><div class="trust-item"><span class="dot"></span>100% оригинал</div><div class="trust-item"><span class="dot"></span>Доставка 20–50 мин</div><div class="trust-item"><span class="dot"></span>Гарантия 6 часов</div></div>
+    <div class="stats"><div class="stat"><b data-count="0" id="statProducts">0</b><span>товаров</span></div><div class="stat"><b>24/7</b><span>на связи</span></div></div>
+  </div></div></section>
+  <div class="container"><div class="quiz-banner"><div><h2 class="h3">Не знаешь, что выбрать?</h2><p class="muted">Ответь на 3 вопроса — подберём то, что нужно.</p></div><button class="btn btn-primary" id="quizStart">Подбери мне</button></div></div>
+  <section class="container section"><div class="section-head"><h2>Хиты</h2><div class="head-actions"><button class="btn btn-ghost btn-sm" id="randomHit">Удиви меня</button><a class="btn btn-ghost btn-sm" href="#catalog">Все →</a></div></div><div class="grid" id="hitsGrid"></div></section>
+  <section class="container section"><div class="section-head"><h2>Новинки</h2><a class="btn btn-ghost btn-sm" href="#catalog">Все →</a></div><div class="grid" id="newGrid"></div></section>
+  <section class="container section"><div class="section-head"><h2>Категории</h2></div><div class="cat-grid" id="catPreview"></div></section>
+  <section class="container section"><div class="guarantee-mini" style="margin-top:0;background:linear-gradient(135deg,rgba(34,197,94,.15),rgba(6,182,212,.1));border-color:rgba(34,197,94,.3);"><div><h2 class="h3">Отзывы клиентов</h2><p class="muted">Сотни реальных отзывов с видео и фото от наших клиентов в Telegram.</p></div><a class="btn btn-primary" style="background:linear-gradient(135deg,#25d366,#128c7e);box-shadow:0 8px 28px rgba(37,211,102,.35);" href="https://t.me/+l7A4eomppJA1Y2Fl" target="_blank" rel="noopener">Читать отзывы</a></div></section>
+  <section class="container section"><div class="section-head"><h2>Полезное</h2></div><div class="cards-3"><a class="info-card link-card" href="#verify"><h3>Проверка оригинала</h3><p class="muted">Как отличить подделку: QR, защитные элементы, упаковка.</p></a><a class="info-card link-card" href="#blog"><h3>Блог</h3><p class="muted">5 статей о выборе и уходе за устройствами.</p></a><a class="info-card link-card" href="#guarantee"><h3>Гарантия и доставка</h3><p class="muted">Условия, сроки и FAQ.</p></a></div></section>
+  <section class="container section"><div class="guarantee-mini"><div><h2 class="h3">Гарантия на всё</h2><p class="muted">Не пришёл, не тот товар, брак — замена или возврат на выбор. Обращение в течение 6 часов.</p></div><a class="btn btn-primary" href="#guarantee">Гарантия</a></div></section>
+  <section class="container section" id="recentSectionHome" hidden><div class="section-head"><h2>Недавно смотрели</h2></div><div class="grid" id="recentGridHome"></div></section>
+</section>
+
+<section class="page" id="page-catalog" hidden>
+  <div class="container section">
+    <h1>Каталог</h1>
+    <div class="tabs" id="catTabs"></div>
+    <div class="toolbar">
+      <input id="search" class="input" type="search" placeholder="Поиск: элф бар, вака, айкос, гло, плум, вкус…">
+      <select id="brandFilter" class="input"><option value="">Все бренды</option></select>
+      <select id="priceFilter" class="input"><option value="">Любая цена</option><option value="0-10000">до 10 000 ₸</option><option value="10000-15000">10 000 – 15 000 ₸</option><option value="15000-25000">15 000 – 25 000 ₸</option><option value="25000-999999">от 25 000 ₸</option></select>
+      <select id="puffFilter" class="input" hidden><option value="">Любые затяжки</option><option value="0-10000">до 10K</option><option value="10000-20000">10–20K</option><option value="20000-999999">20K+</option></select>
+      <select id="sort" class="input"><option value="cheap">Сначала дешёвые</option><option value="exp">Сначала дорогие</option><option value="profit">По выгоде</option><option value="new">Новинки</option></select>
+      <button class="btn btn-ghost btn-sm" id="viewToggle">Список</button>
+    </div>
+    <div class="favorites-toggle"><button class="chip" id="favTab">♥ Избранное (<span id="favCount">0</span>)</button><button class="chip" id="compareTab">⚖ Сравнить (<span id="cmpCount">0</span>)</button></div>
+    <div id="resultInfo" class="muted small" style="margin-bottom:12px"></div>
+    <div class="grid" id="catalogGrid"></div>
+    <div style="text-align:center;margin-top:20px;" id="loadMoreWrap" hidden>
+      <button class="btn btn-ghost" id="loadMoreBtn">Показать ещё</button>
+    </div>
+    <section class="section" id="recentSectionCatalog" hidden><div class="section-head"><h2>Недавно смотрели</h2></div><div class="grid" id="recentGridCatalog"></div></section>
+  </div>
+</section>
+
+<section class="page" id="page-category" hidden>
+  <div class="container section">
+    <h1 id="catTitle">Категория</h1>
+    <p class="muted" id="catDesc"></p>
+    <div class="tabs" id="catTabsCat"></div>
+    <div class="toolbar">
+      <input id="searchCat" class="input" type="search" placeholder="Поиск внутри категории…">
+      <select id="brandFilterCat" class="input"><option value="">Все бренды</option></select>
+      <select id="sortCat" class="input"><option value="cheap">Сначала дешёвые</option><option value="exp">Сначала дорогие</option><option value="profit">По выгоде</option><option value="new">Новинки</option></select>
+      <button class="btn btn-ghost btn-sm" id="viewToggleCat">Список</button>
+    </div>
+    <div class="grid" id="catGrid"></div>
+    <section class="section" id="compatSection" hidden><div class="section-head"><h2 id="compatTitle">Подходящие испарители</h2></div><div class="grid" id="compatGrid"></div></section>
+    <section class="section" id="sticksSection" hidden><div class="section-head"><h2>Подходящие стики</h2></div><div class="grid" id="sticksGrid"></div></section>
+    <section class="section" id="bundleSection" hidden><div class="bundle-box"><div><h2 class="h3">Собрать набор</h2><p class="muted">Устройство + 2 испарителя + жидкость.</p></div><button class="btn btn-primary" id="bundleBtn">Собрать набор</button></div></section>
+    <section class="section" id="recentSectionCat" hidden><div class="section-head"><h2>Недавно смотрели</h2></div><div class="grid" id="recentGridCat"></div></section>
+  </div>
+</section>
+
+<section class="page" id="page-cart" hidden>
+  <div class="container section">
+    <h1>Корзина</h1>
+    <div id="cartEmpty" class="empty" hidden>
+      <p>Пока пусто.</p>
+      <button class="btn btn-primary" id="repeatOrderBtn" style="display:none;margin:0 auto 10px;">Повторить прошлый заказ</button>
+      <a class="btn btn-ghost" href="#catalog">В каталог</a>
+    </div>
+    <div id="cartWrap">
+      <div class="cart-layout">
+        <div>
+          <div id="cartList" class="cart-list"></div>
+          <section class="section" id="crossSection" hidden><div class="section-head"><h2>С этим берут</h2></div><div class="grid" id="crossGrid"></div></section>
+          <section class="section">
+            <h2 class="h3">Данные для заказа</h2>
+            <form id="orderForm" class="form" novalidate onsubmit="return false;">
+              <label class="field"><span>Имя</span><input class="input" name="name" required placeholder="Как к вам обращаться"></label>
+              <label class="field"><span>Телефон</span><input class="input" name="phone" type="tel" required placeholder="+7 (___) ___-__-__" maxlength="18"></label>
+              <label class="field"><span>Город</span><input class="input" name="city" id="orderCityInput" readonly style="opacity:0.75"></label>
+              <label class="field"><span>Адрес</span><input class="input" name="address" required placeholder="Улица, дом, квартира"></label>
+              <label class="field"><span>Удобное время</span><input class="input" name="time" placeholder="Например: сейчас / до 22:00"></label>
+              <p class="small muted">Оплата переводом после оформления заказа. Самовывоза нет.</p>
+            </form>
+          </section>
+          <section class="section">
+            <div class="section-head"><h2 class="h3">Предпросмотр сообщения</h2><button class="btn btn-ghost btn-sm" id="copyOrder">Скопировать заказ</button></div>
+            <pre id="waPreview" class="preview"></pre>
+          </section>
+        </div>
+        <aside class="cart-summary">
+          <div class="summary-card">
+            <div class="summary-row"><span>Товаров</span><b id="sumCount">0</b></div>
+            <div class="summary-row"><span>Скидка</span><b id="discountRow" style="color:#4ADE80">0 ₸</b></div>
+            <div class="summary-row total"><span>Итого</span><b id="sumTotal">0 ₸</b></div>
+            <div style="display:flex;gap:8px;margin:12px 0"><input id="promoInput" class="input input-sm" placeholder="Промокод"><button class="btn btn-ghost btn-sm" id="applyPromoBtn">OK</button></div>
+            <button class="btn btn-primary btn-block" id="orderBtn">Заказать в WhatsApp</button>
+            <p class="small muted" id="orderHint" style="margin-top:8px;text-align:center"></p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+  <div class="cart-bar" id="cartBar" hidden><div><span class="small muted">Итого</span><b id="barTotal">0 ₸</b></div><button class="btn btn-primary" id="barOrder">Заказать</button></div>
+</section>
+
+<section class="page" id="page-guarantee" hidden>
+  <div class="container section">
+    <h1>Гарантия и доставка</h1>
+    <section class="section"><div class="guarantee-steps" id="gSteps"><div class="gstep"><div class="gstep-num">1</div><h3>Получил заказ</h3><p class="muted">Проверь упаковку при курьере. Не вскрывай до начала записи.</p></div><div class="gstep"><div class="gstep-num">2</div><h3>Записал видео распаковки</h3><p class="muted">Непрерывное видео с проверочным номером на упаковке.</p></div><div class="gstep"><div class="gstep-num">3</div><h3>Написал в WhatsApp</h3><p class="muted">В течение 6 часов после получения.</p></div></div></section>
+    <section class="section"><h2>Что покрывает гарантия</h2><ul class="list"><li>Товар не пришёл</li><li>Пришёл не тот товар</li><li>Брак устройства или расходника</li></ul><p class="muted">Решение: замена или возврат — на выбор клиента.</p></section>
+    <section class="section"><h2>Доставка</h2><ul class="list"><li>Доставка 20–50 минут по всему Казахстану</li><li>Самовывоза нет</li><li>Оплата переводом на карту</li><li>Цены везде одинаковые</li></ul></section>
+    <section class="section"><h2>FAQ</h2><div class="faq" id="faq"></div></section>
+  </div>
+</section>
+
+<section class="page" id="page-contacts" hidden>
+  <div class="container section">
+    <h1>О нас</h1>
+    <p class="lead">Night Store — ночной магазин. Работаем круглосуточно, доставляем по всему Казахстану за 20–50 минут. Только оригинал.</p>
+    <section class="section"><div class="cards-3"><div class="info-card"><h3>Оригинал</h3><p class="muted">Работаем с проверенными поставками.</p></div><div class="info-card"><h3>Быстро</h3><p class="muted">Доставка 20–50 минут. Ответ моментальный.</p></div><div class="info-card"><h3>Гарантия</h3><p class="muted">Замена или возврат в течение 6 часов.</p></div></div></section>
+    <section class="section"><h2>Контакты</h2><div class="contact-list"><a class="contact-row" id="cWa" href="#" target="_blank" rel="noopener"><span class="ci">WhatsApp</span><b id="cWaText">—</b></a><a class="contact-row" id="cTg" href="#" target="_blank" rel="noopener"><span class="ci">Telegram-менеджер</span><b>@vibemanagerkz</b></a><a class="contact-row" id="cTgCh" href="#" target="_blank" rel="noopener"><span class="ci">Telegram-канал</span><b>Каталоги</b></a><a class="contact-row" id="cTgRev" href="#" target="_blank" rel="noopener"><span class="ci">Отзывы клиентов</span><b>Telegram</b></a><div class="contact-row"><span class="ci">География</span><b>Весь Казахстан</b></div><div class="contact-row"><span class="ci">График</span><b id="cHours">Круглосуточно</b></div><div class="contact-row"><span class="ci">Часовой пояс</span><b>Asia/Almaty</b></div></div></section>
+    <section class="section"><h2>Полезное</h2><div class="cards-3"><a class="info-card link-card" href="#verify"><h3>Проверка оригинала</h3><p class="muted">Как отличить подделку: QR, защитные элементы.</p></a><a class="info-card link-card" href="#blog"><h3>Блог</h3><p class="muted">5 статей о выборе и уходе за устройствами.</p></a><a class="info-card link-card" href="#guarantee"><h3>Гарантия и доставка</h3><p class="muted">Условия, сроки и FAQ.</p></a></div></section>
+  </div>
+</section>
+
+<section class="page" id="page-verify" hidden>
+  <div class="container section">
+    <h1>Проверка оригинала</h1><p class="lead">Четыре шага, которые занимают минуту.</p>
+    <div class="verify-grid">
+      <div class="vcard"><div class="villus"><svg viewBox="0 0 120 80" width="100%" height="80"><rect x="10" y="10" width="100" height="60" rx="8" fill="#101827" stroke="#3B82F6" stroke-width="2"/><rect x="20" y="22" width="24" height="24" fill="#3B82F6"/><rect x="26" y="28" width="12" height="12" fill="#0B0F19"/><rect x="52" y="22" width="46" height="4" rx="2" fill="#06B6D4"/><rect x="52" y="32" width="34" height="4" rx="2" fill="#334155"/><rect x="20" y="54" width="78" height="4" rx="2" fill="#334155"/></svg></div><h3>1. QR-код</h3><p class="muted">Сканирование ведёт на официальный сайт производителя.</p></div>
+      <div class="vcard"><div class="villus"><svg viewBox="0 0 120 80" width="100%" height="80"><circle cx="60" cy="40" r="26" fill="none" stroke="#06B6D4" stroke-width="3" stroke-dasharray="6 5"/><path d="M48 40 l8 8 l16 -18" fill="none" stroke="#3B82F6" stroke-width="4" stroke-linecap="round"/></svg></div><h3>2. Защитный элемент</h3><p class="muted">Голограмма или скретч-слой должен быть целым.</p></div>
+      <div class="vcard"><div class="villus"><svg viewBox="0 0 120 80" width="100%" height="80"><rect x="22" y="14" width="76" height="52" rx="8" fill="#101827" stroke="#3B82F6" stroke-width="2"/><rect x="34" y="26" width="52" height="6" rx="3" fill="#06B6D4"/><rect x="34" y="38" width="38" height="6" rx="3" fill="#334155"/><rect x="34" y="50" width="46" height="6" rx="3" fill="#334155"/></svg></div><h3>3. Упаковка и шрифт</h3><p class="muted">Ровная печать, чёткие шрифты, отсутствие опечаток.</p></div>
+      <div class="vcard"><div class="villus"><svg viewBox="0 0 120 80" width="100%" height="80"><rect x="16" y="22" width="88" height="36" rx="6" fill="#101827" stroke="#06B6D4" stroke-width="2"/><circle cx="36" cy="40" r="8" fill="#3B82F6"/><rect x="54" y="32" width="38" height="5" rx="2" fill="#334155"/><rect x="54" y="43" width="28" height="5" rx="2" fill="#334155"/></svg></div><h3>4. Проверочный номер</h3><p class="muted">Сфотографируй или запиши на видео номер упаковки.</p></div>
+    </div>
+    <section class="section"><div class="guarantee-mini"><div><h2 class="h3">Сомневаешься?</h2><p class="muted">Пришли фото упаковки в WhatsApp — проверим вместе.</p></div><a class="btn btn-primary" id="verifyWa" href="#" target="_blank" rel="noopener">Написать</a></div></section>
+  </div>
+</section>
+
+<section class="page" id="page-blog" hidden>
+  <div class="container section">
+    <h1>Блог</h1>
+    <article class="post"><h2>Как выбрать одноразку</h2><p class="muted">Смотри на количество затяжек, объём жидкости и бренд. Для новичка хватит 3 000–8 000 затяжек. Считай цену за 1000 затяжек.</p></article>
+    <article class="post"><h2>IQOS или Glo</h2><p class="muted">IQOS ILUMA не требует чистки — нагреватель внутри стика. Glo обычно дешевле в обслуживании и проще в уходе.</p></article>
+    <article class="post"><h2>Солевая или обычная жидкость</h2><p class="muted">Солевая (salt) — крепкая, быстро насыщает, мягче по горлу, подходит для подов. Обычная — для вейпов с высокой мощностью.</p></article>
+    <article class="post"><h2>Как ухаживать за подом</h2><p class="muted">Меняй испаритель раз в 1–2 недели, не допускай сухого хита, протирай контакты, храни вертикально.</p></article>
+    <article class="post"><h2>Что такое затяжки</h2><p class="muted">Затяжка — одно срабатывание устройства. 10 000 затяжек — это примерно 2–3 недели активного использования.</p></article>
+  </div>
+</section>
+
+<section class="page" id="page-404" hidden>
+  <div class="container section center"><div class="err-code">404</div><h1>Эта страница ушла в ночь</h1><p class="lead">Скорее всего, её унесло вместе с последней затяжкой.</p><a class="btn btn-primary btn-lg" href="#catalog">В каталог</a></div>
+</section>
+</main>
+<div id="site-footer"></div>
+<div id="site-nav"></div>
+<div id="modals"></div>
+<div id="toastBox" class="toast-box" role="status" aria-live="polite"></div>
+
+<script>
+/* ==================== БЕЗОПАСНОЕ ХРАНИЛИЩЕ ==================== */
+const store = {
+  get(k, def) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : def; } catch(e){ return def; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} },
+  remove(k) { try { localStorage.removeItem(k); } catch(e){} }
+};
+
+/* ==================== УТИЛИТЫ ==================== */
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function money(n){ return Number(n || 0).toLocaleString('ru-RU').replace(/\u00A0/g, ' ') + ' ₸'; }
+const CATS = [{id:'disposable',name:'Одноразки'},{id:'snus',name:'Снюс'},{id:'glo',name:'Glo'},{id:'iqos',name:'IQOS'},{id:'ploom',name:'Ploom'},{id:'sticks',name:'Стики'},{id:'liquid',name:'Жидкости'},{id:'vape',name:'Вейпы'},{id:'pod',name:'Поды'},{id:'coil',name:'Испарители'}];
+function catName(id){ const c = CATS.find(x => x.id === id); return c ? c.name : id; }
+
+function showToast(text, actionLabel, action){
+  let box = document.getElementById('toastBox');
+  if (!box){ box = document.createElement('div'); box.id = 'toastBox'; box.className = 'toast-box'; box.setAttribute('role','status'); box.setAttribute('aria-live','polite'); document.body.appendChild(box); }
+  const el = document.createElement('div'); el.className = 'toast'; el.innerHTML = '<span>' + esc(text) + '</span>';
+  if (actionLabel){ const b = document.createElement('button'); b.className = 'toast-btn'; b.textContent = actionLabel; b.onclick = function(){ action && action(); el.remove(); }; el.appendChild(b); }
+  box.appendChild(el); setTimeout(() => el.classList.add('show'), 10);
+  setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 300); }, 3500);
+}
+function track(event, data) { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event, ...data }); }
+
+const SYN = {'элф бар':'elf bar','эльф бар':'elf bar','эльфбар':'elf bar','елф бар':'elf bar','вака':'waka','айкосс':'iqos','айкос':'iqos','гло':'glo','плоом':'ploom','плум':'ploom','снюс':'snus','жижка':'liquid','жидкость':'liquid','вейп':'vape','одноразки':'disposable','одноразка':'disposable','стики':'sticks','стик':'sticks','испарители':'coil','испаритель':'coil','картриджи':'coil','картридж':'coil'};
+const SYN_KEYS = Object.keys(SYN).sort((a, b) => b.length - a.length);
+function normQ(q){ let s = String(q||'').toLowerCase().trim(); SYN_KEYS.forEach(k => s = s.split(k).join(SYN[k])); return s; }
+function matchText(p, q){
+  if (!q) return true;
+  const raw = String(q).toLowerCase().trim();
+  const nq = normQ(raw);
+  const hasVariant = p.variants && p.variants.some(v => v.name.toLowerCase().includes(raw) || v.name.toLowerCase().includes(nq));
+  const hay = (p.name + ' ' + p.brand + ' ' + catName(p.cat) + ' ' + p.cat).toLowerCase();
+  return hay.indexOf(raw) >= 0 || hay.indexOf(nq) >= 0 || hasVariant;
+}
+
+/* ==================== БАЗА ДАННЫХ ==================== */
+const PRODUCTS = []; let __pid = 0;
+function addP(o){ __pid++; PRODUCTS.push(Object.assign({ id:'p'+__pid, cat:'', brand:'', name:'', price:0, old:0, variantType:'flavor', variants:[], puffs:0, tags:[], compat:[], forCat:'', unit:'', stock:true }, o)); }
+function FL(){ return Array.prototype.slice.call(arguments).map(function(x){ return {name:x}; }); }
+function colorOf(n){ const m = {'Чёрный':'#111827','Черный':'#111827','Черный гранит':'#0F172A','Графитовый чёрный':'#1F2937','Midnight Black':'#0F172A','Синий':'#3B82F6','Насыщенный синий':'#1E40AF','Тёмно-синий':'#1E3A8A','Голубой':'#60A5FA','Синий градиент':'#1E3A8A','Небесно-голубой':'#87CEEB','Лазурный':'#0EA5E9','Бирюзовый':'#14B8A6','Сумеречный синий':'#1E293B','Белый':'#F3F4F6','Бежевый':'#F5F5DC','Серый':'#9CA3AF','Тёплый серый':'#78716C','Бархатный серый':'#6B7280','Тёмно-серый':'#374151','Серый камень':'#6B7280','Красный':'#EF4444','Красная аура':'#DC2626','Бордовый':'#7F1D1D','Терракотовый':'#C2410C','Оранжевый':'#EA580C','Розовый':'#EC4899','Розовое золото':'#F472B6','Фуксия':'#D946EF','Зелёный':'#22C55E','Фисташковый':'#84CC16','Тёмно-зелёный':'#166534','Зелёный камуфляж':'#4D7C0F','Золотой':'#EAB308','Шампань / Золотой':'#FCD34D','Туманное золото':'#D97706','Фиолетовый':'#A855F7','Пурпурный':'#7C3AED','Серебристый':'#D1D5DB','Stardread (Серебристый)':'#D1D5DB','Мятный':'#A7F3D0','Янтарный оранжевый':'#EA580C','Бронзовый':'#B45309','Bronze (Бронзовый)':'#B45309','Copper (Медный)':'#B87333','Черно-золотой':'#1F2937','Красно-синий':'#6D28D9','Чёрный градиент':'#1F2937'}; return m[n] || '#3B82F6'; }
+
+function D(brand, name, price, puffs, flavors, tags, stock){ addP({cat:'disposable', brand, name, price, puffs, tags: tags||[], variants: FL.apply(null, flavors), stock: stock !== false}); }
+D('Elf Bar','Elf Bar BC5000 Ultra',6000,5000,['Малина лимон','Черника лёд','Груша','Апельсин манго','Клубника арбуз','Лесные ягоды'],['new']);
+D('Waka','Waka Mirror 4500',7500,4500,['Ананасовая колада','Гранат яблоко','Арбуз','Кока-кола','Грейпфрут','Мята']);
+D('Elf Bar','Elf Bar TE 6000',7500,6000,['Яблоко персик','Сочный персик','Мята со льдом','Арбуз','Виноград']);
+D('Waka','Waka Smash 6000',8600,6000,['Яблоко лёд','Ананас кокос','Мята виноград','Вишня кола','Личи','Киви клубника']);
+D('Elf Bar','Elf Bar BC 10000',9200,10000,['Киви маракуйя','Арбуз клубника','Манго ананас','Виноград лёд','Персик манго','Личи малина','Яблоко груша','Черника лимон','Дыня арбуз','Апельсин лёд'],['hit']);
+D('Waka','Waka SoPro DM8000',10100,8000,['Голубая малина виноград','Клубника малина вишня','Черника малина гранат','Вишнёвая шипучка','Клубника виноград','Ягодный кальян','Ягодный микс','Клубника киви','Арбуз яблоко','Арбуз вишня','Арбуз киви','Черника','Ежевика','Арбуз','Мята']);
+D('Waka','Waka Smash 2 M8000',10100,8000,['Киви питайя ягоды','Тройной виноград','Лимонад клюква','Сакура виноград','Клюква виноград','Клубника арбуз','Черника гранат','Арбуз вишня','Лимон лайм','Вишня','Арбуз','Мята','Манго маракуйя'],['new','hit']);
+D('Waka','Waka SoPro DM8000i',10400,8000,['Клубника малина вишня','Ягодный кальян','Арбуз яблоко','Арбуз вишня','Вишня лайм','Черника','Капучино','Клубника','Дюшес','Вишня','Арбуз','Мята']);
+D('Waka','Waka SoPro PA10000',10900,10000,['Вишня','Арбуз','Мята','Ягодный тархун','Лимонад кактус апельсин','Гуава малина','Киви маракуйя гуава','Кислое яблоко','Яблочная волна','Киви шелковица','Чёрная смородина мята','Виноград яблоко','Сакура виноград'],['hit']);
+D('Elf Bar','Elf Bar BC 15000',10900,15000,['Малина лёд','Гранат','Манго персик','Черника клубника','Арбуз киви','Ананас манго','Виноград черника','Лимонад лайм'],['new','hit']);
+D('Elf Bar','Elf Bar FS 18000',12100,18000,['Вишня персик лимонад','Голубая малина лимон','Киви ананас лёд','Апельсин арбуз','Виноград вишня','Черника клюква','Черника малина','Виноград малина','Гранат кокос','Клубника виноград','Арбуз лимон','Персик ягоды','Двойное яблоко','Виноград лёд','Черника лёд','Лимон мята','Арбуз лёд','Клюква'],['new','hit']);
+D('Waka','Waka PA10000 Pro',13200,10000,['Ананас гранат','Арбуз кислый персик','Банан мята','Виноград клюква','Вишня чёрная смородина','Горная мята','Грейпфрут лайм','Дыня арбуз лёд','Кислая ежевика лёд','Кислый виноград лёд','Клубника вишня малина','Ледяной арбуз','Персик зелёный виноград']);
+D('Elf Bar','Elf Bar GH 23000',13800,23000,['Зелёная слива кислый лайм','Клубника арбуз бабл гам','Кислый арбуз конфеты','Малина арбуз лимон','Зелёное яблоко лёд','Голубая малина лёд','Жасмин малина','Пурпурная мята','Полярная мята','Виноград лёд','Яблоко груша','Арбуз вишня','Вишня кола','Арбуз лёд'],['new']);
+D('Puffmi','Puffmi Flora 25000',14400,25000,['Чернично-розовый лимонад','Черника малина','Сочный персик','Мятный ментос','Мохито личи','Лаймовый энергетик','Красный грейпфрут','Клубника киви','Йогурт с дыней','Зелёный чай с маракуйей','Ежевика вишня','Двойное яблоко'],['new']);
+D('Waka','Waka PA 25000',14700,25000,['Кислые фрукты гамми','Голубая малина ежевика','Киви маракуйя гуава','Тройные ягоды','Клюква виноград','Черника малина','Зелёный виноград','Клубника киви','Лимон лайм','Тройное манго','Кислое яблоко','Вишня','Арбуз','Мята'],['hit']);
+D('Waka','Waka Aerovibe AE 20000',15000,20000,['Виноградная жвачка','Тройной виноград','Черничный энергетик','Клубника виноград','Малиновый напиток','Зелёный виноград','Клубника малина','Ледяной арбуз','Кислая ягода','Кислое яблоко','Черника малина','Ягодная кола','Тройная ягода','Ягодная мята','Лимон лайм','Вишня','Мята'],['new']);
+D('Waka','Waka SoPro 20000',16000,20000,['Тройная ягода','Арбуз','Клубника арбуз','Клубника малина','Арбуз вишня','Клюква виноград','Минеральная вода','Клубника киви','Клубника виноград','Черника вишня клюква','Мята','Ежевика черника малина','Вишня','Сакура виноград'],['hit']);
+D('Elf Bar','Elf Bar Planet 25000',16700,25000,['Белый персик ананас манго','Клюква апельсин цитрусы','Ананас маракуйя лайм','Кислая ежевика голубика','Зелёный чай грейпфрут','Морской бриз мята','Двойной персик лайм','Двойное яблоко','Арбуз вишня','Вишня лайм','Ананас арбуз','Лимон лайм','Персик','Арбуз'],['new']);
+D('Waka','Waka 30000',17800,30000,['Земляника','Зелёный виноград','Мята','Клубника виноград','Арбуз','Клубника малина','Ментоловая черника малина','Черника малина','Тройная ягода']);
+D('Waka','Waka E.T 35000',18400,35000,['Виноградный мармелад','Черника малина ментол','Клубника виноград','Ледяной кокос']);
+D('Waka','Waka Blast 38000',18400,38000,['Виноград грейпфрут + лаймовая содовая','Микс ягод + лимонная содовая','Клубника + лимонная содовая','Виноградная конфета + лёд','Черника малина + ментол','Тройная ягода + лёд','Черника малина + лёд','Кислое яблоко + лёд','Клубника киви + лёд','Клубника арбуз + лёд','Клубника + ваниль','Лимон лайм + ментол','Энергетик + лимон','Кола + лимон','Вишня + лёд','Арбуз + лёд','Ментол + лёд'],['new']);
+D('Waka','Waka 60000',20100,60000,['Арбуз','Арбузная жвачка','Виноград','Ежевика мята','Кислое яблоко','Клубника','Лимон лайм','Микс ягод','Минеральная вода','Персик манго арбуз','Свежая мята','Тёмная вишня','Черника']);
+D('Waka','Waka Titan 18000',14900,18000,['Арбуз','Черника','Виноград','Мята','Клубника киви'],['new','hit']);
+D('Waka','Waka Smash Max 30000',15200,30000,['Двойное яблоко','Манго','Персик','Лимон лайм'],['new']);
+D('Waka','Waka Ultra 40000',19400,40000,['Вишня кола','Голубая малина','Клубника лёд','Тройная ягода'],['new','hit']);
+D('Elf Bar','Elf Bar Raya D3 25000',17600,25000,['Вишня','Арбуз','Виноград','Персик манго'],['new','hit']);
+D('Elf Bar','Elf Bar Pulse 20000',16000,20000,['Голубая малина лёд','Клубника киви','Арбуз','Мята Майами'],['new']);
+D('Elf Bar','Elf Bar FS 20000',16300,20000,['Черника лёд','Персик ягоды','Вишнёвый лимонад','Клубника банан'],['new']);
+D('Elf Bar','Elf Bar GH 30000',18800,30000,['Малина черника','Кислое яблоко','Вишня кола','Виноград'],['new']);
+D('Elf Bar','Elf Bar Ultra 30000',19100,30000,['Клубника лёд','Арбуз','Киви маракуйя гуава','Мята'],['new']);
+D('Elf Bar','Elf Bar Pulse X 30000',19400,30000,['Голубая малина лёд','Мята Майами','Персик ягоды','Клубника киви'],['new','hit']);
+D('Waka','Waka Z7000',10500,7000,['Черника','Лимон','Мята']);
+D('Waka','Waka Mini 3000',8000,3000,['Клубника','Манго'],[],false); // Товар временно не в наличии
+D('HQD','HQD Ultima 8000',9500,8000,['Арбуз','Манго','Мята']);
+D('HQD','HQD Cuvie Plus 1200',8000,1200,['Клубника','Мята']);
+D('HQD','HQD King 6000',9000,6000,['Виноград','Лимон']);
+D('HQD','HQD Zero 2000',8000,2000,['Яблоко','Мята']);
+D('Lost Mary','Lost Mary OS5000',9500,5000,['Клубника киви','Арбуз','Мята']);
+D('Lost Mary','Lost Mary BM6000',10000,6000,['Манго','Виноград']);
+D('ELFX','ELFX 20000',14000,20000,['Голубика','Дыня','Лёд'],['hit']);
+D('Geek Bar','Geek Bar Pulse 15000',13500,15000,['Арбуз','Кола','Мята']);
+D('Geek Bar','Geek Bar Pulse X 25000',17000,25000,['Клубника','Манго','Лёд'],['new']);
+D('Vozol','Vozol Gear 10000',11500,10000,['Персик','Черника','Мята']);
+D('Vozol','Vozol Star 12000',12500,12000,['Арбуз','Виноград','Лёд']);
+D('Vozol','Vozol Neon 20000',15000,20000,['Манго','Кола']);
+D('Maskking','Maskking High GT 4500',8500,4500,['Клубника','Мята']);
+D('Maskking','Maskking Aroma 5000',9000,5000,['Дыня','Лимон']);
+D('Bang','Bang Box 12000',12000,12000,['Арбуз','Черника','Мята']);
+D('Fizzy','Fizzy Bar 8000',10000,8000,['Кола','Клубника']);
+D('Chill','Chill Bar 10000',11000,10000,['Манго','Мята']);
+D('Brusko','Brusko Bar 8000',10500,8000,['Виноград','Лёд']);
+D('Ozean','Ozean 10000',11500,10000,['Персик','Киви','Мята']);
+D('RandM','RandM Tornado 9000',12000,9000,['Арбуз','Кола','Мята']);
+D('RandM','RandM Tornado 15000',14500,15000,['Клубника','Манго']);
+D('Air Bar','Air Bar AB10000',11000,10000,['Голубика','Лёд']);
+D('Puff Bar','Puff Bar 5000',8500,5000,['Клубника','Мята']);
+
+function S(brand, name, price, unit, flavors){ addP({cat:'snus', brand, name, price, unit, variants: FL.apply(null, flavors)}); }
+S('Delta','Delta Snus',4600,'Шайба',['Red Bull','Adrenaline']);
+S('Siberia','Siberia Snus',4600,'Шайба',['Мята']);
+S('KASTA','KASTA Snus 125mg',4800,'125 мг',['Orange Candy','Cherry Lemonade','Citron Ice','Tropic Bubblegum','Lemon Hard','Apple Acid']);
+S('Iceberg','Iceberg Snus',4800,'Шайба',['Мята','Ягоды','Цитрус']);
+S('Стиль','Стиль Snus',4600,'Шайба',['Мята','Лимон','Яблоко']);
+S('Zyn','Zyn Nicotine Pouches',5200,'Никотиновые пакеты',['Cool Mint','Citrus','Spearmint','Cola']);
+S('Velo','Velo Nicotine Pouches',5200,'Никотиновые пакеты',['Ice Cool','Freeze','Berry Frost','Mighty Peppermint']);
+S('Odens','Odens Snus',5200,'Шайба',['Cola','Cold Dry','Ice Cool','Peppermint']);
+
+function DEV(cat, brand, name, price, colors, unit){ addP({cat, brand, name, price, variantType:'color', unit, variants: colors.map(function(c){ return {name:c, color:colorOf(c)}; })}); return PRODUCTS[PRODUCTS.length-1].id; }
+const DEV_UNIT = 'Документы + зарядка + пачка стиков';
+const gloIds = [];
+gloIds.push(DEV('glo','Glo','Glo pro',8900,['Чёрный','Шампань / Золотой','Фисташковый','Голубой'],DEV_UNIT));
+gloIds.push(DEV('glo','Glo','Glo AIR',8600,['Небесно-голубой','Тёмно-синий','Белый','Розовое золото'],DEV_UNIT));
+gloIds.push(DEV('glo','Glo','Glo apex plus',17800,['Чёрный','Серебристый','Синий'],'Документы + зарядка + 4 пачки стиков'));
+gloIds.push(DEV('glo','Glo','Glo Hyper X2',13200,['Графитовый чёрный','Зелёный камуфляж','Янтарный оранжевый','Сумеречный синий','Красная аура','Туманное золото','Мятный'],DEV_UNIT));
+gloIds.push(DEV('glo','Glo','Glo Hilo',15500,['Чёрный','Серебристый','Тёмно-синий','Золотой','Белый'],DEV_UNIT));
+gloIds.push(DEV('glo','Glo','Glo Series 2',9800,['Чёрный','Белый','Серый','Синий','Красный','Розовый'],DEV_UNIT));
+gloIds.push(DEV('glo','Glo','Glo Series 2 Mini',9200,['Чёрный','Белый','Голубой','Розовый','Фиолетовый'],DEV_UNIT));
+gloIds.push(DEV('glo','Glo','Glo Nano',8600,['Чёрный','Белый','Синий','Красный'],DEV_UNIT));
+gloIds.push(DEV('glo','Glo','Glo Hyper Air',8500,['Чёрный','Серый'],DEV_UNIT));
+gloIds.push(DEV('glo','Glo','Glo Slim',9000,['Чёрный','Розовый','Синий'],DEV_UNIT));
+gloIds.push(DEV('glo','Glo','Glo Pro S',10000,['Чёрный','Синий'],DEV_UNIT));
+gloIds.push(DEV('glo','Glo','Glo Apex',14000,['Чёрный','Бордовый','Белый'],DEV_UNIT));
+gloIds.push(DEV('glo','Glo','Glo Hyper Pro Midnight',16400,['Midnight Black'],DEV_UNIT));
+gloIds.push(DEV('glo','Glo','Glo Hyper X2 Slim',13300,['Чёрный','Серебристый','Синий'],DEV_UNIT));
+gloIds.push(DEV('glo','Glo','Glo Pro Slim',10500,['Чёрный','Белый','Синий'],DEV_UNIT));
+gloIds.push(DEV('glo','Glo','Glo Hyper Plus Uniq',14900,['Чёрный','Зелёный','Оранжевый'],DEV_UNIT));
+gloIds.push(DEV('glo','Glo','Glo Series 2 Mini Limited',10600,['Чёрный','Золотой'],DEV_UNIT));
+addP({cat:'sticks', brand:'Neo', name:'Стики Neo (блок 10 пачек)', price:6900, variants: FL('Classic Tobacco','Rich Tobacco','Gold Tobacco','True Tobacco','Terracotta Tobacco','Violet','Green','Yellow','Ultramarine','Beryl Click','Tropic Click','Blue Frost'), compat: gloIds, unit:'Блок 10 пачек'});
+addP({cat:'sticks', brand:'MC', name:'Стики MC Micro (блок 10 пачек)', price:6900, variants: FL('Classic Tobacco','Mint','Lemon'), compat: gloIds, unit:'Блок 10 пачек'});
+
+const iqosIds = [];
+iqosIds.push(DEV('iqos','IQOS','IQOS ILUMA i PRIME',13200,['Бронзовый','Тёмно-зелёный','Черный гранит','Золотой'],DEV_UNIT));
+iqosIds.push(DEV('iqos','IQOS','IQOS 2.4',11000,['Чёрный','Белый'],DEV_UNIT));
+iqosIds.push(DEV('iqos','IQOS','IQOS ILUMA i ONE',14200,['Чёрный','Синий','Серый камень','Фиолетовый'],DEV_UNIT));
+iqosIds.push(DEV('iqos','IQOS','IQOS ILUMA PRIME',10500,['Чёрный','Бордовый','Белый'],DEV_UNIT));
+iqosIds.push(DEV('iqos','IQOS','IQOS ILUMA ONE',8500,['Чёрный','Серый'],DEV_UNIT));
+iqosIds.push(DEV('iqos','IQOS','IQOS ILUMA',9500,['Чёрный','Синий'],DEV_UNIT));
+iqosIds.push(DEV('iqos','IQOS','IQOS 3 DUO',10400,['Тёплый серый','Бархатный серый','Чёрный','Белый','Синий','Фуксия'],DEV_UNIT));
+iqosIds.push(DEV('iqos','IQOS','IQOS 3',11500,['Чёрный','Серый'],DEV_UNIT));
+iqosIds.push(DEV('iqos','IQOS','IQOS ILUMA i',15500,['Чёрный','Бежевый','Лазурный','Зелёный','Терракотовый','Серебристый'],DEV_UNIT));
+iqosIds.push(DEV('iqos','IQOS','IQOS 2.4 Plus',12700,['Белый','Чёрный','Тёмно-синий'],DEV_UNIT));
+iqosIds.push(DEV('iqos','IQOS','IQOS 3 Multi',9800,['Чёрный','Белый','Тёмно-синий','Серый','Красный'],DEV_UNIT));
+iqosIds.push(DEV('iqos','IQOS','IQOS Originals Duo',9200,['Белый','Чёрный','Синий','Бирюзовый','Розовый','Красный'],DEV_UNIT));
+iqosIds.push(DEV('iqos','IQOS','IQOS ILUMA ONE Stardread',13300,['Stardread (Серебристый)'],DEV_UNIT));
+iqosIds.push(DEV('iqos','IQOS','IQOS 3 DUO Exclusive Copper',13000,['Copper (Медный)'],DEV_UNIT));
+iqosIds.push(DEV('iqos','IQOS','IQOS ILUMA Prime WE Edition',18200,['Чёрный'],DEV_UNIT));
+iqosIds.push(DEV('iqos','IQOS','IQOS 2.4 Plus Protect',13100,['Чёрный','Белый','Синий'],DEV_UNIT));
+addP({cat:'sticks', brand:'TEREA', name:'Стики TEREA (блок 10 пачек)', price:6900, variants: FL('Amber','Yellow','Russet','Sienna','Bronze','Turquoise','Silver','Purple Wave','Green Zing'), compat: iqosIds, unit:'Блок 10 пачек'});
+addP({cat:'sticks', brand:'TEREA', name:'Стики TEREA Dimensions (блок 10 пачек)', price:6900, variants: FL('Amber','Yellow','Silver','Purple Wave'), compat: iqosIds, unit:'Блок 10 пачек'});
+addP({cat:'sticks', brand:'HEETS', name:'Стики HEETS (блок 10 пачек)', price:6900, variants: FL('Amber','Yellow','Bronze','Russet','Turquoise','Silver','Purple Wave','Green Zing'), compat: iqosIds, unit:'Блок 10 пачек'});
+addP({cat:'sticks', brand:'FIIT', name:'Стики FIIT (блок 10 пачек)', price:6900, variants: FL('Regular','Mint','Berry'), compat: iqosIds, unit:'Блок 10 пачек'});
+
+const ploomIds = [];
+ploomIds.push(DEV('ploom','Ploom','Ploom X',9500,['Чёрный','Синий'],DEV_UNIT));
+ploomIds.push(DEV('ploom','Ploom','Ploom X Advanced',10900,['Чёрный','Серебристый','Синий','Розовый','Золотой','Зелёный'],DEV_UNIT));
+ploomIds.push(DEV('ploom','Ploom','Ploom S 2.0',8500,['Чёрный','Красный'],DEV_UNIT));
+ploomIds.push(DEV('ploom','Ploom','Ploom Tech+',9000,['Чёрный','Белый'],DEV_UNIT));
+ploomIds.push(DEV('ploom','Ploom','Ploom S',8000,['Чёрный','Серый'],DEV_UNIT));
+ploomIds.push(DEV('ploom','Ploom','Ploom X Neo',10500,['Чёрный','Синий','Белый'],DEV_UNIT));
+ploomIds.push(DEV('ploom','Ploom','Ploom Tech',8500,['Чёрный','Белый'],DEV_UNIT));
+ploomIds.push(DEV('ploom','Ploom','Ploom AURA',13200,['Чёрный','Белый','Синий','Бежевый','Серебристый','Розовый'],DEV_UNIT));
+ploomIds.push(DEV('ploom','Ploom','Ploom Cube',9800,['Чёрный','Серебристый','Синий','Белый','Красный'],DEV_UNIT));
+ploomIds.push(DEV('ploom','Ploom','Ploom X Advanced Satin Silver',12700,['Серебристый'],DEV_UNIT));
+ploomIds.push(DEV('ploom','Ploom','Ploom X Advanced Navy Blue',12300,['Тёмно-синий'],DEV_UNIT));
+ploomIds.push(DEV('ploom','Ploom','Ploom X Model S',10500,['Чёрный','Серебристый'],DEV_UNIT));
+ploomIds.push(DEV('ploom','Ploom','Ploom AURA Limited Bronze',15300,['Бронзовый'],DEV_UNIT));
+addP({cat:'sticks', brand:'EVO', name:'Стики EVO (блок 10 пачек)', price:6900, variants: FL('Bronze','Amber','Gold','Мята'), compat: ploomIds, unit:'Блок 10 пачек'});
+addP({cat:'sticks', brand:'SOBRANIE', name:'Стики SOBRANIE (блок 10 пачек)', price:6900, variants: FL('Original','Menthol','Cherry'), compat: ploomIds, unit:'Блок 10 пачек'});
+
+const modIds = [];
+function MOD(brand, model, price, colors){ const id = DEV('vape', brand, brand+' '+model, price, colors); modIds.push(id); }
+MOD('Voopoo','Drag 4',25000,['Чёрный','Синий','Серебристый']); MOD('Voopoo','Argus Pro',18000,['Чёрный','Синий','Серебристый']); MOD('Vaporesso','Gen 200',22000,['Чёрный','Синий','Серебристый']); MOD('Vaporesso','Target 100',20000,['Чёрный','Синий','Серебристый']); MOD('Geekvape','Aegis Legend 3',24000,['Чёрный','Синий','Серебристый']); MOD('Geekvape','Sonder U',12000,['Чёрный','Синий','Серебристый']); MOD('Smok','Nord 5',15000,['Чёрный','Синий','Серебристый']); MOD('Smok','Morph 3',23000,['Чёрный','Синий','Серебристый']); MOD('Uwell','Crown 5',21000,['Чёрный','Синий','Серебристый']); MOD('Freemax','Maxus 3',20000,['Чёрный','Синий','Серебристый']); MOD('Lost Vape','Centaurus',26000,['Чёрный','Синий','Серебристый']);
+
+const podStyleVapeIds = { xros: [] };
+podStyleVapeIds.xros.push(DEV('vape','Vaporesso','Vaporesso XROS 3 MINI',9800,['Чёрный','Серебристый','Тёмно-серый','Насыщенный синий','Розовый','Черно-золотой'],'Вейп + зарядка + 2 картриджа'));
+podStyleVapeIds.xros.push(DEV('vape','Vaporesso','Vaporesso XROS 4 MINI',10400,['Чёрный','Серебристый','Синий','Зелёный','Розовый'],'Набор: Vape + 2 картриджа + баночка жидкости + Type-C'));
+podStyleVapeIds.charon = DEV('vape','Smoant','Smoant Charon Baby',12700,['Серебристый','Чёрный','Синий','Красно-синий'],'Картридж + Type-C + 2 испарителя');
+podStyleVapeIds.xros.push(DEV('vape','Vaporesso','Vaporesso XROS PRO',13200,['Чёрный','Серебристый','Синий','Красный','Зелёный','Золотой'],'Вейп + зарядка + 2 картриджа'));
+podStyleVapeIds.caliburn = DEV('vape','Uwell','Uwell Caliburn G3',13800,['Чёрный','Серебристый','Тёмно-синий','Красный','Розовый','Фиолетовый'],'Вейп + Type-C + 2 картриджа');
+podStyleVapeIds.vmate = DEV('vape','Voopoo','Voopoo Vmate Pro',12100,['Чёрный','Серебристый','Синий','Зелёный','Розовый','Красный','Фиолетовый'],'Вейп + Type-C + 2 картриджа');
+podStyleVapeIds.novo = DEV('vape','Smok','Smok Novo 5',10900,['Чёрный','Серебристый','Синий','Красный','Розовый','Зелёный'],'Вейп + Type-C + 2 картриджа');
+podStyleVapeIds.xros3 = DEV('vape','Vaporesso','Vaporesso XROS 3',11200,['Чёрный','Серебристый','Синий','Красный','Розовый'],'Вейп + Type-C + 2 картриджа');
+podStyleVapeIds.luxe = DEV('vape','Vaporesso','Vaporesso Luxe Q2',12500,['Чёрный','Серебристый','Синий','Зелёный'],'Вейп + Type-C + 2 картриджа');
+podStyleVapeIds.pasito = DEV('vape','Smoant','Smoant Pasito Mini',11800,['Чёрный','Серебристый','Синий'],'Вейп + Type-C + 2 картриджа');
+podStyleVapeIds.levin = DEV('vape','Smoant','Smoant Levin',10500,['Чёрный градиент','Синий градиент','Серебристый'],'Вейп + Type-C + 2 картриджа');
+podStyleVapeIds.argus = DEV('vape','Voopoo','Voopoo Argus Pod SE',11500,['Чёрный','Серебристый','Синий','Зелёный'],'Вейп + Type-C + 2 картриджа');
+podStyleVapeIds.sonder = DEV('vape','Geekvape','Geekvape Sonder Q',8900,['Чёрный','Серебристый','Синий','Красный'],'Вейп + Type-C + 2 картриджа');
+podStyleVapeIds.weax = DEV('vape','Geekvape','Geekvape WEAX',9500,['Чёрный','Серебристый','Красный'],'Вейп + Type-C + 2 картриджа');
+
+const podIds = [];
+function POD(brand, model, price, colors){ const id = DEV('pod', brand, brand+' '+model, price, colors); podIds.push(id); }
+POD('Uwell','Caliburn A3',12000,['Чёрный','Синий','Розовый']); POD('Vaporesso','Xros 4',13000,['Чёрный','Синий','Розовый']); POD('Vaporesso','Luxe XR Max',14000,['Чёрный','Синий','Розовый']); POD('Voopoo','Argus Pod',10000,['Чёрный','Синий','Розовый']); POD('Smok','Nord C',11000,['Чёрный','Синий','Розовый']); POD('Geekvape','Sonder Q',9000,['Чёрный','Синий','Розовый']); POD('Geekvape','Wenax Q',10500,['Чёрный','Синий','Розовый']); POD('Elf Bar','Elfa Pro',8500,['Чёрный','Синий','Розовый']); POD('Lost Vape','Ursa Pocket',12500,['Чёрный','Синий','Розовый']); POD('OXVA','Xlim Pro',11500,['Чёрный','Синий','Розовый']);
+
+modIds.forEach(function(id){ const d = PRODUCTS.find(function(p){ return p.id === id; }); addP({cat:'coil', brand:d.brand, name:'Испарители для '+d.name+' (блок 5 шт)', price:8600, variants: FL('0.6 Ω','0.8 Ω','1.0 Ω'), compat:[id], forCat:'vape', unit:'Блок 5 шт'}); });
+podIds.forEach(function(id){ const d = PRODUCTS.find(function(p){ return p.id === id; }); addP({cat:'coil', brand:d.brand, name:'Картриджи для '+d.name+' (блок 5 шт)', price:8600, variants: FL('0.6 Ω','0.8 Ω','1.2 Ω'), compat:[id], forCat:'pod', unit:'Блок 5 шт'}); });
+addP({cat:'coil', brand:'Vaporesso', name:'Картриджи для XROS 3 MINI / 4 MINI / PRO (блок 5 шт)', price:8600, variants: FL('0.6 Ω','0.8 Ω','1.0 Ω'), compat: podStyleVapeIds.xros, forCat:'vape', unit:'Блок 5 шт'});
+addP({cat:'coil', brand:'Smoant', name:'Картриджи для Charon Baby (блок 5 шт)', price:8600, variants: FL('0.8 Ω','1.0 Ω'), compat:[podStyleVapeIds.charon], forCat:'vape', unit:'Блок 5 шт'});
+addP({cat:'coil', brand:'Uwell', name:'Картриджи для Caliburn G3 (блок 5 шт)', price:8600, variants: FL('0.6 Ω','0.9 Ω'), compat:[podStyleVapeIds.caliburn], forCat:'vape', unit:'Блок 5 шт'});
+addP({cat:'coil', brand:'Voopoo', name:'Картриджи для Vmate Pro (блок 5 шт)', price:8600, variants: FL('0.7 Ω','1.2 Ω'), compat:[podStyleVapeIds.vmate], forCat:'vape', unit:'Блок 5 шт'});
+addP({cat:'coil', brand:'Smok', name:'Картриджи для Novo 5 (блок 5 шт)', price:8600, variants: FL('0.8 Ω','1.0 Ω'), compat:[podStyleVapeIds.novo], forCat:'vape', unit:'Блок 5 шт'});
+addP({cat:'coil', brand:'Vaporesso', name:'Картриджи для XROS 3 (блок 5 шт)', price:8600, variants: FL('0.6 Ω','0.8 Ω','1.0 Ω'), compat:[podStyleVapeIds.xros3], forCat:'vape', unit:'Блок 5 шт'});
+addP({cat:'coil', brand:'Vaporesso', name:'Картриджи для Luxe Q2 (блок 5 шт)', price:8600, variants: FL('0.6 Ω','0.8 Ω'), compat:[podStyleVapeIds.luxe], forCat:'vape', unit:'Блок 5 шт'});
+addP({cat:'coil', brand:'Smoant', name:'Картриджи для Pasito Mini (блок 5 шт)', price:8600, variants: FL('0.6 Ω','0.8 Ω','1.2 Ω'), compat:[podStyleVapeIds.pasito], forCat:'vape', unit:'Блок 5 шт'});
+addP({cat:'coil', brand:'Smoant', name:'Картриджи для Levin (блок 5 шт)', price:8600, variants: FL('0.6 Ω','0.8 Ω'), compat:[podStyleVapeIds.levin], forCat:'vape', unit:'Блок 5 шт'});
+addP({cat:'coil', brand:'Voopoo', name:'Картриджи для Argus Pod SE (блок 5 шт)', price:8600, variants: FL('0.7 Ω','1.2 Ω'), compat:[podStyleVapeIds.argus], forCat:'vape', unit:'Блок 5 шт'});
+addP({cat:'coil', brand:'Geekvape', name:'Картриджи для Sonder Q (блок 5 шт)', price:8600, variants: FL('0.6 Ω','0.8 Ω'), compat:[podStyleVapeIds.sonder], forCat:'vape', unit:'Блок 5 шт'});
+addP({cat:'coil', brand:'Geekvape', name:'Картриджи для WEAX (блок 5 шт)', price:8600, variants: FL('0.6 Ω','0.8 Ω'), compat:[podStyleVapeIds.weax], forCat:'vape', unit:'Блок 5 шт'});
+
+function L(brand, name, price, flavors){ addP({cat:'liquid', brand, name, price, variants: FL.apply(null, flavors)}); }
+L('Jam Monster','Jam Monster Salt 30мл 20мг',5500,['Клубника','Черника','Яблоко']); L('Jam Monster','Jam Monster 60мл 3мг',6000,['Клубника','Виноград']); L('Jam Monster','Jam Monster 100мл 3мг',7500,['Клубника','Голубика','Малина','Персик']); L('Nasty Juice','Nasty Juice Salt 30мл 35мг',5800,['Манго','Киви','Лёд']); L('Nasty Juice','Nasty Juice 60мл 6мг',6200,['Манго','Арбуз']); L('Nasty Juice','Nasty Juice 60мл 3мг',6300,['Манго','Клубника Лёд','Ежевика','Киви Драгонфрут']); L('BAD Drip','BAD Drip Salt 30мл 25мг',5600,['Кола','Клубника']); L('BAD Drip','BAD Drip 60мл 3мг',6000,['Кола','Дыня']); L('Chaser','Chaser 60мл 6мг',5900,['Персик','Лимон']); L('VGOD','VGOD Salt 30мл 25мг',6000,['Манго','Лёд']); L('VGOD','VGOD 60мл 6мг',6500,['Клубника','Мята']); L('Хомяк','Хомяк Salt 30мл 20мг',4500,['Яблоко','Черника']); L('Хомяк','Хомяк 60мл 3мг',5000,['Яблоко','Виноград']); L('Element','Element Salt 30мл 20мг',6500,['Табак','Мята']); L('Element','Element 60мл 6мг',7000,['Табак','Вишня']); L('Dual','Dual Salt 30ml',4000,['Ледяной Тархун','Яблоко Виноград','Ледяная Малина','Садовые Ягоды','Вишня Клубника','Ледяное Манго-Апельсин','Ледяная Черника','Ананас Киви','Чай с Грейпфрутом и Ягодами','Персиковый Лимонад']); L('Alaska','Alaska Salt 30ml',4600,['Ледяная Черника','Ледяное Манго','Ледяная Малина','Ледяной Виноград','Ледяной Арбуз','Ледяная Дыня','Ледяное Яблоко','Ледяной Клубничный Лимонад','Ледяной Персик']); L('Husky','Husky Double Ice Salt 30ml',4400,['Ледяная Вишня','Ледяной Виноград','Ледяное Манго','Ледяной Арбуз','Ледяная Черника']); L('Brusko','Brusko Salt 30ml',4300,['Ледяная Клубника','Ледяной Персик','Ледяная Вишня','Ледяной Лимонад','Ягодный Микс','Ледяной Кактус']); L("Maxwell's","Maxwell's Salt 30ml",4400,['Ледяная Малина','Ледяной Виноград','Ледяное Яблоко','Ананас Манго','Ледяной Арбуз']); L('Chaser','Chaser Salt 30ml',4300,['Ледяная Вишня','Ледяная Черника','Киви Клубника','Ледяной Персик','Энергетик']); L('Hotspot','Hotspot Salt 30ml',4500,['Ледяной Лимон','Ягодный Микс','Ледяное Манго','Виноград','Мята']);
+
+const CONFIG = { WA_NUMBER: '7474968253', WA_URL: 'https://wa.me/7474968253', TG_MANAGER: 'https://t.me/vibemanagerkz', TG_MANAGER_NAME: '@vibemanagerkz', TG_CHANNEL: 'https://t.me/+Qx7AZlGzf_ZlZDJh', TG_REVIEWS: 'https://t.me/+l7A4eomppJA1Y2Fl', OPEN: '00:00', CLOSE: '00:00', TZ: 'Asia/Almaty', GEO: 'Весь Казахстан' };
+const PROMOS = { 'NIGHT10': 0.10, 'BRATAN': 0.15 };
+const CITIES = ['Алматы','Астана','Шымкент','Караганда','Актобе','Тараз','Павлодар'];
+
+/* ==================== МОДУЛЬ КОРЗИНЫ ==================== */
+const NS = (function(){
+  const CART_KEY = 'ns_cart';
+  let activePromo = store.get('ns_promo', '');
+
+  function getUID() {
+    let uid = store.get('ns_uid', '');
+    if(!uid) { uid = 'NS-' + Math.random().toString(36).substring(2,6).toUpperCase(); store.set('ns_uid', uid); }
+    return uid;
+  }
+  function getCart(){ return store.get(CART_KEY, []); }
+  function saveCart(c){
+    store.set(CART_KEY, c);
+    updateBadge();
+    NS.renderCartPage();
+  }
+  function findProduct(id){ return PRODUCTS.find(p => p.id === id); }
+  
+  function addToCart(id, variant, qty=1, silent=false){
+    const p = findProduct(id);
+    if (!p || !p.stock) { showToast('Товара нет в наличии'); return; }
+    const c = getCart(); const k = id + '|' + (variant||'');
+    const found = c.find(i => i.id + '|' + i.variant === k);
+    if (found) {
+      found.qty = Math.min(20, found.qty + qty);
+    } else {
+      c.push({ id, variant: variant||'', qty: Math.min(20, Math.max(1, qty)) });
+    }
+    saveCart(c);
+    if (!silent) showToast('Добавлено в корзину');
+    track('add_to_cart', {id, variant, qty});
+  }
+  
+  function removeItem(id, variant){
+    const c = getCart();
+    const removed = c.find(i => i.id + '|' + i.variant === id + '|' + variant);
+    saveCart(c.filter(i => i.id + '|' + i.variant !== id + '|' + variant));
+    if (removed) showToast('Товар удалён.', 'Вернуть', function(){ const c2 = getCart(); c2.push(removed); saveCart(c2); });
+  }
+
+  function setQty(id, variant, qty){
+    if (qty <= 0) return removeItem(id, variant);
+    if (qty > 20) { showToast('Максимум 20 шт одной позиции'); qty = 20; }
+    const c = getCart(); const it = c.find(i => i.id===id && i.variant===variant);
+    if (it){ it.qty = qty; saveCart(c); }
+  }
+
+  function updateVariant(id, oldVariant, newVariant){
+    const c = getCart();
+    const it = c.find(i => i.id === id && i.variant === oldVariant);
+    if(!it) return;
+    const existing = c.find(i => i.id === id && i.variant === newVariant && i !== it);
+    if(existing) {
+      existing.qty = Math.min(20, existing.qty + it.qty);
+      c.splice(c.indexOf(it), 1);
+    } else {
+      it.variant = newVariant;
+    }
+    saveCart(c);
+  }
+
+  function cartCount(){ return getCart().reduce((s,i)=>s+i.qty,0); }
+  function cartTotals(){ 
+    const c = getCart(); let subtotal = 0, volDiscount = 0; 
+    c.forEach(i => { 
+      const p = findProduct(i.id); 
+      if(p) {
+        subtotal += p.price * i.qty;
+        if(i.qty >= 2) volDiscount += Math.round(p.price * i.qty * 0.05);
+      } 
+    }); 
+    let promoDiscount = Math.round(subtotal * (PROMOS[activePromo] || 0)); 
+    return { subtotal, discount: volDiscount + promoDiscount, total: Math.max(0, subtotal - (volDiscount + promoDiscount)), count: cartCount() }; 
+  }
+  function updateBadge(){
+    const n = cartCount();
+    document.querySelectorAll('[data-cart-count]').forEach(el => {
+      el.textContent = n;
+      el.classList.toggle('zero', n===0);
+    });
+  }
+  
+  function waLink(text){ return 'https://wa.me/' + CONFIG.WA_NUMBER + '?text=' + encodeURIComponent(text); }
+  function oneClick(id) {
+    const p = findProduct(id); if(!p) return;
+    if(!p.stock) { window.open('https://wa.me/' + CONFIG.WA_NUMBER + '?text=' + encodeURIComponent('Хочу узнать о поступлении: ' + p.name), '_blank'); return; }
+    if(p.variants.length) { openQuickView(id); return; }
+    window.open(waLink(p.name + '\nЦена: ' + money(p.price)), '_blank');
+  }
+
+  return {
+    getCart, addToCart, removeItem, setQty, updateVariant, cartTotals, updateBadge, getUID, waLink, findProduct, oneClick,
+    getActivePromo(){ return activePromo; },
+    setPromo(p){ activePromo = p; store.set('ns_promo', p); NS.renderCartPage(); }
+  };
+})();
+
+/* ==================== СБОРКА ИНТЕРФЕЙСА ==================== */
+function buildShell(){
+  document.getElementById('site-header').innerHTML = `<header class="site-header"><div class="container header-row"><a class="logo" href="#home"><svg viewBox="0 0 100 100" width="30" height="30"><defs><radialGradient id="lg" cx="35%" cy="30%"><stop offset="0%" stop-color="#dbeafe"/><stop offset="100%" stop-color="#3B82F6"/></radialGradient></defs><circle cx="50" cy="50" r="34" fill="url(#lg)"/><circle cx="66" cy="40" r="30" fill="#0B0F19"/></svg><span>Night Store</span></a><div class="header-right"><button class="icon-btn" id="cityBtn" style="width:auto;padding:0 8px;font-size:12px" aria-label="Выбрать город">📍 <span id="cityName">Алматы</span></button><span class="status"><span class="status-dot"></span><span id="statusText">…</span></span><a class="icon-btn cart-bump" href="#cart" aria-label="Корзина"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2 3h3l2.6 12.4h11L21 7H6"/></svg><span class="cart-badge" data-cart-count>0</span></a></div></div><div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Доставка 20–50 мин</span><span>•</span><span>Оригинал</span><span>•</span><span>Гарантия</span><span>•</span><span>Весь Казахстан</span><span>•</span><span>Доставка 20–50 мин</span><span>•</span><span>Оригинал</span><span>•</span><span>Гарантия</span><span>•</span><span>Весь Казахстан</span><span>•</span></div></div></header>`;
+  document.getElementById('site-nav').innerHTML = `<nav class="bottom-nav"><a href="#home" data-nav="home"><span>⌂</span><b>Главная</b></a><a href="#catalog" data-nav="catalog"><span>▤</span><b>Каталог</b></a><a href="#cart" data-nav="cart"><span>🛒</span><b>Корзина</b><i class="cart-badge nav-badge" data-cart-count>0</i></a><a href="${CONFIG.WA_URL}" target="_blank" rel="noopener" data-nav="wa"><span>✆</span><b>WhatsApp</b></a></nav><div class="fabs"><a class="fab fab-wa" href="${CONFIG.WA_URL}" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a><a class="fab fab-tg" href="${CONFIG.TG_MANAGER}" target="_blank" rel="noopener" aria-label="Telegram">✈</a></div><button id="toTop" class="to-top" aria-label="Наверх">↑</button>`;
+  document.getElementById('site-footer').innerHTML = `<footer class="site-footer"><div class="container footer-grid"><div><div class="logo"><svg viewBox="0 0 100 100" width="26" height="26"><circle cx="50" cy="50" r="34" fill="#3B82F6"/><circle cx="66" cy="40" r="30" fill="#0B0F19"/></svg><span>Night Store</span></div><p class="muted small">Ночной магазин вейпов, одноразок, снюса и систем нагревания табака. Доставка 20–50 минут по всему Казахстану.</p></div><div><h4>Магазин</h4><a href="#catalog">Каталог</a><a href="#cart">Корзина</a><a href="#guarantee">Гарантия и доставка</a><a href="#contacts">Контакты</a></div><div><h4>Полезное</h4><a href="#verify">Проверка оригинала</a><a href="#blog">Блог</a><a href="${CONFIG.TG_CHANNEL}" target="_blank" rel="noopener">Telegram-канал</a><a href="${CONFIG.TG_REVIEWS}" target="_blank" rel="noopener">Отзывы</a></div><div><h4>Связь</h4><a href="${CONFIG.WA_URL}" target="_blank" rel="noopener">WhatsApp</a><a href="${CONFIG.TG_MANAGER}" target="_blank" rel="noopener">${CONFIG.TG_MANAGER_NAME}</a><span class="muted small">${CONFIG.GEO} · круглосуточно</span></div></div><div class="container footer-bottom"><p>© Night Store. Товары только для лиц старше 18 лет.</p></div></footer>`;
+  
+  let savedCity = store.get('ns_city', 'Алматы');
+  const cn = document.getElementById('cityName');
+  if(cn) cn.textContent = savedCity;
+  document.getElementById('cityBtn').onclick = () => {
+    openModal('<div class="sheet small" role="dialog" aria-modal="true"><button class="sheet-close" aria-label="Закрыть">✕</button><h2 class="sheet-title">Выберите город</h2><div class="quiz-opts">' + CITIES.map(c => `<button class="btn btn-ghost btn-block city-sel" data-c="${c}">${c}</button>`).join('') + '</div></div>', (wrap, close) => {
+      wrap.querySelectorAll('.city-sel').forEach(b => b.onclick = () => {
+        store.set('ns_city', b.dataset.c);
+        if(document.getElementById('cityName')) document.getElementById('cityName').textContent = b.dataset.c;
+        if(document.getElementById('orderCityInput')) document.getElementById('orderCityInput').value = b.dataset.c;
+        updatePreview();
+        close();
+      });
+    });
+  };
+}
+
+/* ==================== УПРАВЛЕНИЕ МОДАЛКАМИ (FOCUS TRAP) ==================== */
+function openModal(contentHtml, initCb){
+  const opener = document.activeElement;
+  const wrap = document.createElement('div');
+  wrap.className = 'modal-backdrop';
+  wrap.innerHTML = contentHtml;
+  document.getElementById('modals').appendChild(wrap);
+  document.body.classList.add('no-scroll');
+
+  const close = () => {
+    document.removeEventListener('keydown', onKey);
+    if (wrap._onCloseExtra) { try { wrap._onCloseExtra(); } catch(e){} }
+    wrap.remove();
+    if (!document.getElementById('ageGate') && !document.querySelector('.modal-backdrop')) {
+      document.body.classList.remove('no-scroll');
+    }
+    if (opener && typeof opener.focus === 'function') opener.focus();
+  };
+
+  const onKey = (e) => {
+    if (e.key === 'Escape') { e.stopPropagation(); close(); }
+    if (e.key === 'Tab') {
+      const focusables = wrap.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])');
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) { last.focus(); e.preventDefault(); }
+      else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
+    }
+  };
+
+  wrap._cleanup = () => document.removeEventListener('keydown', onKey);
+
+  document.addEventListener('keydown', onKey);
+
+  const closeBtn = wrap.querySelector('.sheet-close');
+  if (closeBtn) closeBtn.onclick = close;
+  wrap.onclick = e => { if (e.target === wrap) close(); };
+
+  if (initCb) initCb(wrap, close);
+
+  setTimeout(() => {
+    const autoFocus = wrap.querySelector('button, input, select');
+    if (autoFocus) autoFocus.focus();
+  }, 50);
+
+  return { wrap, close };
+}
+
+/* ==================== КАРТОЧКА ТОВАРА ==================== */
+function productCardHTML(p, listMode){
+  const hit = p.tags && p.tags.indexOf('hit') >= 0;
+  const isNew = p.tags && p.tags.indexOf('new') >= 0;
+  const perK = p.puffs ? Math.round(p.price / p.puffs * 1000) : 0;
+  const fav = (store.get('ns_fav', [])).indexOf(p.id) >= 0;
+  const cmp = (store.get('ns_cmp', [])).indexOf(p.id) >= 0;
+  const prices = p.old ? '<span class="old">' + money(p.old) + '</span><b class="price">' + money(p.price) + '</b>' : '<b class="price">' + money(p.price) + '</b>';
+  return '<article class="card product' + (hit ? ' is-hit' : '') + (listMode ? ' list-mode' : '') + '" data-id="' + p.id + '" tabindex="0">' +
+    '<div class="card-body"><div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin-bottom:6px;"><div style="flex:1;min-width:0;"><div class="card-brand">' + esc(p.brand) + '</div><h3 class="card-title">' + esc(p.name) + '</h3></div><div style="display:flex; gap:6px;"><button class="ic-fav' + (fav ? ' on' : '') + '" data-fav="' + p.id + '" title="Избранное" aria-label="Избранное">♥</button><button class="ic-cmp' + (cmp ? ' on' : '') + '" data-cmp="' + p.id + '" title="Сравнить" aria-label="Сравнить">⚖</button></div></div>' +
+    '<div class="badges">' + (hit ? '<span class="badge badge-hit">Хит</span>' : '') + (isNew ? '<span class="badge badge-new">Новинка</span>' : '') + (!p.stock ? '<span class="badge badge-out">Нет в наличии</span>' : '') + '</div>' +
+    (p.puffs ? '<div class="card-meta">' + p.puffs.toLocaleString('ru-RU') + ' затяжек' + (perK ? ' · ' + money(perK) + '/1000' : '') + '</div>' : '') +
+    (p.unit ? '<div class="card-meta">' + esc(p.unit) + '</div>' : '') +
+    '<div class="card-price">' + prices + '</div>' +
+    '<div class="card-actions">' + (p.stock ? '<button class="btn btn-primary btn-sm" data-add="' + p.id + '">В корзину</button><button class="btn btn-ghost btn-sm" data-one="' + p.id + '">1 клик</button>' : '<button class="btn btn-ghost btn-sm" data-wait="' + p.id + '">Сообщить</button>') + '</div></div></article>';
+}
+
+/* Делегирование событий клика для каталогов */
+function setupGridDelegation(root){
+  if(root._hasDelegation) return;
+  root._hasDelegation = true;
+
+  root.addEventListener('click', e => {
+    const btn = e.target.closest('button');
+    const card = e.target.closest('.product');
+    if (!card) return;
+    const id = card.dataset.id;
+
+    if (btn) {
+      if (btn.dataset.add) { e.stopPropagation(); quickAdd(btn.dataset.add); return; }
+      if (btn.dataset.one) { e.stopPropagation(); NS.oneClick(btn.dataset.one); return; }
+      if (btn.dataset.fav) { e.stopPropagation(); toggleFav(btn.dataset.fav, btn); return; }
+      if (btn.dataset.cmp) { e.stopPropagation(); toggleCmp(btn.dataset.cmp, btn); return; }
+      if (btn.dataset.wait) {
+        e.stopPropagation();
+        const p = NS.findProduct(btn.dataset.wait);
+        const name = p ? p.name : btn.dataset.wait;
+        window.open('https://wa.me/' + CONFIG.WA_NUMBER + '?text=' + encodeURIComponent('Хочу узнать о поступлении: ' + name), '_blank');
+        return;
+      }
+      return;
+    }
+    openQuickView(id);
+  });
+
+  root.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && e.target.classList.contains('product')) {
+      openQuickView(e.target.dataset.id);
+    }
+  });
+}
+
+function quickAdd(id){
+  const p = NS.findProduct(id);
+  if (!p) return;
+  if(!p.stock) return showToast('Товара нет в наличии');
+  if (p.variants && p.variants.length && p.variantType !== 'none'){ openQuickView(id, true); return; }
+  NS.addToCart(id, '');
+}
+
+function toggleFav(id, btn){
+  let a = store.get('ns_fav', []);
+  const i = a.indexOf(id);
+  if (i >= 0) a.splice(i, 1); else a.push(id);
+  store.set('ns_fav', a);
+  if (btn) btn.classList.toggle('on');
+  const fc = document.getElementById('favCount');
+  if (fc) fc.textContent = a.length;
+  showToast(i >= 0 ? 'Убрано из избранного' : 'Добавлено в избранное');
+  // Если мы в режиме "Избранное" на странице каталога — ре-рендерим, чтобы убрать/добавить карточку
+  if (CatalogState.favOnly && !document.getElementById('page-catalog').hidden) {
+    renderCatalog();
+  }
+}
+
+function toggleCmp(id, btn){
+  let a = store.get('ns_cmp', []);
+  const i = a.indexOf(id);
+  if (i >= 0) a.splice(i, 1);
+  else {
+    if (a.length >= 3){ showToast('Максимум 3 товара для сравнения'); return; }
+    a.push(id);
+  }
+  store.set('ns_cmp', a);
+  if (btn) btn.classList.toggle('on');
+  const cc = document.getElementById('cmpCount');
+  if (cc) cc.textContent = a.length;
+  showToast(i >= 0 ? 'Убрано из сравнения' : 'Добавлено в сравнение');
+}
+
+function pushRecent(id){
+  let a = store.get('ns_recent', []);
+  a = a.filter(x => x !== id);
+  a.unshift(id);
+  a = a.slice(0, 8);
+  store.set('ns_recent', a);
+}
+
+function renderRecent(){
+  const ids = store.get('ns_recent', []);
+  const items = ids.map(i => NS.findProduct(i)).filter(Boolean);
+  [['recentSectionHome','recentGridHome'],['recentSectionCatalog','recentGridCatalog'],['recentSectionCat','recentGridCat']].forEach(pair => {
+    const sec = document.getElementById(pair[0]); const grid = document.getElementById(pair[1]);
+    if (!sec || !grid) return;
+    if (!items.length){ sec.hidden = true; return; }
+    sec.hidden = false;
+    grid.innerHTML = items.map(p => productCardHTML(p)).join('');
+    setupGridDelegation(grid);
+  });
+}
+
+function openQuickView(id, forceVariant){
+  const p = NS.findProduct(id); if (!p) return;
+  pushRecent(id);
+  const oldAccent = getComputedStyle(document.documentElement).getPropertyValue('--ac').trim();
+  
+  let actionsHTML = '';
+  if(p.stock) {
+    actionsHTML = '<button class="btn btn-primary btn-block" id="qvAdd">В корзину</button><button class="btn btn-ghost btn-block" id="qvOne">Купить в 1 клик</button>';
+  } else {
+    actionsHTML = '<button class="btn btn-primary btn-block" id="qvWait">Сообщить о поступлении</button>';
+  }
+  
+  const content = '<div class="sheet" role="dialog" aria-modal="true"><button class="sheet-close" aria-label="Закрыть">✕</button><h2 class="sheet-title">' + esc(p.name) + '</h2><div class="sheet-brand">' + esc(p.brand) + ' · ' + catName(p.cat) + '</div>' + (p.puffs ? '<div class="card-meta" style="text-align:center;">' + p.puffs.toLocaleString('ru-RU') + ' затяжек</div>' : '') + '<div class="sheet-price">' + (p.old ? '<span class="old">' + money(p.old) + '</span>' : '') + '<b class="price">' + money(p.price) + '</b></div>' + (p.variants && p.variants.length && p.variantType !== 'none' ? '<div class="sheet-variants" data-vtype="' + p.variantType + '">' + p.variants.map(v => { if (p.variantType === 'color') return '<button class="color-dot" data-v="' + esc(v.name) + '" style="--c:' + (v.color || '#3B82F6') + '" title="' + esc(v.name) + '"></button>'; return '<button class="chip" data-v="' + esc(v.name) + '">' + esc(v.name) + '</button>'; }).join('') + '</div>' : '') + '<div class="sheet-actions">' + actionsHTML + '<button class="btn btn-ghost btn-block" id="qvShare">Поделиться</button></div>' + (p.compat && p.compat.length ? '<div class="sheet-compat">Подходит к: ' + p.compat.map(cid => { const d = NS.findProduct(cid); return d ? '<a href="#catalog?p=' + d.id + '">' + esc(d.name) + '</a>' : ''; }).join(', ') + '</div>' : '') + '</div>';
+
+  openModal(content, (wrap, close) => {
+    let chosen = '';
+    wrap.querySelectorAll('[data-v]').forEach(b => {
+      b.onclick = () => {
+        wrap.querySelectorAll('[data-v]').forEach(x => x.classList.remove('sel'));
+        b.classList.add('sel');
+        chosen = b.dataset.v;
+        const c = b.style.getPropertyValue('--c');
+        if (c) document.documentElement.style.setProperty('--ac', c);
+      };
+    });
+
+    const addBtn = wrap.querySelector('#qvAdd');
+    if (addBtn) {
+      addBtn.onclick = () => {
+        if (p.variants && p.variants.length && p.variantType !== 'none' && !chosen){
+          showToast('Пожалуйста, выберите вкус или цвет');
+          const vBox = wrap.querySelector('.sheet-variants');
+          if (vBox) { vBox.classList.add('shake'); setTimeout(() => vBox.classList.remove('shake'), 400); }
+          return;
+        }
+        NS.addToCart(p.id, chosen);
+        close();
+      };
+    }
+
+    const oneBtn = wrap.querySelector('#qvOne');
+    if (oneBtn) {
+      oneBtn.onclick = () => {
+        if (p.variants && p.variants.length && p.variantType !== 'none' && !chosen){
+          showToast('Пожалуйста, выберите вкус или цвет');
+          return;
+        }
+        const txt = p.name + (chosen ? ' (' + chosen + ')' : '') + '\nЦена: ' + money(p.price);
+        window.open(NS.waLink(txt), '_blank');
+        close();
+      };
+    }
+
+    const waitBtn = wrap.querySelector('#qvWait');
+    if (waitBtn) {
+      waitBtn.onclick = () => {
+        window.open('https://wa.me/' + CONFIG.WA_NUMBER + '?text=' + encodeURIComponent('Хочу узнать о поступлении: ' + p.name), '_blank');
+        close();
+      };
+    }
+
+    wrap.querySelector('#qvShare').onclick = () => {
+      const url = location.origin + location.pathname + '#catalog?p=' + p.id;
+      if (navigator.share){ navigator.share({ title: p.name, url: url }).catch(()=>{}); return; }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(() => showToast('Ссылка скопирована'));
+      } else {
+        showToast('Ссылка: ' + url);
+      }
+    };
+
+    wrap._onCloseExtra = () => document.documentElement.style.setProperty('--ac', oldAccent);
+  });
+}
+
+/* ==================== С СОПУТСТВУЮЩИМИ ТОВАРАМИ («С ЭТИМ БЕРУТ») ==================== */
+function renderCrossSell(){
+  const cart = NS.getCart();
+  const crossSec = document.getElementById('crossSection');
+  const crossGrid = document.getElementById('crossGrid');
+  if(!crossSec || !crossGrid) return;
+
+  if(!cart.length) { crossSec.hidden = true; return; }
+
+  const cartIds = new Set(cart.map(i => i.id));
+  const suggested = [];
+  const addedIds = new Set();
+
+  cart.forEach(item => {
+    const p = NS.findProduct(item.id);
+    if (!p) return;
+
+    if (p.cat === 'disposable') {
+      const alt = PRODUCTS.find(x => x.cat === 'disposable' && x.stock && x.brand !== p.brand && x.tags.includes('hit') && Math.abs(x.price - p.price) <= 3000 && !cartIds.has(x.id) && !addedIds.has(x.id));
+      if (alt) { suggested.push(alt); addedIds.add(alt.id); }
+    }
+    if (p.cat === 'vape' || p.cat === 'pod') {
+      const coil = PRODUCTS.find(x => x.cat === 'coil' && x.stock && x.compat && x.compat.includes(p.id) && !cartIds.has(x.id) && !addedIds.has(x.id));
+      if (coil) { suggested.push(coil); addedIds.add(coil.id); }
+      const liq = PRODUCTS.find(x => x.cat === 'liquid' && x.stock && !cartIds.has(x.id) && !addedIds.has(x.id));
+      if (liq && suggested.length < 4) { suggested.push(liq); addedIds.add(liq.id); }
+    }
+    if (p.cat === 'iqos' || p.cat === 'glo' || p.cat === 'ploom') {
+      const stick = PRODUCTS.find(x => x.cat === 'sticks' && x.stock && x.compat && x.compat.includes(p.id) && !cartIds.has(x.id) && !addedIds.has(x.id));
+      if (stick) { suggested.push(stick); addedIds.add(stick.id); }
+    }
+  });
+
+  const finalPool = suggested.slice(0, 4);
+  if (!finalPool.length) {
+    crossSec.hidden = true;
+  } else {
+    crossSec.hidden = false;
+    crossGrid.innerHTML = finalPool.map(p => productCardHTML(p)).join('');
+    setupGridDelegation(crossGrid);
+  }
+}
+
+/* ==================== РЕНДЕР КОРЗИНЫ ==================== */
+NS.renderCartPage = function(){
+  const cart = NS.getCart();
+  const list = document.getElementById('cartList');
+  const empty = document.getElementById('cartEmpty');
+  const wrap = document.getElementById('cartWrap');
+  const bar = document.getElementById('cartBar');
+  if (!list || !empty || !wrap) return;
+
+  if (!cart.length){
+    empty.hidden = false; wrap.hidden = true; if (bar) bar.hidden = true;
+    const lastOrder = store.get('ns_last_order', []);
+    const repeatBtn = document.getElementById('repeatOrderBtn');
+    if (lastOrder.length && repeatBtn) {
+      repeatBtn.style.display = 'block';
+      repeatBtn.onclick = () => { store.set('ns_cart', lastOrder); NS.updateBadge(); NS.renderCartPage(); };
+    } else if (repeatBtn) {
+      repeatBtn.style.display = 'none';
+    }
+    return;
+  }
+
+  empty.hidden = true; wrap.hidden = false; if (bar) bar.hidden = false;
+  
+  list.innerHTML = cart.map(i => {
+    const p = NS.findProduct(i.id);
+    if (!p) return '';
+    const missing = !i.variant && p.variants && p.variants.length && p.variantType !== 'none';
+    let vsel = '';
+    if (p.variants && p.variants.length && p.variantType !== 'none'){
+      vsel = '<select class="input input-sm variant-select" data-id="' + p.id + '" data-oldv="' + esc(i.variant) + '"><option value="">-- Выберите вариант --</option>' + p.variants.map(v => '<option value="' + esc(v.name) + '"' + (v.name === i.variant ? ' selected' : '') + '>' + esc(v.name) + '</option>').join('') + '</select>';
+    }
+    const volDiscountBadge = i.qty >= 2 ? '<div style="color:#4ade80;font-size:11px;font-weight:700;margin-top:2px;">Скидка −5% за 2+ шт</div>' : '';
+    return '<div class="cart-item' + (missing ? ' need-variant' : '') + '" data-id="' + p.id + '" data-v="' + esc(i.variant) + '"><div class="ci-body"><div class="ci-name">' + esc(p.name) + '</div><div class="ci-meta">' + esc(p.brand) + (p.puffs ? ' · ' + p.puffs + ' затяжек' : '') + '</div>' + vsel + '<div class="ci-bottom"><div class="qty"><button class="qbtn" data-act="dec" data-id="' + p.id + '" data-v="' + esc(i.variant) + '" aria-label="Уменьшить">−</button><span>' + i.qty + '</span><button class="qbtn" data-act="inc" data-id="' + p.id + '" data-v="' + esc(i.variant) + '" aria-label="Увеличить">+</button></div><div style="text-align:right;"><b class="ci-price">' + money(p.price * i.qty) + '</b>' + volDiscountBadge + '</div><button class="qbtn del" data-act="del" data-id="' + p.id + '" data-v="' + esc(i.variant) + '" title="Удалить" aria-label="Удалить">✕</button></div></div></div>';
+  }).join('');
+  
+  list.querySelectorAll('[data-act]').forEach(btn => {
+    btn.onclick = function(){
+      const id = btn.dataset.id, v = btn.dataset.v, act = btn.dataset.act;
+      const it = NS.getCart().find(x => x.id === id && x.variant === v);
+      if (!it) return;
+      if (act === 'inc') NS.setQty(id, v, it.qty + 1);
+      if (act === 'dec') NS.setQty(id, v, it.qty - 1);
+      if (act === 'del') NS.removeItem(id, v);
+    };
+  });
+
+  list.querySelectorAll('.variant-select').forEach(sel => {
+    sel.onchange = function(){
+      NS.updateVariant(sel.dataset.id, sel.dataset.oldv, sel.value);
+    };
+  });
+  
+  const t = NS.cartTotals();
+  const sc = document.getElementById('sumCount'); if (sc) sc.textContent = t.count;
+  const st = document.getElementById('sumTotal'); if (st) st.textContent = money(t.total);
+  const bt = document.getElementById('barTotal'); if (bt) bt.textContent = money(t.total);
+  const dr = document.getElementById('discountRow'); if (dr) dr.textContent = t.discount > 0 ? ('-' + money(t.discount)) : '0 ₸';
+  const cInput = document.getElementById('orderCityInput'); if (cInput) cInput.value = store.get('ns_city', 'Алматы');
+  
+  const hint = document.getElementById('orderHint');
+  if (hint) {
+    if (t.discount > 0) {
+      hint.innerHTML = '<span style="color:#4ADE80">Применена скидка (5% от 2 шт / промокод)</span>';
+    } else {
+      hint.textContent = 'Подсказка: от 2 шт одной позиции скидка 5%';
+    }
+  }
+  
+  renderCrossSell();
+  updatePreview();
+};
+
+function updatePreview(){
+  const f = document.querySelector('input[name="name"]')?.value || '';
+  const ph = document.querySelector('input[name="phone"]')?.value || '';
+  const ad = document.querySelector('input[name="address"]')?.value || '';
+  const tm = document.querySelector('input[name="time"]')?.value || '';
+  const city = store.get('ns_city', 'Алматы');
+  
+  let lines = ['🆔 Заказ: ' + NS.getUID(), 'Хочу сделать заказ:'];
+  NS.getCart().forEach(i => {
+    const p = NS.findProduct(i.id);
+    if (p){
+      let s = '• ' + p.name;
+      if (i.variant) s += ' (' + i.variant + ')';
+      s += ' — ' + i.qty + ' шт — ' + money(p.price * i.qty);
+      lines.push(s);
+    }
+  });
+  const t = NS.cartTotals();
+  if (t.discount > 0) lines.push('Скидка: ' + money(t.discount));
+  lines.push('Итого к оплате: ' + money(t.total));
+  if (f || ph || ad) {
+    lines.push('\nДанные получателя:');
+    if (f) lines.push('Имя: ' + f);
+    if (ph) lines.push('Телефон: ' + ph);
+    lines.push('Город: ' + city);
+    if (ad) lines.push('Адрес: ' + ad);
+    if (tm) lines.push('Удобное время: ' + tm);
+  }
+  const prev = document.getElementById('waPreview');
+  if (prev) prev.textContent = lines.join('\n');
+}
+
+/* Единая отправка заказа */
+function sendOrder(){
+  updatePreview();
+  const cart = NS.getCart();
+  if (!cart.length) { showToast('Корзина пуста'); return; }
+
+  const outOfStockItem = cart.some(i => { const p = NS.findProduct(i.id); return !p || !p.stock; });
+  if (outOfStockItem) { showToast('В корзине есть товар, которого нет в наличии. Удалите его.'); return; }
+
+  let hasUnselected = false;
+  cart.forEach(i => {
+    const p = NS.findProduct(i.id);
+    if (p && p.variants && p.variants.length && p.variantType !== 'none' && !i.variant) {
+      hasUnselected = true;
+    }
+  });
+
+  if (hasUnselected) {
+    document.querySelectorAll('.cart-item').forEach(el => {
+      const p = NS.findProduct(el.dataset.id);
+      if (p && p.variants && p.variants.length && p.variantType !== 'none' && !el.dataset.v) {
+        el.classList.add('need-variant');
+      }
+    });
+    showToast('Выберите вкус или цвет для всех позиций в корзине');
+    return;
+  }
+
+  const name = (document.querySelector('input[name="name"]')?.value || '').trim();
+  const phone = (document.querySelector('input[name="phone"]')?.value || '').trim();
+  const address = (document.querySelector('input[name="address"]')?.value || '').trim();
+  const digits = phone.replace(/\D/g, '');
+
+  if (!name || !address) { showToast('Заполните имя и адрес доставки'); return; }
+  if (digits.length !== 11) { showToast('Телефон должен содержать 11 цифр (+7...)'); return; }
+
+  store.set('ns_last_order', cart);
+  track('begin_checkout', { total: NS.cartTotals().total });
+  const text = document.getElementById('waPreview').textContent;
+  window.open(NS.waLink(text), '_blank');
+}
+
+/* ==================== ФИЛЬТРЫ И КАТАЛОГ ==================== */
+const CatalogState = {
+  cat: '', q: '', brand: '', price: '', puffs: '', sort: 'cheap', list: false, favOnly: false,
+  page: 1, pageSize: 24, inited: false
+};
+
+function parseCatalogHashParams(){
+  const hash = location.hash || '';
+  if(!hash.startsWith('#catalog')) return;
+  const qIdx = hash.indexOf('?');
+  if (qIdx === -1) return;
+  const p = new URLSearchParams(hash.slice(qIdx + 1));
+  if (p.has('cat')) CatalogState.cat = p.get('cat');
+  if (p.has('brand')) CatalogState.brand = p.get('brand');
+  if (p.has('price')) CatalogState.price = p.get('price');
+  if (p.has('puffs')) CatalogState.puffs = p.get('puffs');
+  if (p.has('sort')) CatalogState.sort = p.get('sort');
+  if (p.has('q')) CatalogState.q = p.get('q');
+}
+
+function updateCatalogUrl(){
+  if (!location.hash.startsWith('#catalog')) return;
+  const p = new URLSearchParams();
+  if (CatalogState.cat) p.set('cat', CatalogState.cat);
+  if (CatalogState.brand) p.set('brand', CatalogState.brand);
+  if (CatalogState.price) p.set('price', CatalogState.price);
+  if (CatalogState.puffs) p.set('puffs', CatalogState.puffs);
+  if (CatalogState.sort && CatalogState.sort !== 'cheap') p.set('sort', CatalogState.sort);
+  if (CatalogState.q) p.set('q', CatalogState.q);
+  const qs = p.toString();
+  const newHash = '#catalog' + (qs ? ('?' + qs) : '');
+  if (location.hash !== newHash) {
+    history.replaceState(null, '', newHash);
+  }
+}
+
+function initCatalogOnce(){
+  parseCatalogHashParams();
+  const tabsHost = document.getElementById('catTabs');
+  if (tabsHost){
+    tabsHost.innerHTML = '<button class="chip' + (!CatalogState.cat ? ' active' : '') + '" data-cat="">Все</button>' + CATS.map(c => '<button class="chip' + (CatalogState.cat === c.id ? ' active' : '') + '" data-cat="' + c.id + '">' + c.name + '</button>').join('');
+    tabsHost.querySelectorAll('[data-cat]').forEach(b => {
+      b.onclick = function(){
+        tabsHost.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
+        b.classList.add('active');
+        CatalogState.cat = b.dataset.cat;
+        CatalogState.page = 1;
+        // Сбрасываем несовместимые со сменой категории фильтры
+        CatalogState.brand = '';
+        CatalogState.puffs = '';
+        CatalogState.favOnly = false;
+        const pf = document.getElementById('puffFilter'); if (pf) pf.value = '';
+        const ft = document.getElementById('favTab'); if (ft) ft.classList.remove('active');
+        fillBrandsCatalog();
+        updateCatalogUrl();
+        renderCatalog();
+      };
+    });
+  }
+
+  const search = document.getElementById('search');
+  let searchTimer;
+  if (search) {
+    search.value = CatalogState.q;
+    search.oninput = () => {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => {
+        CatalogState.q = search.value;
+        CatalogState.page = 1;
+        updateCatalogUrl();
+        renderCatalog();
+      }, 200);
+    };
+  }
+
+  const brand = document.getElementById('brandFilter');
+  if (brand) brand.onchange = () => { CatalogState.brand = brand.value; CatalogState.page = 1; updateCatalogUrl(); renderCatalog(); };
+
+  const price = document.getElementById('priceFilter');
+  if (price) {
+    price.value = CatalogState.price;
+    price.onchange = () => { CatalogState.price = price.value; CatalogState.page = 1; updateCatalogUrl(); renderCatalog(); };
+  }
+
+  const puffs = document.getElementById('puffFilter');
+  if (puffs) {
+    puffs.value = CatalogState.puffs;
+    puffs.onchange = () => { CatalogState.puffs = puffs.value; CatalogState.page = 1; updateCatalogUrl(); renderCatalog(); };
+  }
+
+  const sort = document.getElementById('sort');
+  if (sort) {
+    sort.value = CatalogState.sort;
+    sort.onchange = () => { CatalogState.sort = sort.value; CatalogState.page = 1; updateCatalogUrl(); renderCatalog(); };
+  }
+
+  const vt = document.getElementById('viewToggle');
+  if (vt) vt.onclick = function(){
+    CatalogState.list = !CatalogState.list;
+    vt.textContent = CatalogState.list ? 'Плитки' : 'Список';
+    renderCatalog();
+  };
+
+  const favTab = document.getElementById('favTab');
+  if (favTab) {
+    favTab.classList.toggle('active', CatalogState.favOnly);
+    favTab.onclick = function(){
+      CatalogState.favOnly = !CatalogState.favOnly;
+      favTab.classList.toggle('active', CatalogState.favOnly);
+      CatalogState.page = 1;
+      renderCatalog();
+    };
+  }
+
+  const cmpTab = document.getElementById('compareTab');
+  if (cmpTab) cmpTab.onclick = openCompare;
+
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  if (loadMoreBtn) {
+    loadMoreBtn.onclick = () => {
+      CatalogState.page++;
+      renderCatalog(true);
+    };
+  }
+
+  const grid = document.getElementById('catalogGrid');
+  if (grid) setupGridDelegation(grid);
+
+  fillBrandsCatalog();
+  CatalogState.inited = true;
+  renderCatalog();
+  renderRecent();
+}
+
+function fillBrandsCatalog(){
+  const brand = document.getElementById('brandFilter');
+  if (!brand) return;
+  const base = CatalogState.cat ? PRODUCTS.filter(p => p.cat === CatalogState.cat) : PRODUCTS;
+  const brands = [];
+  base.forEach(p => { if (brands.indexOf(p.brand) < 0) brands.push(p.brand); });
+  brands.sort();
+  brand.innerHTML = '<option value="">Все бренды</option>' + brands.map(b => '<option value="' + esc(b) + '">' + esc(b) + '</option>').join('');
+  brand.value = CatalogState.brand;
+}
+
+function getFilteredCatalogItems(){
+  let items = PRODUCTS.slice();
+  if (CatalogState.cat) items = items.filter(p => p.cat === CatalogState.cat);
+  if (CatalogState.brand) items = items.filter(p => p.brand === CatalogState.brand);
+  if (CatalogState.q) items = items.filter(p => matchText(p, CatalogState.q));
+  if (CatalogState.price){
+    const [a, b] = CatalogState.price.split('-').map(Number);
+    items = items.filter(p => p.price >= a && p.price <= b);
+  }
+  if (CatalogState.puffs){
+    const [a, b] = CatalogState.puffs.split('-').map(Number);
+    items = items.filter(p => p.puffs >= a && p.puffs < b);
+  }
+  if (CatalogState.favOnly){
+    const favs = store.get('ns_fav', []);
+    items = items.filter(p => favs.indexOf(p.id) >= 0);
+  }
+  if (CatalogState.sort === 'cheap') items.sort((a, b) => a.price - b.price);
+  if (CatalogState.sort === 'exp') items.sort((a, b) => b.price - a.price);
+  if (CatalogState.sort === 'profit') items.sort((a, b) => {
+    const av = a.puffs ? a.price / a.puffs : 999999;
+    const bv = b.puffs ? b.price / b.puffs : 999999;
+    return av - bv;
+  });
+  if (CatalogState.sort === 'new') items.sort((a, b) => ((b.tags && b.tags.indexOf('new') >= 0) ? 1 : 0) - ((a.tags && a.tags.indexOf('new') >= 0) ? 1 : 0));
+  return items;
+}
+
+function renderCatalog(append = false){
+  const grid = document.getElementById('catalogGrid');
+  if (!grid) return;
+  const items = getFilteredCatalogItems();
+  
+  const puffs = document.getElementById('puffFilter');
+  if (puffs) puffs.hidden = CatalogState.cat !== 'disposable';
+  const info = document.getElementById('resultInfo');
+  if (info) info.textContent = 'Найдено: ' + items.length;
+  const fc = document.getElementById('favCount');
+  if (fc) fc.textContent = store.get('ns_fav', []).length;
+  const cc = document.getElementById('cmpCount');
+  if (cc) cc.textContent = store.get('ns_cmp', []).length;
+
+  grid.classList.toggle('list-view', CatalogState.list);
+
+  if (!items.length){
+    grid.innerHTML = '<div class="empty" style="grid-column:1/-1"><p>Ничего не найдено.</p></div>';
+    document.getElementById('loadMoreWrap').hidden = true;
+    return;
+  }
+
+  const visibleLimit = CatalogState.page * CatalogState.pageSize;
+  const pageItems = items.slice(0, visibleLimit);
+  grid.innerHTML = pageItems.map(p => productCardHTML(p, CatalogState.list)).join('');
+
+  const moreWrap = document.getElementById('loadMoreWrap');
+  const moreBtn = document.getElementById('loadMoreBtn');
+  if (items.length > visibleLimit) {
+    moreWrap.hidden = false;
+    moreBtn.textContent = `Показать ещё (осталось ${items.length - visibleLimit})`;
+  } else {
+    moreWrap.hidden = true;
+  }
+}
+
+/* ==================== СТРАНИЦА КАТЕГОРИИ ==================== */
+const CatState = { cat:'', items:[], listMode:false, inited:false };
+
+function loadCategory(cat){
+  document.getElementById('catTitle').textContent = catName(cat);
+  document.getElementById('catDesc').textContent = 'Оригинальные товары. Доставка 20–50 минут. Гарантия 6 часов.';
+  document.title = catName(cat) + ' — Night Store';
+  document.getElementById('catTabsCat').innerHTML = CATS.map(c => '<a class="chip' + (c.id === cat ? ' active' : '') + '" href="#category?c=' + c.id + '">' + c.name + '</a>').join('');
+  CatState.cat = cat;
+  CatState.items = PRODUCTS.filter(p => p.cat === cat);
+  
+  const brandSel = document.getElementById('brandFilterCat');
+  const brands = [];
+  CatState.items.forEach(p => { if (brands.indexOf(p.brand) < 0) brands.push(p.brand); });
+  brands.sort();
+  brandSel.innerHTML = '<option value="">Все бренды</option>' + brands.map(b => '<option value="' + esc(b) + '">' + esc(b) + '</option>').join('');
+  brandSel.value = '';
+  document.getElementById('searchCat').value = '';
+
+  const grid = document.getElementById('catGrid');
+  if(grid) setupGridDelegation(grid);
+
+  if (!CatState.inited){
+    document.getElementById('searchCat').oninput = applyCatFilters;
+    brandSel.onchange = applyCatFilters;
+    document.getElementById('sortCat').onchange = applyCatFilters;
+    document.getElementById('viewToggleCat').onclick = function(){
+      CatState.listMode = !CatState.listMode;
+      this.textContent = CatState.listMode ? 'Плитки' : 'Список';
+      applyCatFilters();
+    };
+    CatState.inited = true;
+  }
+  updateCategoryExtras(cat);
+  applyCatFilters();
+  renderRecent();
+}
+
+function applyCatFilters(){
+  const grid = document.getElementById('catGrid'); if (!grid) return;
+  const q = document.getElementById('searchCat').value;
+  const b = document.getElementById('brandFilterCat').value;
+  const sv = document.getElementById('sortCat').value;
+
+  let list = CatState.items.filter(p => {
+    if (b && p.brand !== b) return false;
+    if (q && !matchText(p, q)) return false;
+    return true;
+  });
+  if (sv === 'cheap') list.sort((a, b) => a.price - b.price);
+  if (sv === 'exp') list.sort((a, b) => b.price - a.price);
+  if (sv === 'profit') list.sort((a, b) => { const av = a.puffs ? a.price / a.puffs : 1e9; const bv = b.puffs ? b.price / b.puffs : 1e9; return av - bv; });
+  if (sv === 'new') list.sort((a, b) => ((b.tags && b.tags.indexOf('new') >= 0) ? 1 : 0) - ((a.tags && a.tags.indexOf('new') >= 0) ? 1 : 0));
+  
+  grid.classList.toggle('list-view', CatState.listMode);
+  if (!list.length){ grid.innerHTML = '<div class="empty" style="grid-column:1/-1"><p>Ничего не найдено.</p></div>'; return; }
+  grid.innerHTML = list.map(p => productCardHTML(p, CatState.listMode)).join('');
+}
+
+function updateCategoryExtras(cat){
+  const cmpSection = document.getElementById('compatSection');
+  const cmpGrid = document.getElementById('compatGrid');
+  const cmpTitle = document.getElementById('compatTitle');
+  if (cmpSection) cmpSection.hidden = true;
+
+  if ((cat === 'pod' || cat === 'vape') && cmpSection){
+    const coils = PRODUCTS.filter(p => p.cat === 'coil' && p.forCat === cat);
+    if (coils.length){
+      cmpSection.hidden = false;
+      cmpTitle.textContent = 'Подходящие испарители';
+      cmpGrid.innerHTML = coils.map(productCardHTML).join('');
+      setupGridDelegation(cmpGrid);
+    }
+  }
+  if (cat === 'coil' && cmpSection){
+    cmpSection.hidden = false;
+    cmpTitle.textContent = 'Подходит к';
+    cmpGrid.innerHTML = CatState.items.map(p => '<div class="info-card"><h3>' + esc(p.name) + '</h3><p class="muted">' + (p.compat ? p.compat.map(id => { const d = NS.findProduct(id); return d ? esc(d.name) : ''; }).join(', ') : '') + '</p></div>').join('');
+  }
+
+  const sticksSection = document.getElementById('sticksSection');
+  const sticksGrid = document.getElementById('sticksGrid');
+  if (sticksSection) sticksSection.hidden = true;
+  if ((cat === 'iqos' || cat === 'glo' || cat === 'ploom') && sticksSection){
+    const sticksPool = [];
+    CatState.items.forEach(d => {
+      PRODUCTS.filter(s => s.cat === 'sticks' && s.compat && s.compat.indexOf(d.id) >= 0).forEach(s => {
+        if (!sticksPool.find(x => x.id === s.id)) sticksPool.push(s);
+      });
+    });
+    if (sticksPool.length){
+      sticksSection.hidden = false;
+      sticksGrid.innerHTML = sticksPool.map(productCardHTML).join('');
+      setupGridDelegation(sticksGrid);
+    }
+  }
+
+  const bundleSection = document.getElementById('bundleSection');
+  const bundleBtn = document.getElementById('bundleBtn');
+  if (bundleSection) bundleSection.hidden = true;
+  if ((cat === 'pod' || cat === 'vape') && bundleSection){
+    bundleSection.hidden = false;
+    if (bundleBtn && !bundleBtn.dataset.bound){
+      bundleBtn.dataset.bound = '1';
+      bundleBtn.onclick = function(){
+        const device = CatState.items.find(x => x.stock) || CatState.items[0];
+        if (!device) return;
+        const coils = PRODUCTS.filter(p => p.cat === 'coil' && p.stock && p.compat && p.compat.indexOf(device.id) >= 0);
+        const liquid = PRODUCTS.filter(p => p.cat === 'liquid' && p.stock)[0];
+        const v = (device.variants && device.variants[0]) ? device.variants[0].name : '';
+        NS.addToCart(device.id, v, 1, true);
+        if (coils[0] && coils[0].variants && coils[0].variants[0]) NS.addToCart(coils[0].id, coils[0].variants[0].name, 2, true);
+        if (liquid && liquid.variants && liquid.variants[0]) NS.addToCart(liquid.id, liquid.variants[0].name, 1, true);
+        showToast('Набор добавлен в корзину');
+      };
+    }
+  }
+}
+
+/* ==================== МОДАЛКА СРАВНЕНИЯ ==================== */
+function openCompare(){
+  const ids = store.get('ns_cmp', []);
+  const items = ids.map(i => NS.findProduct(i)).filter(Boolean);
+  let html = '<div class="sheet" role="dialog" aria-modal="true"><button class="sheet-close" aria-label="Закрыть">✕</button><h2 class="sheet-title">Сравнение товаров</h2>';
+  if (!items.length){
+    html += '<p class="muted center" style="padding:20px 0;">Добавьте до 3 товаров через иконку ⚖ на карточке.</p>';
+  } else {
+    const puffsArr = items.map(p => p.puffs || 0);
+    const pricesArr = items.map(p => p.price || 0);
+    const maxPuffs = Math.max.apply(null, puffsArr);
+    const minPrice = Math.min.apply(null, pricesArr);
+    html += '<div class="cmp-wrap"><table class="cmp"><thead><tr><th>Параметр</th>' + items.map(p => '<th>' + esc(p.name) + '</th>').join('') + '</tr></thead><tbody><tr><td>Цена</td>' + items.map(p => '<td class="' + (p.price === minPrice ? 'best' : '') + '">' + money(p.price) + '</td>').join('') + '</tr><tr><td>Затяжки</td>' + items.map(p => '<td class="' + (p.puffs && p.puffs === maxPuffs ? 'best' : '') + '">' + (p.puffs ? p.puffs.toLocaleString('ru-RU') : '—') + '</td>').join('') + '</tr><tr><td>Бренд</td>' + items.map(p => '<td>' + esc(p.brand) + '</td>').join('') + '</tr><tr><td>Категория</td>' + items.map(p => '<td>' + esc(catName(p.cat)) + '</td>').join('') + '</tr></tbody></table></div>';
+  }
+  html += '</div>';
+  openModal(html);
+}
+
+/* ==================== ИНИЦИАЛИЗАЦИЯ ГЛАВНОЙ ==================== */
+function initHome(){
+  const hits = PRODUCTS.filter(p => p.tags && p.tags.indexOf('hit') >= 0 && p.stock).slice(0, 8);
+  const newp = PRODUCTS.filter(p => p.tags && p.tags.indexOf('new') >= 0 && p.stock).slice(0, 8);
+  const hg = document.getElementById('hitsGrid');
+  const ng = document.getElementById('newGrid');
+  if (hg){ hg.innerHTML = hits.map(p => productCardHTML(p, false)).join(''); setupGridDelegation(hg); }
+  if (ng){ ng.innerHTML = newp.map(p => productCardHTML(p, false)).join(''); setupGridDelegation(ng); }
+  const cp = document.getElementById('catPreview');
+  if (cp){
+    cp.innerHTML = CATS.map(c => '<a class="cat-card" href="#category?c=' + c.id + '"><b>' + c.name + '</b><span>' + PRODUCTS.filter(p => p.cat === c.id).length + ' товаров</span></a>').join('');
+  }
+  const statEl = document.getElementById('statProducts');
+  if (statEl) statEl.dataset.count = PRODUCTS.length;
+  renderRecent();
+}
+
+function initFaq(){
+  const host = document.getElementById('faq'); if (!host) return;
+  const data = [
+    ['Куда доставляете?', 'По всему Казахстану. Доставка занимает 20–50 минут.'],
+    ['Есть самовывоз?', 'Нет, самовывоза нет. Мы работаем исключительно как служба быстрой ночной доставки.'],
+    ['Можно оплатить при получении?', 'Нет, мы работаем по предоплате.'],
+    ['Цены одинаковые в разных городах?', 'Да, цены везде одинаковые и фиксированные.'],
+    ['Как работает гарантия?', 'Гарантия покрывает всё: товар не пришёл, пришёл не тот товар, брак устройства. Обращение в течение 6 часов после получения с видео распаковки.']
+  ];
+  host.innerHTML = data.map(f => '<details class="faq-item"><summary>' + esc(f[0]) + '</summary><p>' + esc(f[1]) + '</p></details>').join('');
+}
+
+function initCounters(){
+  const els = document.querySelectorAll('[data-count]');
+  if (!els.length) return;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = Number(el.dataset.count);
+      let cur = 0;
+      const step = Math.max(1, Math.floor(target / 40));
+      const t = setInterval(() => {
+        cur += step;
+        if (cur >= target){ cur = target; clearInterval(t); }
+        el.textContent = cur.toLocaleString('ru-RU');
+      }, 25);
+      io.unobserve(el);
+    });
+  }, { threshold: .4 });
+  els.forEach(el => io.observe(el));
+}
+
+/* ==================== АНИМАЦИЯ ЗВЁЗД ==================== */
+function initStars(){
+  const cv = document.getElementById('stars');
+  if(!cv) return;
+  const ctx = cv.getContext('2d');
+  let stars = [], w = 0, h = 0, rafId = null;
+
+  function resize(){
+    const dpr = window.devicePixelRatio || 1;
+    w = innerWidth; h = innerHeight;
+    cv.width = w * dpr; cv.height = h * dpr;
+    ctx.scale(dpr, dpr);
+    stars = [];
+    const n = Math.min(100, Math.floor(w / 12));
+    for(let i=0;i<n;i++) stars.push({ x: Math.random()*w, y: Math.random()*h, r: Math.random()*1.4+.3, s: Math.random()*.25+.05, a: Math.random() });
+  }
+
+  function loop(){
+    if (document.hidden) { rafId = null; return; }
+    ctx.clearRect(0, 0, w, h);
+    const hour = new Date().getHours();
+    const night = hour >= 22 || hour < 6;
+    stars.forEach(st => {
+      st.a += st.s * .02;
+      const alpha = night ? (.35 + Math.abs(Math.sin(st.a)) * .65) : (.15 + Math.abs(Math.sin(st.a)) * .3);
+      ctx.beginPath();
+      ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(157,178,206,${alpha})`;
+      ctx.fill();
+      st.y -= st.s;
+      if (st.y < -2) { st.y = h + 2; st.x = Math.random() * w; }
+    });
+    rafId = requestAnimationFrame(loop);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && !rafId && !matchMedia('(prefers-reduced-motion: reduce)').matches) loop();
+  });
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) loop();
+  document.body.classList.toggle('night', new Date().getHours() >= 22 || new Date().getHours() < 6);
+}
+
+function updateStatus(){
+  const el = document.getElementById('statusText');
+  if (!el) return;
+  const always = CONFIG.OPEN === CONFIG.CLOSE;
+  if (always){ el.textContent = 'Открыто · круглосуточно'; return; }
+  const now = new Date(new Date().toLocaleString('en-US', { timeZone: CONFIG.TZ }));
+  const [oh, om] = CONFIG.OPEN.split(':').map(Number);
+  const [ch, cm] = CONFIG.CLOSE.split(':').map(Number);
+  const cur = now.getHours() * 60 + now.getMinutes();
+  const o = oh * 60 + om, c = ch * 60 + cm;
+  const open = c > o ? (cur >= o && cur < c) : (cur >= o || cur < c);
+  el.textContent = open ? 'Открыто' : 'Закрыто';
+}
+
+/* ==================== КВИЗ И РУЛЕТКА ==================== */
+function openQuiz(){
+  const state = { need: '', taste: '', budget: '' };
+  openModal('<div class="sheet" role="dialog" aria-modal="true"><button class="sheet-close" aria-label="Закрыть">✕</button><div id="quizBody"></div></div>', (wrap, close) => {
+    const body = wrap.querySelector('#quizBody');
+    function opt(v, l){ return '<button class="btn btn-ghost btn-block" data-v="' + v + '">' + l + '</button>'; }
+    function bind(field, next){ body.querySelectorAll('[data-v]').forEach(b => b.onclick = () => { state[field] = b.dataset.v; next(); }); }
+
+    function step1(){
+      body.innerHTML = '<h2 class="sheet-title">Что вы ищете?</h2><div class="quiz-opts">' + opt('disposable','Одноразка') + opt('pod','Под / Вейп') + opt('iqos','IQOS / Glo / Ploom') + opt('snus','Снюс') + '</div>';
+      bind('need', step2);
+    }
+    function step2(){
+      body.innerHTML = '<h2 class="sheet-title">Какой вкус предпочитаете?</h2><div class="quiz-opts">' + opt('сладкий','Сладкий (ягоды, десерты, фрукты)') + opt('фрукт','Свежие фрукты') + opt('ментол','Холодок и мята') + opt('табак','Классический табак') + '</div>';
+      bind('taste', step3);
+    }
+    function step3(){
+      body.innerHTML = '<h2 class="sheet-title">Ваш бюджет?</h2><div class="quiz-opts">' + opt('0-10000','до 10 000 ₸') + opt('10000-20000','10 000 – 20 000 ₸') + opt('20000-999999','от 20 000 ₸') + '</div>';
+      bind('budget', result);
+    }
+    function result(){
+      const [min, max] = state.budget.split('-').map(Number);
+      let cat = [state.need];
+      if (state.need === 'pod') cat = ['pod', 'vape'];
+      if (state.need === 'iqos') cat = ['iqos', 'glo', 'ploom'];
+      
+      let items = PRODUCTS.filter(p => p.stock && cat.indexOf(p.cat) >= 0 && p.price >= min && p.price <= max);
+      if (!items.length) items = PRODUCTS.filter(p => p.stock && cat.indexOf(p.cat) >= 0);
+
+      const tastes = {
+        'сладкий': ['клубника', 'арбуз', 'персик', 'кола', 'дыня', 'бабл', 'конфет'],
+        'фрукт': ['манго', 'киви', 'виноград', 'черника', 'яблоко', 'грейпфрут', 'ананас'],
+        'ментол': ['мята', 'лёд', 'лед', 'mint', 'menthol', 'cool', 'мороз'],
+        'табак': ['original', 'табак', 'amber', 'classic', 'regular', 'tobacco']
+      };
+      const wanted = tastes[state.taste] || [];
+
+      items.sort((a, b) => {
+        const aMatch = (a.variants || []).some(v => wanted.some(w => v.name.toLowerCase().includes(w)));
+        const bMatch = (b.variants || []).some(v => wanted.some(w => v.name.toLowerCase().includes(w)));
+        if (aMatch !== bMatch) return bMatch ? 1 : -1;
+        return a.price - b.price;
+      });
+
+      body.innerHTML = '<h2 class="sheet-title">Вам идеально подойдёт</h2><div class="grid grid-1" style="margin-top:14px;">' + items.slice(0, 3).map(p => productCardHTML(p)).join('') + '</div>';
+      setupGridDelegation(body);
+    }
+    step1();
+  });
+}
+
+function randomHit(){
+  const hits = PRODUCTS.filter(p => p.stock && p.tags && p.tags.indexOf('hit') >= 0);
+  const pool = hits.length ? hits : PRODUCTS.filter(p => p.stock);
+  if (!pool.length) return;
+
+  const chosen = pool[Math.floor(Math.random() * pool.length)];
+
+  openModal('<div class="sheet small" role="dialog" aria-modal="true"><h2 class="sheet-title" style="margin-bottom:8px">Выбираем для вас...</h2><div class="roulette" id="rlt">…</div></div>', (wrap, close) => {
+    const el = wrap.querySelector('#rlt');
+    let steps = 0;
+    let finished = false;
+    const interval = setInterval(() => {
+      steps++;
+      if (steps > 10) {
+        clearInterval(interval);
+        finished = true;
+        el.textContent = chosen.name;
+        setTimeout(() => {
+          if (finished) {
+            close();
+            openQuickView(chosen.id);
+          }
+        }, 500);
+      } else {
+        el.textContent = pool[Math.floor(Math.random() * pool.length)].name;
+      }
+    }, 80);
+    wrap._onCloseExtra = () => { finished = false; clearInterval(interval); };
+  });
+}
+
+/* ==================== РОУТИНГ ==================== */
+function route(){
+  // Закрываем обычные модалки, НЕ трогая гейт 18+, и снимаем накопленные слушатели
+  document.querySelectorAll('.modal-backdrop').forEach(m => {
+    if (m._cleanup) m._cleanup();
+    m.remove();
+  });
+  if (!document.getElementById('ageGate')) {
+    document.body.classList.remove('no-scroll');
+  }
+  document.documentElement.style.setProperty('--ac', '#3B82F6');
+
+  const hash = (location.hash || '#home').slice(1);
+  const [path, qs] = hash.split('?');
+  const params = new URLSearchParams(qs || '');
+  const name = path || 'home';
+  const known = ['home','catalog','category','cart','guarantee','contacts','verify','blog'];
+  const target = known.indexOf(name) >= 0 ? document.getElementById('page-' + name) : null;
+
+  document.querySelectorAll('.page').forEach(p => p.hidden = true);
+  if (!target){
+    document.getElementById('page-404').hidden = false;
+    document.title = 'Страница не найдена — Night Store';
+    return;
+  }
+  target.hidden = false;
+
+  document.querySelectorAll('[data-nav]').forEach(a => {
+    const nav = a.dataset.nav;
+    const isActive = nav === name || (name === 'category' && nav === 'catalog');
+    a.classList.toggle('active', isActive);
+  });
+
+  const fabs = document.querySelector('.fabs');
+  if (fabs) fabs.style.display = (name === 'cart') ? 'none' : 'flex';
+
+  if (name === 'home'){
+    initHome();
+    document.title = 'Night Store — ночной магазин вейпов и систем нагревания';
+  }
+  if (name === 'catalog'){
+    // Если перешли на чистый #catalog без параметров — сбрасываем состояние фильтров
+    const rawHash = (location.hash || '').slice(1);
+    if (rawHash.indexOf('?') === -1) {
+      CatalogState.cat = '';
+      CatalogState.q = '';
+      CatalogState.brand = '';
+      CatalogState.price = '';
+      CatalogState.puffs = '';
+      CatalogState.sort = 'cheap';
+      CatalogState.favOnly = false;
+      CatalogState.page = 1;
+      const ft = document.getElementById('favTab');
+      if (ft) ft.classList.remove('active');
+    }
+    initCatalogOnce();
+    const pid = params.get('p');
+    if (pid) setTimeout(() => openQuickView(pid), 200);
+    document.title = 'Каталог — Night Store';
+  }
+  if (name === 'category') loadCategory(params.get('c') || 'disposable');
+  if (name === 'cart') {
+    NS.renderCartPage();
+    document.title = 'Корзина — Night Store';
+  }
+  if (name === 'guarantee') {
+    initFaq();
+    document.title = 'Гарантия и доставка — Night Store';
+  }
+  if (name === 'contacts') document.title = 'О нас и контакты — Night Store';
+  if (name === 'verify') document.title = 'Проверка оригинала — Night Store';
+  if (name === 'blog') document.title = 'Блог — Night Store';
+
+  window.scrollTo(0, 0);
+}
+
+/* ==================== ИНИЦИАЛИЗАЦИЯ ПРИ ЗАГРУЗКЕ ==================== */
+document.addEventListener('DOMContentLoaded', function(){
+  const ageGate = document.getElementById('ageGate');
+  if (store.get('ns_age', false)) {
+    if (ageGate) ageGate.remove();
+  } else {
+    document.body.classList.add('no-scroll');
+  }
+
+  const ageYes = document.getElementById('ageYes');
+  if (ageYes) {
+    ageYes.onclick = () => {
+      store.set('ns_age', true);
+      if (ageGate) ageGate.remove();
+      if (!document.querySelector('.modal-backdrop')) {
+        document.body.classList.remove('no-scroll');
+      }
+    };
+  }
+  const ageNo = document.getElementById('ageNo');
+  if (ageNo) {
+    ageNo.onclick = () => { window.location.href = 'https://www.google.com'; };
+  }
+
+  buildShell();
+  NS.updateBadge();
+  initCounters();
+  initStars();
+  updateStatus();
+  setInterval(updateStatus, 30000);
+  
+  const wa = document.getElementById('cWa'); if (wa){ wa.href = CONFIG.WA_URL; const t = document.getElementById('cWaText'); if (t) t.textContent = '+' + CONFIG.WA_NUMBER; }
+  const tg = document.getElementById('cTg'); if (tg) tg.href = CONFIG.TG_MANAGER;
+  const tgc = document.getElementById('cTgCh'); if (tgc) tgc.href = CONFIG.TG_CHANNEL;
+  const tgr = document.getElementById('cTgRev'); if (tgr) tgr.href = CONFIG.TG_REVIEWS;
+  const vwa = document.getElementById('verifyWa'); if (vwa) vwa.href = CONFIG.WA_URL;
+
+  const toTop = document.getElementById('toTop');
+  if (toTop){
+    toTop.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.addEventListener('scroll', () => toTop.classList.toggle('show', window.scrollY > 400));
+  }
+
+  document.addEventListener('click', function(e){
+    const qb = e.target.closest('#quizStart');
+    if (qb) { e.preventDefault(); openQuiz(); return; }
+    const rb = e.target.closest('#randomHit');
+    if (rb) { e.preventDefault(); randomHit(); return; }
+  });
+  
+  const phoneInput = document.querySelector('input[name="phone"]');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function() {
+      let d = this.value.replace(/\D/g, '');
+      if (d.startsWith('8')) d = '7' + d.slice(1);
+      if (!d.startsWith('7')) d = '7' + d;
+      d = d.slice(0, 11);
+      let f = '+7';
+      if (d.length > 1) f += ' (' + d.slice(1, 4);
+      if (d.length >= 4) f += ') ' + d.slice(4, 7);
+      if (d.length >= 7) f += '-' + d.slice(7, 9);
+      if (d.length >= 9) f += '-' + d.slice(9, 11);
+      this.value = f;
+      updatePreview();
+    });
+  }
+
+  const ob = document.getElementById('orderBtn');
+  if (ob) ob.onclick = sendOrder;
+  const barOrder = document.getElementById('barOrder');
+  if (barOrder) barOrder.onclick = sendOrder;
+
+  const copyBtn = document.getElementById('copyOrder');
+  if (copyBtn) {
+    copyBtn.onclick = () => {
+      updatePreview();
+      const text = document.getElementById('waPreview').textContent;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => showToast('Текст заказа скопирован в буфер'));
+      } else {
+        showToast('Скопируйте текст из поля предпросмотра');
+      }
+    };
+  }
+
+  const applyPromoBtn = document.getElementById('applyPromoBtn');
+  if (applyPromoBtn) {
+    applyPromoBtn.onclick = () => {
+      const input = document.getElementById('promoInput');
+      const code = (input.value || '').trim().toUpperCase();
+      if (PROMOS[code]) {
+        NS.setPromo(code);
+        showToast('Промокод применён');
+      } else {
+        showToast('Неверный промокод');
+      }
+    };
+  }
+  
+  document.querySelectorAll('input[name]').forEach(i => i.addEventListener('input', updatePreview));
+
+  window.addEventListener('hashchange', route);
+  route();
+});
+</script>
+</body>
+</html>
