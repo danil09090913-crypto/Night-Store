@@ -10,7 +10,6 @@
 <meta property="og:title" content="Night Store — ночной магазин вейпов, одноразок, снюса, IQOS, Glo, Ploom">
 <meta property="og:description" content="Оригинальные одноразки, вейпы, поды, снюс, IQOS, Glo, Ploom и стики. Доставка 20–50 минут по всему Казахстану. Гарантия 6 часов.">
 <meta property="og:url" content="https://nightshopkz.vercel.app/">
-<meta property="og:image" content="https://nightshopkz.vercel.app/og.jpg">
 <meta name="theme-color" content="#0B0F19">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230B0F19'/%3E%3Ccircle cx='45' cy='48' r='26' fill='%233B82F6'/%3E%3Ccircle cx='58' cy='42' r='23' fill='%230B0F19'/%3E%3C/svg%3E">
 <style>
@@ -229,10 +228,14 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
 .footer-grid{display:grid;gap:20px}.footer-grid h4{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:#fff}
 .footer-grid a,.footer-grid span{display:block;font-size:13px;color:var(--muted);margin-bottom:7px;cursor:pointer}.footer-grid a:hover{color:var(--a2)}
 .footer-bottom{margin-top:20px;padding-top:14px;border-top:1px solid var(--stroke);font-size:12px;color:#7888a5;text-align:center}
-
 @media(min-width:560px){.grid{grid-template-columns:repeat(3,1fr)}.cat-grid{grid-template-columns:repeat(3,1fr)}.status{display:flex}.toolbar{grid-template-columns:2fr 1fr 1fr 1fr 1fr auto}.toolbar #search{grid-column:auto}#viewToggle{grid-column:auto}.quiz-banner,.guarantee-mini,.bundle-box{flex-direction:row;align-items:center;justify-content:space-between}.verify-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:repeat(4,1fr)}.cards-3{grid-template-columns:repeat(3,1fr)}.guarantee-steps{flex-direction:row}.gstep{flex:1}}
 @media(min-width:860px){body{padding-bottom:0}.bottom-nav{display:none}.fabs{bottom:20px}.to-top{bottom:20px}.grid{grid-template-columns:repeat(4,1fr)}.cat-grid{grid-template-columns:repeat(5,1fr)}.cart-layout{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}.summary-card{position:sticky;top:80px;margin-top:0}.cart-bar{display:none!important}.modal-backdrop{align-items:center}.sheet{border-radius:24px;border-bottom:1px solid var(--stroke);max-height:86vh}.verify-grid{grid-template-columns:repeat(4,1fr)}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.ch-switch{position:relative;display:grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:16px;background:var(--card);border:1px solid var(--stroke);margin-bottom:12px}
+.ch-switch button{position:relative;z-index:1;background:none;border:none;color:var(--muted);font-weight:800;font-size:14px;min-height:44px;border-radius:12px}
+.ch-switch button.on{color:#fff}
+.ch-thumb{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:12px;background:linear-gradient(135deg,#25d366,#128c7e);transition:transform .3s}
+.ch-switch[data-ch=tg] .ch-thumb{transform:translateX(100%);background:linear-gradient(135deg,#2AABEE,#229ED9)}
 </style>
 </head>
 <body>
@@ -357,6 +360,7 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
             <div class="summary-row"><span>Скидка</span><b id="discountRow" style="color:#4ADE80">0 ₸</b></div>
             <div class="summary-row total"><span>Итого</span><b id="sumTotal">0 ₸</b></div>
             <div style="display:flex;gap:8px;margin:12px 0"><input id="promoInput" class="input input-sm" placeholder="Промокод"><button class="btn btn-ghost btn-sm" id="applyPromoBtn">OK</button></div>
+            <div class="ch-switch" id="chSwitch" data-ch="wa"><i class="ch-thumb"></i><button type="button" data-ch="wa" class="on">WhatsApp</button><button type="button" data-ch="tg">Telegram</button></div>
             <button class="btn btn-primary btn-block" id="orderBtn">Заказать в WhatsApp</button>
             <p class="small muted" id="orderHint" style="margin-top:8px;text-align:center"></p>
           </div>
@@ -382,7 +386,7 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
     <h1>О нас</h1>
     <p class="lead">Night Store — ночной магазин. Работаем круглосуточно, доставляем по всему Казахстану за 20–50 минут. Только оригинал.</p>
     <section class="section"><div class="cards-3"><div class="info-card"><h3>Оригинал</h3><p class="muted">Работаем с проверенными поставками.</p></div><div class="info-card"><h3>Быстро</h3><p class="muted">Доставка 20–50 минут. Ответ моментальный.</p></div><div class="info-card"><h3>Гарантия</h3><p class="muted">Замена или возврат в течение 6 часов.</p></div></div></section>
-    <section class="section"><h2>Контакты</h2><div class="contact-list"><a class="contact-row" id="cWa" href="#" target="_blank" rel="noopener"><span class="ci">WhatsApp</span><b id="cWaText">—</b></a><a class="contact-row" id="cTg" href="#" target="_blank" rel="noopener"><span class="ci">Telegram-менеджер</span><b>@vibemanagerkz</b></a><a class="contact-row" id="cTgCh" href="#" target="_blank" rel="noopener"><span class="ci">Telegram-канал</span><b>Каталоги</b></a><a class="contact-row" id="cTgRev" href="#" target="_blank" rel="noopener"><span class="ci">Отзывы клиентов</span><b>Telegram</b></a><div class="contact-row"><span class="ci">География</span><b>Весь Казахстан</b></div><div class="contact-row"><span class="ci">График</span><b id="cHours">Круглосуточно</b></div><div class="contact-row"><span class="ci">Часовой пояс</span><b>Asia/Almaty</b></div></div></section>
+    <section class="section"><h2>Контакты</h2><div class="contact-list"><a class="contact-row" id="cWa" href="#" target="_blank" rel="noopener"><span class="ci">WhatsApp</span><b id="cWaText">—</b></a><a class="contact-row" href="#" data-tg><span class="ci">Telegram</span><b>Написать менеджеру</b></a><a class="contact-row" id="cTgCh" href="#" target="_blank" rel="noopener"><span class="ci">Telegram-канал</span><b>Каталоги</b></a><a class="contact-row" id="cTgRev" href="#" target="_blank" rel="noopener"><span class="ci">Отзывы клиентов</span><b>Telegram</b></a><div class="contact-row"><span class="ci">География</span><b>Весь Казахстан</b></div><div class="contact-row"><span class="ci">График</span><b id="cHours">Круглосуточно</b></div><div class="contact-row"><span class="ci">Часовой пояс</span><b>Asia/Almaty</b></div></div></section>
     <section class="section"><h2>Полезное</h2><div class="cards-3"><a class="info-card link-card" href="#verify"><h3>Проверка оригинала</h3><p class="muted">Как отличить подделку: QR, защитные элементы.</p></a><a class="info-card link-card" href="#blog"><h3>Блог</h3><p class="muted">5 статей о выборе и уходе за устройствами.</p></a><a class="info-card link-card" href="#guarantee"><h3>Гарантия и доставка</h3><p class="muted">Условия, сроки и FAQ.</p></a></div></section>
   </div>
 </section>
@@ -446,7 +450,7 @@ function track(event, data) { window.dataLayer = window.dataLayer || []; window.
 
 const SYN = {'элф бар':'elf bar','эльф бар':'elf bar','эльфбар':'elf bar','елф бар':'elf bar','вака':'waka','айкосс':'iqos','айкос':'iqos','гло':'glo','плоом':'ploom','плум':'ploom','снюс':'snus','жижка':'liquid','жидкость':'liquid','вейп':'vape','одноразки':'disposable','одноразка':'disposable','стики':'sticks','стик':'sticks','испарители':'coil','испаритель':'coil','картриджи':'coil','картридж':'coil'};
 const SYN_KEYS = Object.keys(SYN).sort((a, b) => b.length - a.length);
-function normQ(q){ let s = String(q||'').toLowerCase().trim(); SYN_KEYS.forEach(k => s = s.split(k).join(SYN[k])); return s; }
+function normQ(q){ let s = String(q||'').toLowerCase().trim(); SYN_KEYS.forEach(k => { s = s.replace(new RegExp('(^|\\s)'+k+'(?=\\s|$)','g'), '$1'+SYN[k]); }); return s; }
 function matchText(p, q){
   if (!q) return true;
   const raw = String(q).toLowerCase().trim();
@@ -533,6 +537,11 @@ D('RandM','RandM Tornado 9000',12000,9000,['Арбуз','Кола','Мята']);
 D('RandM','RandM Tornado 15000',14500,15000,['Клубника','Манго']);
 D('Air Bar','Air Bar AB10000',11000,10000,['Голубика','Лёд']);
 D('Puff Bar','Puff Bar 5000',8500,5000,['Клубника','Мята']);
+D('Elf Bar','Elf Bar BC 18000',11900,18000,['Клубника лёд','Арбуз','Виноград','Персик манго','Мята'],['new']);
+D('Lost Mary','Lost Mary BM16000',12500,16000,['Голубая малина','Клубника киви','Арбуз лёд','Виноград'],['new']);
+D('Lost Mary','Lost Mary MO20000 Pro',15500,20000,['Голубая малина лёд','Клубника киви','Арбуз','Мята','Виноград'],['new']);
+D('Vozol','Vozol Gear 25000',15000,25000,['Персик','Черника','Арбуз','Мята'],['new']);
+D('Vozol','Vozol Star 40000',19400,40000,['Арбуз лёд','Клубника','Виноград','Мята'],['new']);
 
 function S(brand, name, price, unit, flavors){ addP({cat:'snus', brand, name, price, unit, variants: FL.apply(null, flavors)}); }
 S('Delta','Delta Snus',4600,'Шайба',['Red Bull','Adrenaline']);
@@ -543,6 +552,9 @@ S('Стиль','Стиль Snus',4600,'Шайба',['Мята','Лимон','Я�
 S('Zyn','Zyn Nicotine Pouches',5200,'Никотиновые пакеты',['Cool Mint','Citrus','Spearmint','Cola']);
 S('Velo','Velo Nicotine Pouches',5200,'Никотиновые пакеты',['Ice Cool','Freeze','Berry Frost','Mighty Peppermint']);
 S('Odens','Odens Snus',5200,'Шайба',['Cola','Cold Dry','Ice Cool','Peppermint']);
+S('Killa','Killa Nicotine Pouches',5200,'Никотиновые пакеты',['Cold Cola','Lemonade','Mint']);
+S('Lyft','Lyft Nicotine Pouches',5200,'Никотиновые пакеты',['Freeze','Berry Frost','Mint']);
+S('Siberia','Siberia Red Line',4800,'Шайба',['Мята','Ягоды']);
 
 function DEV(cat, brand, name, price, colors, unit){ addP({cat, brand, name, price, variantType:'color', unit, variants: cv(colors)}); return PRODUCTS[PRODUCTS.length-1].id; }
 const DEV_UNIT = 'Документы + зарядка + пачка стиков';
@@ -647,6 +659,7 @@ addP({cat:'coil', brand:'Geekvape', name:'Картриджи для WEAX (бло
 
 function L(brand, name, price, flavors){ addP({cat:'liquid', brand, name, price, variants: FL.apply(null, flavors)}); }
 L('Jam Monster','Jam Monster Salt 30мл 20мг',5500,['Клубника','Черника','Яблоко']); L('Jam Monster','Jam Monster 60мл 3мг',6000,['Клубника','Виноград']); L('Jam Monster','Jam Monster 100мл 3мг',7500,['Клубника','Голубика','Малина','Персик']); L('Nasty Juice','Nasty Juice Salt 30мл 35мг',5800,['Манго','Киви','Лёд']); L('Nasty Juice','Nasty Juice 60мл 6мг',6200,['Манго','Арбуз']); L('Nasty Juice','Nasty Juice 60мл 3мг',6300,['Манго','Клубника Лёд','Ежевика','Киви Драгонфрут']); L('BAD Drip','BAD Drip Salt 30мл 25мг',5600,['Кола','Клубника']); L('BAD Drip','BAD Drip 60мл 3мг',6000,['Кола','Дыня']); L('Chaser','Chaser 60мл 6мг',5900,['Персик','Лимон']); L('VGOD','VGOD Salt 30мл 25мг',6000,['Манго','Лёд']); L('VGOD','VGOD 60мл 6мг',6500,['Клубника','Мята']); L('Хомяк','Хомяк Salt 30мл 20мг',4500,['Яблоко','Черника']); L('Хомяк','Хомяк 60мл 3мг',5000,['Яблоко','Виноград']); L('Element','Element Salt 30мл 20мг',6500,['Табак','Мята']); L('Element','Element 60мл 6мг',7000,['Табак','Вишня']); L('Dual','Dual Salt 30ml',4000,['Ледяной Тархун','Яблоко Виноград','Ледяная Малина','Садовые Ягоды','Вишня Клубника','Ледяное Манго-Апельсин','Ледяная Черника','Ананас Киви','Чай с Грейпфрутом и Ягодами','Персиковый Лимонад']); L('Alaska','Alaska Salt 30ml',4600,['Ледяная Черника','Ледяное Манго','Ледяная Малина','Ледяной Виноград','Ледяной Арбуз','Ледяная Дыня','Ледяное Яблоко','Ледяной Клубничный Лимонад','Ледяной Персик']); L('Husky','Husky Double Ice Salt 30ml',4400,['Ледяная Вишня','Ледяной Виноград','Ледяное Манго','Ледяной Арбуз','Ледяная Черника']); L('Brusko','Brusko Salt 30ml',4300,['Ледяная Клубника','Ледяной Персик','Ледяная Вишня','Ледяной Лимонад','Ягодный Микс','Ледяной Кактус']); L("Maxwell's","Maxwell's Salt 30ml",4400,['Ледяная Малина','Ледяной Виноград','Ледяное Яблоко','Ананас Манго','Ледяной Арбуз']); L('Chaser','Chaser Salt 30ml',4300,['Ледяная Вишня','Ледяная Черника','Киви Клубника','Ледяной Персик','Энергетик']); L('Hotspot','Hotspot Salt 30ml',4500,['Ледяной Лимон','Ягодный Микс','Ледяное Манго','Виноград','Мята']);
+L('Pachamama','Pachamama Salt 30ml',6200,['Клубника груша','Виноград лёд','Манго']);
 
 /* Аксессуары */
 addP({cat:'acc',brand:'IQOS',name:'Чехол для IQOS',price:3000,variantType:'color',variants:cv(['Чёрный','Синий','Красный','Розовый'])});
@@ -667,17 +680,33 @@ addP({cat:'acc',brand:'Night Store',name:'Кабель Type-C 1 м',price:2000,v
  ['ns_fav','ns_cmp','ns_recent'].forEach(k=>store.set(k,store.get(k,[]).filter(ok)));
 })();
 
-const CONFIG = { WA_NUMBER: '7474968253', WA_URL: 'https://wa.me/7474968253', TG_MANAGER: 'https://t.me/vibemanagerkz', TG_MANAGER_NAME: '@vibemanagerkz', TG_CHANNEL: 'https://t.me/+Qx7AZlGzf_ZlZDJh', TG_REVIEWS: 'https://t.me/+l7A4eomppJA1Y2Fl', OPEN: '00:00', CLOSE: '00:00', TZ: 'Asia/Almaty', GEO: 'Весь Казахстан' };
+const CONFIG = { WA_NUMBER: '77076813498', WA_URL: 'https://wa.me/77076813498', TG_B: 'VmliZU1hbmFnZXJLWg==', TG_CHANNEL: 'https://t.me/+Qx7AZlGzf_ZlZDJh', TG_REVIEWS: 'https://t.me/+l7A4eomppJA1Y2Fl', OPEN: '00:00', CLOSE: '00:00', TZ: 'Asia/Almaty', GEO: 'Весь Казахстан' };
+function openTg(text){ window.open('https://t.me/' + atob(CONFIG.TG_B) + (text ? '?text=' + encodeURIComponent(text) : ''), '_blank', 'noopener'); }
+let orderCh = store.get('ns_ch', 'wa');
+function applyCh(){
+  const sw = document.getElementById('chSwitch');
+  if (sw){ sw.dataset.ch = orderCh; sw.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.ch === orderCh)); }
+  const ob = document.getElementById('orderBtn');
+  if (ob) ob.textContent = 'Заказать в ' + (orderCh === 'tg' ? 'Telegram' : 'WhatsApp');
+}
 const PROMOS = { 'NIGHT10': 0.10, 'BRATAN': 0.15 };
 const CITIES = ['Алматы','Астана','Шымкент','Караганда','Актобе','Тараз','Павлодар'];
 
-const TH=25000, EX=0.05, CAP=0.25;
+const TH=25000, EX=0.10, CAP=0.25;
 const BUNDLES=[
  {id:'night',title:'Ночной набор',desc:'2 одноразки + снюс',pct:.05,items:[['Elf Bar BC 10000',1],['Waka SoPro PA10000',1],['Zyn Nicotine Pouches',1]]},
  {id:'iqos',title:'Старт IQOS',desc:'Устройство + блок стиков TEREA',pct:.10,items:[['IQOS ILUMA ONE',1],['Стики TEREA (блок 10 пачек)',1]]},
  {id:'glo',title:'Старт Glo',desc:'Glo Series 2 + блок стиков Neo',pct:.10,items:[['Glo Series 2',1],['Стики Neo (блок 10 пачек)',1]]},
  {id:'ploom',title:'Старт Ploom',desc:'Ploom X + блок стиков EVO',pct:.10,items:[['Ploom X',1],['Стики EVO (блок 10 пачек)',1]]},
- {id:'pod',title:'Под-старт',desc:'XROS 3 MINI + картриджи + жидкость',pct:.10,items:[['Vaporesso XROS 3 MINI',1],['Картриджи для XROS 3 MINI / 4 MINI / PRO (блок 5 шт)',1],['Jam Monster Salt 30мл 20мг',1]]}
+ {id:'pod',title:'Под-старт',desc:'XROS 3 MINI + картриджи + жидкость',pct:.10,items:[['Vaporesso XROS 3 MINI',1],['Картриджи для XROS 3 MINI / 4 MINI / PRO (блок 5 шт)',1],['Jam Monster Salt 30мл 20мг',1]]},
+ {id:'duo',title:'Дуэт одноразок',desc:'Две популярные одноразки на 15–18K',pct:.08,items:[['Elf Bar BC 15000',1],['Waka Smash 2 M8000',1]]},
+ {id:'marathon',title:'Марафон',desc:'Две одноразки на 23–60K затяжек',pct:.08,items:[['Waka 60000',1],['Elf Bar GH 23000',1]]},
+ {id:'snusmix',title:'Снюс-микс',desc:'Три разных снюса попробовать',pct:.08,items:[['Zyn Nicotine Pouches',1],['Velo Nicotine Pouches',1],['KASTA Snus 125mg',1]]},
+ {id:'iqosprem',title:'IQOS Премиум',desc:'ILUMA i PRIME + 2 блока TEREA',pct:.10,items:[['IQOS ILUMA i PRIME',1],['Стики TEREA (блок 10 пачек)',2]]},
+ {id:'glopro',title:'Glo Про',desc:'Glo Hilo + 2 блока Neo',pct:.10,items:[['Glo Hilo',1],['Стики Neo (блок 10 пачек)',2]]},
+ {id:'ploomprem',title:'Ploom Премиум',desc:'Ploom AURA + блок EVO',pct:.10,items:[['Ploom AURA',1],['Стики EVO (блок 10 пачек)',1]]},
+ {id:'caliburn',title:'Caliburn старт',desc:'Caliburn G3 + картриджи + жидкость',pct:.10,items:[['Uwell Caliburn G3',1],['Картриджи для Caliburn G3 (блок 5 шт)',1],['Alaska Salt 30ml',1]]},
+ {id:'liqmix',title:'Жидкий микс',desc:'Три солевые жидкости',pct:.08,items:[['Jam Monster Salt 30мл 20мг',1],['Nasty Juice Salt 30мл 35мг',1],['Dual Salt 30ml',1]]}
 ];
 
 const NS = (function(){
@@ -711,8 +740,7 @@ const NS = (function(){
     if (!silent) showToast('Добавлено в корзину');
     track('add_to_cart', {id, variant, qty});
   }
-  
-  function removeItem(id, variant){
+function removeItem(id, variant){
     const c = getCart();
     const removed = c.find(i => i.id + '|' + i.variant === id + '|' + variant);
     saveCart(c.filter(i => i.id + '|' + i.variant !== id + '|' + variant));
@@ -741,32 +769,22 @@ const NS = (function(){
   }
 
   function cartCount(){ return getCart().reduce((s,i)=>s+i.qty,0); }
-  function cartTotals(){ 
-    const c = getCart(); let subtotal = 0, d = 0; const dq = c.reduce((s,i)=>{const p=findProduct(i.id);return s+(p&&p.cat==='disposable'?i.qty:0)},0);
-    c.forEach(i => { 
-      const p = findProduct(i.id); 
-      if(p) {
-        const s = p.price * i.qty;
-        subtotal += s;
-        if(p.cat==='disposable') { if(dq>=2) d+=s*.10; }
-        else if(i.qty>=2) d+=s*.05;
-      } 
-    }); 
-    BUNDLES.forEach(b=>{
-      let sum=0; let ok=true;
-      for(const [n,q] of b.items){
-        const pr=PRODUCTS.find(x=>x.name===n);
-        if(!pr){ok=false;break;}
-        const have=c.filter(i=>i.id===pr.id).reduce((a,i)=>a+i.qty,0);
-        if(have<q){ok=false;break;}
-        sum+=pr.price*q;
-      }
-      if(ok) d+=sum*b.pct;
+  function cartTotals(){
+    const c = getCart(); let subtotal = 0, d = 0; const rem = {};
+    c.forEach(i => { rem[i.id] = (rem[i.id]||0) + i.qty; const p = findProduct(i.id); if(p) subtotal += p.price*i.qty; });
+    BUNDLES.forEach(b => {
+      let sum = 0, ok = true; const prs = [];
+      for(const [n,q] of b.items){ const pr = PRODUCTS.find(x => x.name === n); if(!pr || (rem[pr.id]||0) < q){ ok = false; break; } sum += pr.price*q; prs.push([pr,q]); }
+      if(ok){ d += sum*b.pct; prs.forEach(([pr,q]) => rem[pr.id] -= q); }
     });
-    if(subtotal>=TH) d+=subtotal*EX;
-    d += subtotal*(PROMOS[activePromo] || 0);
+    const left = Object.assign({}, rem); let dq = 0;
+    const take = c.map(i => { const t = Math.min(i.qty, left[i.id]||0); left[i.id] -= t; const p = findProduct(i.id); if(p && p.cat==='disposable') dq += t; return t; });
+    c.forEach((i,k) => { const p = findProduct(i.id); if(!p) return; const t = take[k];
+      if(p.cat==='disposable'){ if(dq>=2) d += p.price*t*.10; } else if(t>=2) d += p.price*t*.05; });
+    if(subtotal>=TH) d += subtotal*EX;
+    d += subtotal*(PROMOS[activePromo]||0);
     d = Math.min(Math.round(d), Math.round(subtotal*CAP));
-    return { subtotal, discount: d, total: Math.max(0, subtotal - d), count: cartCount() }; 
+    return { subtotal, discount: d, total: Math.max(0, subtotal-d), count: cartCount() };
   }
   function updateBadge(){
     const n = cartCount();
@@ -787,8 +805,8 @@ const NS = (function(){
 
 function buildShell(){
   document.getElementById('site-header').innerHTML = `<header class="site-header"><div class="container header-row"><a class="logo" href="#home"><svg viewBox="0 0 100 100" width="30" height="30"><defs><radialGradient id="lg" cx="35%" cy="30%"><stop offset="0%" stop-color="#dbeafe"/><stop offset="100%" stop-color="#3B82F6"/></radialGradient></defs><circle cx="50" cy="50" r="34" fill="url(#lg)"/><circle cx="66" cy="40" r="30" fill="#0B0F19"/></svg><span>Night Store</span></a><div class="header-right"><button class="icon-btn" id="cityBtn" style="width:auto;padding:0 8px;font-size:12px" aria-label="Выбрать город">📍 <span id="cityName">Алматы</span></button><span class="status"><span class="status-dot"></span><span id="statusText">…</span></span><a class="icon-btn cart-bump" href="#cart" aria-label="Корзина"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2 3h3l2.6 12.4h11L21 7H6"/></svg><span class="cart-badge" data-cart-count>0</span></a></div></div><div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Доставка 20–50 мин</span><span>•</span><span>Оригинал</span><span>•</span><span>Гарантия</span><span>•</span><span>Весь Казахстан</span><span>•</span><span>Доставка 20–50 мин</span><span>•</span><span>Оригинал</span><span>•</span><span>Гарантия</span><span>•</span><span>Весь Казахстан</span><span>•</span></div></div></header>`;
-  document.getElementById('site-nav').innerHTML = `<nav class="bottom-nav"><a href="#home" data-nav="home"><span>⌂</span><b>Главная</b></a><a href="#catalog" data-nav="catalog"><span>▤</span><b>Каталог</b></a><a href="#bundles" data-nav="bundles"><span>🎁</span><b>Наборы</b></a><a href="#cart" data-nav="cart"><span>🛒</span><b>Корзина</b><i class="cart-badge nav-badge" data-cart-count>0</i></a><a href="${CONFIG.WA_URL}" target="_blank" rel="noopener" data-nav="wa"><span>✆</span><b>WhatsApp</b></a></nav><div class="fabs"><a class="fab fab-wa" href="${CONFIG.WA_URL}" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a><a class="fab fab-tg" href="${CONFIG.TG_MANAGER}" target="_blank" rel="noopener" aria-label="Telegram">✈</a></div><button id="toTop" class="to-top" aria-label="Наверх">↑</button>`;
-  document.getElementById('site-footer').innerHTML = `<footer class="site-footer"><div class="container footer-grid"><div><div class="logo"><svg viewBox="0 0 100 100" width="26" height="26"><circle cx="50" cy="50" r="34" fill="#3B82F6"/><circle cx="66" cy="40" r="30" fill="#0B0F19"/></svg><span>Night Store</span></div><p class="muted small">Ночной магазин вейпов, одноразок, снюса и систем нагревания табака. Доставка 20–50 минут по всему Казахстану.</p></div><div><h4>Магазин</h4><a href="#catalog">Каталог</a><a href="#bundles">Наборы</a><a href="#cart">Корзина</a><a href="#guarantee">Гарантия и доставка</a><a href="#contacts">Контакты</a></div><div><h4>Полезное</h4><a href="#verify">Проверка оригинала</a><a href="#blog">Блог</a><a href="${CONFIG.TG_CHANNEL}" target="_blank" rel="noopener">Telegram-канал</a><a href="${CONFIG.TG_REVIEWS}" target="_blank" rel="noopener">Отзывы</a></div><div><h4>Связь</h4><a href="${CONFIG.WA_URL}" target="_blank" rel="noopener">WhatsApp</a><a href="${CONFIG.TG_MANAGER}" target="_blank" rel="noopener">${CONFIG.TG_MANAGER_NAME}</a><span class="muted small">${CONFIG.GEO} · круглосуточно</span></div></div><div class="container footer-bottom"><p>© Night Store. Товары только для лиц старше 18 лет.</p></div></footer>`;
+  document.getElementById('site-nav').innerHTML = `<nav class="bottom-nav"><a href="#home" data-nav="home"><span>⌂</span><b>Главная</b></a><a href="#catalog" data-nav="catalog"><span>▤</span><b>Каталог</b></a><a href="#bundles" data-nav="bundles"><span>🎁</span><b>Наборы</b></a><a href="#cart" data-nav="cart"><span>🛒</span><b>Корзина</b><i class="cart-badge nav-badge" data-cart-count>0</i></a><a href="${CONFIG.WA_URL}" target="_blank" rel="noopener" data-nav="wa"><span>✆</span><b>WhatsApp</b></a></nav><div class="fabs"><a class="fab fab-wa" href="${CONFIG.WA_URL}" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a><a class="fab fab-tg" href="#" data-tg aria-label="Telegram">✈</a></div><button id="toTop" class="to-top" aria-label="Наверх">↑</button>`;
+  document.getElementById('site-footer').innerHTML = `<footer class="site-footer"><div class="container footer-grid"><div><div class="logo"><svg viewBox="0 0 100 100" width="26" height="26"><circle cx="50" cy="50" r="34" fill="#3B82F6"/><circle cx="66" cy="40" r="30" fill="#0B0F19"/></svg><span>Night Store</span></div><p class="muted small">Ночной магазин вейпов, одноразок, снюса и систем нагревания табака. Доставка 20–50 минут по всему Казахстану.</p></div><div><h4>Магазин</h4><a href="#catalog">Каталог</a><a href="#bundles">Наборы</a><a href="#cart">Корзина</a><a href="#guarantee">Гарантия и доставка</a><a href="#contacts">Контакты</a></div><div><h4>Полезное</h4><a href="#verify">Проверка оригинала</a><a href="#blog">Блог</a><a href="${CONFIG.TG_CHANNEL}" target="_blank" rel="noopener">Telegram-канал</a><a href="${CONFIG.TG_REVIEWS}" target="_blank" rel="noopener">Отзывы</a></div><div><h4>Связь</h4><a href="${CONFIG.WA_URL}" target="_blank" rel="noopener">WhatsApp</a><a href="#" data-tg>Telegram</a><span class="muted small">${CONFIG.GEO} · круглосуточно</span></div></div><div class="container footer-bottom"><p>© Night Store. Товары только для лиц старше 18 лет.</p></div></footer>`;
   
   let savedCity = store.get('ns_city', 'Алматы');
   const cn = document.getElementById('cityName');
@@ -1051,7 +1069,6 @@ function renderCrossSell(){
   cart.forEach(item => {
     const p = NS.findProduct(item.id);
     if (!p) return;
-
     if (p.cat === 'disposable') {
       const alt = PRODUCTS.find(x => x.cat === 'disposable' && x.stock && x.brand !== p.brand && x.tags.includes('hit') && Math.abs(x.price - p.price) <= 3000 && !cartIds.has(x.id) && !addedIds.has(x.id));
       if (alt) { suggested.push(alt); addedIds.add(alt.id); }
@@ -1176,7 +1193,7 @@ NS.renderCartPage = function(){
     const left = TH - t.subtotal;
     const pr = NS.getActivePromo();
     extra.innerHTML = (pr ? '<div class="ns-tag">Промокод ' + esc(pr) + ' <button id="nsPromoX" aria-label="Убрать">✕</button></div>' : '') + 
-      '<div class="small muted">' + (left > 0 ? 'Добавьте ещё на <b style="color:#fff">' + money(left) + '</b> и получите доп. скидку ' + (EX*100) + '%' : 'Доп. скидка ' + (EX*100) + '% за заказ от ' + money(TH) + ' применена') + '</div>' + 
+      '<div class="small muted">' + (left > 0 ? 'Добавьте ещё на <b style="color:#fff">' + money(left) + '</b> до бесплатной доставки и скидки ' + (EX*100) + '%' : 'Бесплатная доставка и скидка ' + (EX*100) + '% за заказ от ' + money(TH) + ' применены') + '</div>' + 
       '<div class="ns-bar"><i style="width:' + Math.min(100, t.subtotal/TH*100) + '%"></i></div>';
     const px = document.getElementById('nsPromoX');
     if(px) px.onclick = () => NS.setPromo('');
@@ -1222,6 +1239,7 @@ function updatePreview(){
   const pr = NS.getActivePromo();
   if (pr) lines.push('Промокод: ' + pr);
   if (t.discount > 0) lines.push('Скидка: ' + money(t.discount));
+  if (t.subtotal >= TH) lines.push('Доставка: бесплатно');
   lines.push('Итого к оплате: ' + money(t.total));
   if (f || ph || ad) {
     lines.push('\nДанные получателя:');
@@ -1269,12 +1287,17 @@ function sendOrder(){
 
   if (!name || !address) { showToast('Заполните имя и адрес доставки'); return; }
   if (digits.length !== 11) { showToast('Телефон должен содержать 11 цифр (+7...)'); return; }
+  if (!digits.startsWith('7')) { showToast('Номер должен начинаться с +7'); return; }
 
   store.set('ns_last_order', cart);
   track('begin_checkout', { total: NS.cartTotals().total });
+
   const text = document.getElementById('waPreview').textContent;
-  window.open(NS.waLink(text), '_blank');
-  
+  let w = null;
+  if (orderCh === 'tg') { if (navigator.clipboard) navigator.clipboard.writeText(text).catch(()=>{}); openTg(text); w = true; }
+  else w = window.open(NS.waLink(text), '_blank');
+  if (!w) { showToast('Разрешите всплывающие окна и попробуйте снова'); return; }
+
   store.remove('ns_cart');
   store.remove('ns_uid');
   NS.setPromo('');
@@ -1938,14 +1961,29 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 
   buildShell();
+  applyCh();
   NS.updateBadge();
   initCounters();
   initStars();
   updateStatus();
   setInterval(updateStatus, 30000);
+
+  document.addEventListener('click', function(e){
+    const tgLink = e.target.closest('[data-tg]');
+    if (tgLink) { e.preventDefault(); openTg(''); return; }
+  });
+  const chSw = document.getElementById('chSwitch');
+  if (chSw) {
+    chSw.addEventListener('click', function(e){
+      const btn = e.target.closest('button[data-ch]');
+      if (!btn) return;
+      orderCh = btn.dataset.ch;
+      store.set('ns_ch', orderCh);
+      applyCh();
+    });
+  }
   
   const wa = document.getElementById('cWa'); if (wa){ wa.href = CONFIG.WA_URL; const t = document.getElementById('cWaText'); if (t) t.textContent = '+' + CONFIG.WA_NUMBER; }
-  const tg = document.getElementById('cTg'); if (tg) tg.href = CONFIG.TG_MANAGER;
   const tgc = document.getElementById('cTgCh'); if (tgc) tgc.href = CONFIG.TG_CHANNEL;
   const tgr = document.getElementById('cTgRev'); if (tgr) tgr.href = CONFIG.TG_REVIEWS;
   const vwa = document.getElementById('verifyWa'); if (vwa) vwa.href = CONFIG.WA_URL;
